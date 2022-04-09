@@ -1,0 +1,27 @@
+.nav-item{
+    padding: 0px 20px;
+    font-weight: 600;
+}
+
+.landingImage{
+    width: 100%;
+    height: 100vh;
+}
+
+.campaignTitle{
+    font-size: 50px;
+    font-weight: 500;
+    padding: 100px 0px;
+}
+
+.productImage{
+    width: 317px;
+    height: 317px;
+    padding: 10px;
+}
+
+.landingProductHeroImage{
+    width: 650px;
+    height: 950px;
+    padding: 10px;
+}
