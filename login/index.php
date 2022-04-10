@@ -1,8 +1,8 @@
 <?php
-  include('login.php'); // Includes Login Script
-  if(isset($_SESSION['login_user'])){
-  header("location: ../landing_page/index.php"); // Redirecting To Profile Page
-}
+  //include('login.php'); // Includes Login Script
+  //if(isset($_SESSION['login_user'])){
+  //header("location: ../landing_page/index.php"); // Redirecting To Profile Page
+//}
 ?>
 <!DOCTYPE html>
 <html lang="en">
