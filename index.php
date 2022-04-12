@@ -46,7 +46,58 @@
 
     <section>
 
-        <div class="container text-center">
+        <div class="container-fluid text-center">
+            <div class="row campaignTitle">
+                <div class="my-auto">Campaign Title</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-6" >
+                    <img class="landingProductHeroImage" src="assets/images/IMGL7453 1.png">
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-6 hideScroll" style="height: 950px;  overflow: auto;">
+                    <div class="row">
+                        <div class="col-sm-5 col-md-6 col-lg-6">
+                            <img class="productImage" src="assets/images/1.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/2.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/3.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/4.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6">
+                            <img class="productImage" src="assets/images/5.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/6.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/3.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/4.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6">
+                            <img class="productImage" src="assets/images/5.png">
+                        </div>
+                        <div class="col-sm-5 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/6.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <section>
+
+        <div class="container-fluid text-center">
             <div class="row">
                 <div class="campaignTitle">Campaign Title</div>
             </div>
@@ -54,32 +105,45 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6" >
-                    <img class="landingProductHeroImage" src="assets/images/650x950.png">
+                    <img class="landingProductHeroImage" src="assets/images/IMGL7453 1.png">
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="col-sm-12 col-md-6 col-lg-6 hideScroll" style="height: 950px;  overflow: auto;">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <img class="productImage" src="assets/images/square300x300.png">
+                            <img class="productImage" src="assets/images/1.png">
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6" >
-                            <img class="productImage" src="assets/images/square300x300.png">
+                            <img class="productImage" src="assets/images/2.png">
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6" >
-                            <img class="productImage" src="assets/images/square300x300.png">
+                            <img class="productImage" src="assets/images/3.png">
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6" >
-                            <img class="productImage" src="assets/images/square300x300.png">
+                            <img class="productImage" src="assets/images/4.png">
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                            <img class="productImage" src="assets/images/square300x300.png">
+                            <img class="productImage" src="assets/images/5.png">
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6" >
-                            <img class="productImage" src="assets/images/square300x300.png">
+                            <img class="productImage" src="assets/images/6.png">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/3.png">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/4.png">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <img class="productImage" src="assets/images/5.png">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6" >
+                            <img class="productImage" src="assets/images/6.png">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
     </section>
 
 
