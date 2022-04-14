@@ -20,15 +20,18 @@
 .hideScroll::-webkit-scrollbar {
     display: none;
 }
+.hideScroll{
+    padding-top: 22px;
+}
 
 .productImage{
-    width: 317px;
-    height: 317px;
-    padding: 10px;
+    /* width: 317px; */
+    /* height: 317px; */
+    padding: 10px 0px;
 }
 
 .landingProductHeroImage{
-    width: 650px;
-    height: 950px;
-    padding: 10px;
+    /* width: 650px; */
+    /* height: 950px; */
+    padding: 10px 0px;
 }
