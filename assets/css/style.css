@@ -21,17 +21,30 @@
     display: none;
 }
 .hideScroll{
-    padding-top: 22px;
+    /* padding-top: 22px; */
 }
 
 .productImage{
     /* width: 317px; */
     /* height: 317px; */
-    padding: 10px 0px;
+    padding: 8.5px 0px;
 }
 
 .landingProductHeroImage{
     /* width: 650px; */
     /* height: 950px; */
     padding: 10px 0px;
+}
+
+.accessoriesTitle{
+    background: #fff;
+    /* width: 24em; */
+    border-radius: 2em;
+    /* margin: 1em; */
+    padding: 2em;
+    overflow: hidden;
+    cursor: pointer;
+    /* box-shadow: 0 13px 27px -5px hsla(240, 30.1%, 28%, 0.25), 0 8px 16px -8px hsla(0, 0%, 0%, 0.3), 0 -6px 16px -6px hsla(0, 0%, 0%, 0.03); */
+    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.25);
+    transition: all ease 200ms;
 }
