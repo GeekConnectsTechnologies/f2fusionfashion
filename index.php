@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <title>Hello, world!</title>
+    <title>F2 Fusion Fashion</title>
 </head>
 
 <body>
@@ -68,7 +68,9 @@
         </div>
     </nav>
 
-    <img class="img-fluid landingImage" src="assets/images/the-mandalorian-5k-1920x1080_477555-mm-90.jpg">
+    <div class="hero_image">
+        
+    </div>
 
     <section>
 
