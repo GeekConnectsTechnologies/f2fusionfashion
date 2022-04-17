@@ -68,9 +68,9 @@
         </div>
     </nav>
 
-    <div class="hero_image">
-        
-    </div>
+    <!-- <div class="hero_image"> </div> -->
+
+    <img class="img-fluid" src="assets/images/hero_image.png">
 
     <section>
 
@@ -82,7 +82,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/650x950.png">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/IMGL7453.png">
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
                     <div class="row">
@@ -167,7 +167,7 @@
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/650x950.png">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/IMGL7453.png">
                 </div>
             </div>
         </div>
@@ -185,7 +185,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/650x950.png">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/IMGL7453.png">
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
                     <div class="row">
@@ -227,7 +227,7 @@
     </section>
 
 
-    <section style="margin: 100px;">
+    <section style="margin: 100px 25px 50px 25px;">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-12 col-sm-12 col-md-6 text-center accessoriesTitle">
@@ -238,80 +238,84 @@
     </section>
 
 
-    <section style="margin: 100px;">
+    <section style="margin: 0px 25px 100px 25px;">
         <div class="container">
             <div class="row justify-content-md-around">
-                <div class="col-12 col-sm-12 col-md-5 text-center accessoriesTitle">
-                    <h5>Video Call Appointment</h5>
-                    <form action="" class="row g-3 needs-validation" novalidate>
-                        <div class="col-md-12">
-                            <label for="validationCustom01" class="form-label"></label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
-                            <div class="valid-feedback">
-                                Looks good!
+                <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
+                    <div class="accessoriesTitle">
+                        <h5>Video Call Appointment</h5>
+                        <form action="" class="row g-3 needs-validation" novalidate>
+                            <div class="col-md-12">
+                                <label for="validationCustom01" class="form-label"></label>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a Name.
+                                </div>
                             </div>
-                            <div class="invalid-feedback">
-                                Please enter a Name.
+                            <div class="col-md-12">
+                                <label for="validationCustom02" class="form-label"></label>
+                                <input type="number" class="form-control" id="validationCustom02" placeholder="Contact No." required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a Contact Number.
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="validationCustom02" class="form-label"></label>
-                            <input type="number" class="form-control" id="validationCustom02" placeholder="Contact No." required>
-                            <div class="valid-feedback">
-                                Looks good!
+                            <div class="col-md-12">
+                                <label for="validationCustom01" class="form-label"></label>
+                                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter Valid a Email.
+                                </div>
                             </div>
-                            <div class="invalid-feedback">
-                                Please enter a Contact Number.
+                            <div class="col-md-12">
+                                <label for="validationCustom02" class="form-label"></label>
+                                <input type="text" class="form-control" id="validationCustom02" placeholder="Message" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a Message.
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="validationCustom01" class="form-label"></label>
-                            <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
-                            <div class="valid-feedback">
-                                Looks good!
+                            <div class="col-12">
+                                <button class="btn btn-primary" type="submit">Submit form</button>
                             </div>
-                            <div class="invalid-feedback">
-                                Please enter Valid a Email.
-                            </div>
-                        </div>
-                        <div class="col-md-12">
-                            <label for="validationCustom02" class="form-label"></label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Message" required>
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Please enter a Message.
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Submit form</button>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-5 text-center accessoriesTitle">
-                    <h5>Follow Us</h5>
-                    <div class="row d-flex justify-content-center mt-5">
-                        <div class="col-md-2 text-center">
-                            <i class='bx bxl-facebook-square bx-md'></i>
+                <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
+                    <div class="accessoriesTitle">
+                        <h5>Follow Us</h5>
+                        <div class="row d-flex justify-content-center mt-5">
+                            <div class="col-md-2 text-center">
+                                <i class='bx bxl-facebook-square bx-md'></i>
+                            </div>
+                            <div class="col-md-2">
+                                <i class='bx bxl-instagram bx-md'></i>
+                            </div>
+                            <div class="col-md-2">
+                                <i class='bx bxl-whatsapp bx-md'></i>
+                            </div>
                         </div>
-                        <div class="col-md-2">
-                            <i class='bx bxl-instagram bx-md'></i>
+                        <div class="row d-flex justify-content-center mt-5">
+                            <h5>Contact Us</h5>
                         </div>
-                        <div class="col-md-2">
-                            <i class='bx bxl-whatsapp bx-md'></i>
+                        <div class="row d-flex justify-content-center mt-3">
+                            <i class='bx bxs-phone bx-md'></i>
+                            <h6 class="mt-3">+91 9427542226 / +91 265 2422622</h6>
                         </div>
-                    </div>
-                    <div class="row d-flex justify-content-center mt-5">
-                        <h5>Contact Us</h5>
-                    </div>
-                    <div class="row d-flex justify-content-center mt-3">
-                        <i class='bx bxs-phone bx-md'></i>
-                        <h6 class="mt-3">+91 9427542226 / +91 265 2422622</h6>
-                    </div>
-                    <div class="row d-flex justify-content-center mt-3">
-                        <i class='bx bx-envelope bx-md'></i>
-                        <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
+                        <div class="row d-flex justify-content-center mt-3">
+                            <i class='bx bx-envelope bx-md'></i>
+                            <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
+                        </div>
                     </div>
                 </div>
             </div>
