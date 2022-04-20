@@ -75,7 +75,7 @@
     <section>
 
         <div class="container-fluid text-center">
-            <div class="row campaignTitle">
+            <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
                 <div class="my-auto">Awaas</div>
             </div>
         </div>
