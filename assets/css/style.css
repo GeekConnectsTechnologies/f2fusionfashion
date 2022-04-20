@@ -9,12 +9,14 @@
 }
 
 .campaignTitle{
-    font-size: 50px;
+    font-family: 'Playball';
+    font-size: 69px;
     font-weight: 500;
     height: 150px;
     /* padding: 25px 0px; */
     margin: 50px 0px;
-    background-image: url('../images/titleBackground.png');
+    background-image: url('../images/title.png');
+    background-position: center;
     vertical-align: middle;
 }
 .hideScroll::-webkit-scrollbar {

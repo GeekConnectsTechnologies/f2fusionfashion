@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
+    <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet'>
     <title>F2 Fusion Fashion</title>
 </head>
 
@@ -76,46 +76,41 @@
 
         <div class="container-fluid text-center">
             <div class="row campaignTitle">
-                <div class="my-auto">Campaign Title</div>
+                <div class="my-auto">Awaas</div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/IMGL7453.png">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/aavaas.png">
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 2.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 3.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 4.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 5.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 6.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 7.png">
                         </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
-                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -127,47 +122,42 @@
 
         <div class="container-fluid text-center">
             <div class="row campaignTitle">
-                <div class="my-auto">Campaign Title</div>
+                <div class="my-auto">Ullas</div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center order-2 order-sm-2 order-md-1" style="height: 950px;  overflow: auto;">
                     <div class="row">
+                        
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 8.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 9.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 10.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 11.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 12.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 13.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 14.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 15.png">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 order-sm-1 order-1 order-md-2">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/IMGL7453.png">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/ullas.png">
                 </div>
             </div>
         </div>
@@ -179,46 +169,41 @@
 
         <div class="container-fluid text-center">
             <div class="row campaignTitle">
-                <div class="my-auto">Campaign Title</div>
+                <div class="my-auto">Sparsh</div>
             </div>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/IMGL7453.png">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/sparsh.png">
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 16.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 17.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 18.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 19.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 20.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 21.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 22.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
+                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 23.png">
                         </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/square300x300.png">
-                        </div>
+                        
                     </div>
                 </div>
             </div>
