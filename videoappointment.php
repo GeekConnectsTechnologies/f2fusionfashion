@@ -13,12 +13,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="icon" type="image/x-icon" href="assets/images/LOGO_fav.png">
+
     <title>F2 Fusion Fashion</title>
 </head>
 
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
-        <h1>LOGO</h1>
+        <!-- <h1>LOGO</h1> -->
+        <img src="assets/images/100x100_LOGO.png" class="img-fluid" alt="">
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -163,28 +166,61 @@
                 <div class="col-md-12">
                     <div id="news-slider" class="owl-carousel">
                         <div class="post-slide">
+                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="assets/images/etr1.png" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Engagement</h4>
+                                        <span>The Joyful colors of getting Engaged</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-slide">
+                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="assets/images/etr2.png" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Sangeet</h4>
+                                        <span>The Charming vogue of Sangeet</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-slide">
+                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="assets/images/etr3.png" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Wedding</h4>
+                                        <span>The Sublime wedding tone</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-slide">
+                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                <img src="assets/images/etr4.png" class="img-fluid" alt="">
+                                <div class="member-info">
+                                    <div class="member-info-content">
+                                        <h4>Reception</h4>
+                                        <span>The modish tinge on the Reception</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="post-slide">
                             <img class="img-fluid" src="assets/images/300x450.png">
                         </div>
                         <div class="post-slide">
                             <img class="img-fluid" src="assets/images/300x450.png">
-                        </div>
-                        <div class="post-slide">
-                            <img class="img-fluid" src="assets/images/300x450.png">
-                        </div>
-                        <div class="post-slide">
-                            <img class="img-fluid" src="assets/images/300x450.png">
-                        </div>
-                        <div class="post-slide">
-                            <img class="img-fluid" src="assets/images/300x450.png">
-                        </div>
-                        <div class="post-slide">
-                            <img class="img-fluid" src="assets/images/300x450.png">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
 
     <section style="margin: 100px 25px 50px 25px;">
         <div class="container">
@@ -233,7 +269,7 @@
                     <div class="content">
                         <div class="content-overlay"></div>
                         <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/300x450.png">
+                        <img class="img-fluid" src="assets/images/ct1.png">
                         <div class="content-details fadeIn-bottom">
                             <h4 class="content-title">Jigar Patel</h4>
                             <h6 class="content-title">Surat, Gujarat</h6>
@@ -246,7 +282,7 @@
                     <div class="content">
                         <div class="content-overlay"></div>
                         <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/300x450.png">
+                        <img class="img-fluid" src="assets/images/ct2.png">
                         <div class="content-details fadeIn-bottom">
                             <h4 class="content-title">Jigar Patel</h4>
                             <h6 class="content-title">Surat, Gujarat</h6>
@@ -259,7 +295,7 @@
                     <div class="content">
                         <div class="content-overlay"></div>
                         <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/300x450.png">
+                        <img class="img-fluid" src="assets/images/ct2.png">
                         <div class="content-details fadeIn-bottom">
                             <h4 class="content-title">Jigar Patel</h4>
                             <h6 class="content-title">Surat, Gujarat</h6>
@@ -272,7 +308,7 @@
                     <div class="content">
                         <div class="content-overlay"></div>
                         <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/300x450.png">
+                        <img class="img-fluid" src="assets/images/ct3.png">
                         <div class="content-details fadeIn-bottom">
                             <h4 class="content-title">Jigar Patel</h4>
                             <h6 class="content-title">Surat, Gujarat</h6>

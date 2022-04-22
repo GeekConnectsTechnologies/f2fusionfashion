@@ -91,7 +91,7 @@
 /* Carousel */
 
 #news-slider{
-    margin-top: 80px;
+    /* margin-top: 80px; */
 }
 .post-slide{
     background: #fff;
@@ -317,4 +317,78 @@
   
   .fadeIn-right{
     left: 80%;
+  }
+
+  /*--------------------------------------------------------------
+# Chefs
+--------------------------------------------------------------*/
+ .member {
+    text-align: center;
+    margin-bottom: 20px;
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+   .member .member-info {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    transition: 0.2s;
+  }
+   .member .member-info-content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    transition: bottom 0.4s;
+  }
+   .member .member-info-content h4 {
+    font-weight: 700;
+    margin-bottom: 2px;
+    font-size: 18px;
+    color: #fff;
+  }
+   .member .member-info-content span {
+    font-style: italic;
+    display: block;
+    font-size: 13px;
+    color: #fff;
+  }
+   .member .social {
+    position: absolute;
+    left: 0;
+    bottom: -38px;
+    right: 0;
+    height: 48px;
+    transition: bottom ease-in-out 0.4s;
+    text-align: center;
+  }
+   .member .social a {
+    transition: color 0.3s;
+    color: #fff;
+    margin: 0 10px;
+    display: inline-block;
+  }
+   .member .social a:hover {
+    color: #cda45e;
+  }
+   .member .social i {
+    font-size: 18px;
+    margin: 0 2px;
+  }
+   .member:hover .member-info {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 20%, rgba(0, 212, 255, 0) 100%);
+    opacity: 1;
+    transition: 0.4s;
+  }
+   .member:hover .member-info-content {
+    bottom: 30px;
+    transition: bottom 0.4s;
+  }
+   .member:hover .social {
+    bottom: 0;
+    transition: bottom ease-in-out 0.4s;
   }
