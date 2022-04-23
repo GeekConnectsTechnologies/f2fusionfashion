@@ -64,7 +64,7 @@
                 
               </div>
               <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-account-outline text-primary me-2"></i> My Profile</a>
-              <a class="dropdown-item" href="../login/logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Logout Out</a>
+              <a class="dropdown-item" href="../login/logout.php"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Logout</a>
             </div>
           </li>
         </ul>
@@ -79,7 +79,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="../landing_page/index.php">
               <i class="mdi mdi-grid-large menu-icon"></i>
               <span class="menu-title">Landing Page</span>
             </a>
@@ -98,7 +98,7 @@
                 <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Brand Video</a></li>
               </ul> -->
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="clienttestimonial.php">Client Testimonial</a></li>
+                <li class="nav-item"><a class="nav-link" href="../videopage/clienttestimonial.php">Client Testimonial</a></li>
               </ul>
               <!-- <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Engagement to Reception</a></li>

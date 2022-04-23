@@ -5,7 +5,7 @@ if (!isset($_SESSION['login_user'])) {
 }
 ?>
 
-<?php include 'menu.php'; ?>
+<?php include '../menu.php'; ?>
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
@@ -29,4 +29,4 @@ if (!isset($_SESSION['login_user'])) {
   <!-- partial -->
 </div>
 <!-- main-panel ends -->
-<?php include 'footer.php'; ?>
+<?php include '../footer.php'; ?>
