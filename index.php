@@ -110,7 +110,7 @@
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 7.png">
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -121,7 +121,7 @@
     <section>
 
         <div class="container-fluid text-center">
-            <div class="row campaignTitle">
+            <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
                 <div class="my-auto">Ullas</div>
             </div>
         </div>
@@ -129,7 +129,7 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center order-2 order-sm-2 order-md-1" style="height: 950px;  overflow: auto;">
                     <div class="row">
-                        
+
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 8.png">
                         </div>
@@ -168,7 +168,7 @@
     <section>
 
         <div class="container-fluid text-center">
-            <div class="row campaignTitle">
+            <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
                 <div class="my-auto">Sparsh</div>
             </div>
         </div>
@@ -203,7 +203,7 @@
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
                             <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 23.png">
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -220,6 +220,39 @@
                 </div>
             </div>
         </div>
+    </section>
+
+    <section>
+
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/t1.png">
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/t2.png">
+                </div>
+            </div>
+            <div class="row justify-content-between text-center align-items-end" style="margin-top: -60px;">
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/d1.png">
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-6">
+                    <div class="row justify-content-end">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
+                            <img class="img-fluid accessoriesImage" src="assets/images/m1.png">
+                            <!-- </div>
+                <div class="col-sm-3 col-md-3 col-lg-3"> -->
+                            <img class="img-fluid accessoriesImage" src="assets/images/m2.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3 col-md-3 col-lg-3">
+                    <img class="img-fluid landingProductHeroImage" src="assets/images/d2.png">
+                </div>
+            </div>
+        </div>
+
     </section>
 
 
