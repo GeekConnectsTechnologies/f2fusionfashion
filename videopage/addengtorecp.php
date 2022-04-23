@@ -3,31 +3,18 @@ include('../login/session.php');
 if (!isset($_SESSION['login_user'])) {
   header("location: ../login/index.php");
 }
-$upload_dir = 'uploadclienttestimonial/';
+$upload_dir = 'uploadengtorecp/';
+if (isset($_POST['btnSave'])) {
 
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $sql = "select * from client where id=".$id;
-    $result = mysqli_query($con, $sql);
-    if(mysqli_num_rows($result) > 0){
-        $row = mysqli_fetch_assoc($result);
-    }else{
-        $errorMsg = 'Could not select a record';
-    }
-}
-
-if (isset($_POST['btnEdit'])) {
-
-  $clientname = $_POST['clientname'];
-  $location = $_POST['location'];
-  $testimonial = $_POST['testimonial'];
+  $engtorecpTitle = $_POST['engtorecpTitle'];
+  $engtorecpDesc = $_POST['engtorecpDesc'];
 
   $imgName = $_FILES['myfile']['name'];
   $imgTmp = $_FILES['myfile']['tmp_name'];
   $imgSize = $_FILES['myfile']['size'];
 
-  if (empty($clientname)) {
-    $errorMsg = 'Please Enter Name';
+  if (empty($engtorecpTitle)) {
+    $errorMsg = 'Please Enter Title';
   } elseif (empty($imgName)) {
     $errorMsg = 'Please select photo';
   } else {
@@ -52,16 +39,12 @@ if (isset($_POST['btnEdit'])) {
 
   //check upload file not error than insert data to database
   if (!isset($errorMsg)) {
-    $sql = "update client
-									set clientName = '".$clientname."',
-                                        testimonial = '".$testimonial."',
-                                        location = '".$location."',
-										clientImage = '".$userPic."'
-					where id=".$id;
+    $sql = "insert into engtorecp(engtorecpImage, engtorecpTitle, engtorecpDesc)
+              values('" . $userPic . "','" . $engtorecpTitle . "','" . $engtorecpDesc . "')";
     $result = mysqli_query($con, $sql);
     if ($result) {
-      $successMsg = 'Record Updated successfully';
-      header('refresh:5;clienttestimonial.php');
+      $successMsg = 'New record added successfully';
+      header('refresh:5;engtorecp.php');
     } else {
       $errorMsg = 'Error ' . mysqli_error($con);
     }
@@ -111,26 +94,22 @@ if (isset($_POST['btnEdit'])) {
               <?php
               }
               ?>
-              <h4 class="card-title">Edit Client Testimonial</h4>
+              <h4 class="card-title">Add Engagement to Reception</h4>
 
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="">Testimonial Photo</label>
+                  <label for="">Photo</label>
                   <input type="file" name="myfile" class="form-control" id="">
                 </div>
                 <div class="form-group">
-                  <label for="">Client Name</label>
-                  <input type="text" name="clientname" class="form-control" id="" placeholder="ClientName" value="<?php echo $row['clientName'];?>">
+                  <label for="">Title</label>
+                  <input type="text" name="engtorecpTitle" class="form-control" id="" placeholder="Title">
                 </div>
                 <div class="form-group">
-                  <label for="">Location</label>
-                  <input type="text" name="location" class="form-control" id="" placeholder="Location" value="<?php echo $row['location'];?>">
+                  <label for="">Description</label>
+                  <input type="text" name="engtorecpDesc" class="form-control" id="" placeholder="Description">
                 </div>
-                <div class="form-group">
-                  <label for="">Testimonial</label>
-                  <input type="text" name="testimonial" class="form-control" id="" placeholder="Description" value="<?php echo $row['testimonial'];?>">
-                </div>
-                <button type="submit" class="btn btn-primary me-2" name="btnEdit">Update</button>
+                <button type="submit" class="btn btn-primary me-2" name="btnSave">Submit</button>
                 <!-- <button class="btn btn-light">Cancel</button> -->
               </form>
             </div>

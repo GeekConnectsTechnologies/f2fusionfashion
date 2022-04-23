@@ -1,3 +1,8 @@
+<?php
+include('./db.php');
+$upload_dir = './videopage/uploadclienttestimonial/';
+$upload_diretr = './videopage/uploadengtorecp/';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -165,56 +170,29 @@
             <div class="row">
                 <div class="col-md-12">
                     <div id="news-slider" class="owl-carousel">
-                        <div class="post-slide">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                <img src="assets/images/etr1.png" class="img-fluid" alt="">
-                                <div class="member-info">
-                                    <div class="member-info-content">
-                                        <h4>Engagement</h4>
-                                        <span>The Joyful colors of getting Engaged</span>
+                        <?php
+                        $counter = 1;
+                        $sql = "select * from engtorecp";
+                        $result = mysqli_query($con, $sql);
+                        if (mysqli_num_rows($result)) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                        ?>
+                                <div class="post-slide">
+                                    <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                                        <img src="<?php echo $upload_diretr . $row['engtorecpImage'] ?>" class="img-fluid" alt="">
+                                        <div class="member-info">
+                                            <div class="member-info-content">
+                                                <h4><?php echo $row['engtorecpTitle'] ?></h4>
+                                                <span><?php echo $row['engtorecpDesc'] ?></span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="post-slide">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                <img src="assets/images/etr2.png" class="img-fluid" alt="">
-                                <div class="member-info">
-                                    <div class="member-info-content">
-                                        <h4>Sangeet</h4>
-                                        <span>The Charming vogue of Sangeet</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post-slide">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                <img src="assets/images/etr3.png" class="img-fluid" alt="">
-                                <div class="member-info">
-                                    <div class="member-info-content">
-                                        <h4>Wedding</h4>
-                                        <span>The Sublime wedding tone</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="post-slide">
-                            <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                <img src="assets/images/etr4.png" class="img-fluid" alt="">
-                                <div class="member-info">
-                                    <div class="member-info-content">
-                                        <h4>Reception</h4>
-                                        <span>The modish tinge on the Reception</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="post-slide">
-                            <img class="img-fluid" src="assets/images/300x450.png">
-                        </div>
-                        <div class="post-slide">
-                            <img class="img-fluid" src="assets/images/300x450.png">
-                        </div> -->
+
+                        <?php $counter++;
+                            }
+                        }
+                        ?> 
                     </div>
                 </div>
             </div>
@@ -265,58 +243,30 @@
     <section>
         <div class="container">
             <div class="row justify-content-center-md-center">
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/ct1.png">
-                        <div class="content-details fadeIn-bottom">
-                            <h4 class="content-title">Jigar Patel</h4>
-                            <h6 class="content-title">Surat, Gujarat</h6>
-                            <hr style="color: white;">
-                            <p class="content-text">Thank you, I loved My Wedding Sherwani and my Nephew Liked His One.</p>
+                <?php
+                $counter = 1;
+                $sql = "select * from client";
+                $result = mysqli_query($con, $sql);
+                if (mysqli_num_rows($result)) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                        <div class="col-6 col-sm-6 col-md-3 text-center">
+                            <div class="content">
+                                <div class="content-overlay"></div>
+                                <img class="img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
+                                <div class="content-details fadeIn-bottom">
+                                    <h4 class="content-title"><?php echo $row['clientName'] ?></h4>
+                                    <h6 class="content-title"><?php echo $row['location'] ?></h6>
+                                    <hr style="color: white;">
+                                    <p class="content-text"><?php echo $row['testimonial'] ?></p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/ct2.png">
-                        <div class="content-details fadeIn-bottom">
-                            <h4 class="content-title">Jigar Patel</h4>
-                            <h6 class="content-title">Surat, Gujarat</h6>
-                            <hr style="color: white;">
-                            <p class="content-text">Thank you, I loved My Wedding Sherwani and my Nephew Liked His One.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/ct2.png">
-                        <div class="content-details fadeIn-bottom">
-                            <h4 class="content-title">Jigar Patel</h4>
-                            <h6 class="content-title">Surat, Gujarat</h6>
-                            <hr style="color: white;">
-                            <p class="content-text">Thank you, I loved My Wedding Sherwani and my Nephew Liked His One.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <div class="content">
-                        <div class="content-overlay"></div>
-                        <!-- <img class="content-image" src="https://images.unsplash.com/photo-1433360405326-e50f909805b3?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=359e8e12304ffa04a38627a157fc3362"> -->
-                        <img class="img-fluid" src="assets/images/ct3.png">
-                        <div class="content-details fadeIn-bottom">
-                            <h4 class="content-title">Jigar Patel</h4>
-                            <h6 class="content-title">Surat, Gujarat</h6>
-                            <hr style="color: white;">
-                            <p class="content-text">Thank you, I loved My Wedding Sherwani and my Nephew Liked His One.</p>
-                        </div>
-                    </div>
-                </div>
+
+                <?php $counter++;
+                    }
+                }
+                ?>
             </div>
         </div>
     </section>

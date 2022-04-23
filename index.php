@@ -11,12 +11,16 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet'>
+
+    <link rel="icon" type="image/x-icon" href="assets/images/LOGO_fav.png">
+
     <title>F2 Fusion Fashion</title>
 </head>
 
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
-        <h1>LOGO</h1>
+        <!-- <h1>LOGO</h1> -->
+        <img src="assets/images/100x100_LOGO.png" class="img-fluid" alt="">
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
