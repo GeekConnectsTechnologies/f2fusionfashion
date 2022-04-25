@@ -83,18 +83,12 @@ $upload_diretr = './videopage/uploadengtorecp/';
     <img class="img-fluid" src="assets/images/1920x1080.png">
 
 
-    <section style="margin: 100px 25px 50px 25px;">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-6 text-center accessoriesTitle">
-                    <h3>Book Video Call Appointment</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section style="margin: 0px 25px 100px 25px;">
         <div class="container">
+        <div class="section-title">
+          <span>Video Call Appointment</span>
+          <h2>Book Video Call Appointment</h2>
+        </div>
             <div class="row justify-content-md-center">
                 <div class="col-12 col-sm-12 col-md-12 text-center mt-5">
                     <div class="accessoriesTitlecc">
@@ -155,18 +149,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
     </section>
 
 
-    <section style="margin: 100px 25px 50px 25px;">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-6 text-center accessoriesTitle">
-                    <h3>From Engagement to Reception</h3>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section>
         <div class="container">
+        <div class="section-title">
+          <span>Engagement to Reception</span>
+          <h2>Engagement to Reception</h2>
+        </div>
             <div class="row">
                 <div class="col-md-12">
                     <div id="news-slider" class="owl-carousel">
@@ -200,18 +189,12 @@ $upload_diretr = './videopage/uploadengtorecp/';
     </section>
 
 
-    <section style="margin: 100px 25px 50px 25px;">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-6 text-center accessoriesTitle">
-                    <h3>Brand Video</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section>
         <div class="container">
+        <div class="section-title">
+          <span>Brand Video</span>
+          <h2>Brand Video</h2>
+        </div>
             <div class="row justify-content-center-md-center">
                 <div id="brandvideo" class="owl-carousel">
 
@@ -239,18 +222,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
     </section>
 
 
-    <section style="margin: 100px 25px 50px 25px;">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-6 text-center accessoriesTitle">
-                    <h3>Customer Testimonials</h3>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section>
         <div class="container">
+        <div class="section-title">
+          <span>Customer Testimonials</span>
+          <h2>Customer Testimonials</h2>
+        </div>
             <div class="row justify-content-center-md-center">
                 <?php
                 $counter = 1;

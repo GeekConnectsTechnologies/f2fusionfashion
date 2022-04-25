@@ -216,19 +216,13 @@
     </section>
 
 
-    <section style="margin: 100px 25px 50px 25px;">
-        <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-6 text-center accessoriesTitle">
-                    <h3>ACCESSORIES</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section>
 
         <div class="container">
+        <div class="section-title">
+          <span>Accessories</span>
+          <h2>Accessories</h2>
+        </div>
             <div class="row justify-content-center text-center">
                 <div class="col-sm-3 col-md-3 col-lg-3">
                     <img class="img-fluid landingProductHeroImage" src="assets/images/t1.png">
