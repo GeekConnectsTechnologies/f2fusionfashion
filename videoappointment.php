@@ -192,7 +192,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         <?php $counter++;
                             }
                         }
-                        ?> 
+                        ?>
                     </div>
                 </div>
             </div>
@@ -213,17 +213,26 @@ $upload_diretr = './videopage/uploadengtorecp/';
     <section>
         <div class="container">
             <div class="row justify-content-center-md-center">
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <img class="img-fluid" src="assets/images/300x450.png">
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <img class="img-fluid" src="assets/images/300x450.png">
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <img class="img-fluid" src="assets/images/300x450.png">
-                </div>
-                <div class="col-6 col-sm-6 col-md-3 text-center">
-                    <img class="img-fluid" src="assets/images/300x450.png">
+                <div id="brandvideo" class="owl-carousel">
+
+                    <?php
+                    $counter = 1;
+                    $sql = "select * from brandvideo";
+                    $result = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($result)) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                             <div class="col-6 col-sm-6 col-md-3 text-center">
+                            
+                                <?php echo $row['brandVideoEmbedded']; ?>
+                            </div>
+
+
+                    <?php $counter++;
+                        }
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
@@ -427,6 +436,22 @@ $upload_diretr = './videopage/uploadengtorecp/';
             navigationText: ["", ""],
             pagination: true,
             autoPlay: true
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#brandvideo").owlCarousel({
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [980, 2],
+            itemsMobile: [600, 1],
+            navigation: true,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
         });
     });
 </script>
