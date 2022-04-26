@@ -152,10 +152,10 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <section>
         <div class="container">
-        <div class="section-title">
-          <span>Engagement to Reception</span>
-          <h2>Engagement to Reception</h2>
-        </div>
+        
+<div class="eleven">
+  <h1>Engagement to Reception</h1>
+</div>
             <div class="row">
                 <div class="col-md-12">
                     <div id="news-slider" class="owl-carousel">
