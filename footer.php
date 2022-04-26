@@ -5,6 +5,7 @@
 
   <!-- plugins:js -->
   <script src="../backendassets/vendors/js/vendor.bundle.base.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
   <!-- endinject -->
   <!-- Plugin js for this page -->
   <script src="../backendassets/vendors/chart.js/Chart.min.js"></script>
@@ -47,6 +48,9 @@
         document.getElementById("quote").innerHTML = quote[random];
         console.log(random, months[random]);
     }
+
+
+   
   </script>
   <!-- End custom js for this page-->
 </body>

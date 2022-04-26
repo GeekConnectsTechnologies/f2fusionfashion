@@ -8,7 +8,7 @@ if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
 
   //select old photo name from database
-  $sql = "select engtorecp from client where id = " . $id;
+  $sql = "select engtorecpImage from engtorecp where id = " . $id;
   $result = mysqli_query($con, $sql);
   if (mysqli_num_rows($result) > 0) {
     $row = mysqli_fetch_assoc($result);
@@ -63,16 +63,16 @@ if (isset($_GET['delete'])) {
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="eng2recp">
                     <?php
                     $counter = 1;
-                    $sql = "select * from engtorecp";
+                    $sql = "select * from engtorecp order by sequence ";
                     $result = mysqli_query($con, $sql);
                     if (mysqli_num_rows($result)) {
                       while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                        <tr>
-                          <td><?php echo $counter ?></td>
+                        <tr id="<?php echo $row['id']; ?>">
+                          <td><?php echo $row['sequence'] ?></td>
                           <td><?php echo $row['engtorecpTitle'] ?></td>
                           <td><?php echo $row['engtorecpDesc'] ?></td>
                           <td><img src="<?php echo $upload_dir . $row['engtorecpImage'] ?>"></td>
@@ -105,3 +105,32 @@ if (isset($_GET['delete'])) {
 </div>
 <!-- main-panel ends -->
 <?php include '../footer.php'; ?>
+
+<script>
+   $(".eng2recp").sortable({
+        delay:150,
+        stop:function(){
+            var eng2recpselecteddata = new Array();
+            $(".eng2recp>tr").each(function(){
+                eng2recpselecteddata.push($(this).attr("id"));
+            });
+            updatereng2recp(eng2recpselecteddata);
+        }
+    });
+
+    function updatereng2recp(aData){
+        $.ajax({
+            url:'eng2recpsequence.php',
+            type: 'POST',
+            data: {
+                allData : aData
+            },
+            success: function(){
+                console.log("Done")
+            },
+            error: function() {
+                alert("There was an error.");
+            }
+        });
+    }
+</script>

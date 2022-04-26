@@ -4,6 +4,7 @@ if (!isset($_SESSION['login_user'])) {
   header("location: ../login/index.php");
 }
 $upload_dir = 'uploadengtorecp/';
+
 if (isset($_POST['btnSave'])) {
 
   $engtorecpTitle = $_POST['engtorecpTitle'];
@@ -39,8 +40,14 @@ if (isset($_POST['btnSave'])) {
 
   //check upload file not error than insert data to database
   if (!isset($errorMsg)) {
-    $sql = "insert into engtorecp(engtorecpImage, engtorecpTitle, engtorecpDesc)
-              values('" . $userPic . "','" . $engtorecpTitle . "','" . $engtorecpDesc . "')";
+
+    $sqlgetmax = "SELECT MAX(sequence) from engtorecp";
+    $resultgetmax = mysqli_query($con,$sqlgetmax);
+    $row = mysqli_fetch_assoc($resultgetmax);
+    $sequence = $row['MAX(sequence)'] + 1;
+
+    $sql = "insert into engtorecp(engtorecpImage, engtorecpTitle, engtorecpDesc, sequence)
+              values('" . $userPic . "','" . $engtorecpTitle . "','" . $engtorecpDesc . "','" . $sequence . "')";
     $result = mysqli_query($con, $sql);
     if ($result) {
       $successMsg = 'New record added successfully';

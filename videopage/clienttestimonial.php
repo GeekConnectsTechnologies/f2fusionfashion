@@ -64,15 +64,15 @@ if (isset($_GET['delete'])) {
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="clienttestimonial">
                     <?php
                     $counter = 1;
-                    $sql = "select * from client";
+                    $sql = "select * from client ORDER BY sequence";
                     $result = mysqli_query($con, $sql);
                     if (mysqli_num_rows($result)) {
                       while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                        <tr>
+                        <tr id="<?php echo $row['id']; ?>">
                           <td><?php echo $counter ?></td>
                           <td><?php echo $row['clientName'] ?></td>
                           <td><?php echo $row['testimonial'] ?></td>
@@ -107,3 +107,32 @@ if (isset($_GET['delete'])) {
 </div>
 <!-- main-panel ends -->
 <?php include '../footer.php'; ?>
+
+<script>
+   $(".clienttestimonial").sortable({
+        delay:150,
+        stop:function(){
+            var eng2recpselecteddata = new Array();
+            $(".clienttestimonial>tr").each(function(){
+                eng2recpselecteddata.push($(this).attr("id"));
+            });
+            updatereng2recp(eng2recpselecteddata);
+        }
+    });
+
+    function updatereng2recp(aData){
+        $.ajax({
+            url:'clientsequence.php',
+            type: 'POST',
+            data: {
+                allData : aData
+            },
+            success: function(){
+                console.log("Done")
+            },
+            error: function() {
+                alert("There was an error.");
+            }
+        });
+    }
+</script>

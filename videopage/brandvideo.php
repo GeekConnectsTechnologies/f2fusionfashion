@@ -52,7 +52,7 @@ if (isset($_GET['delete'])) {
                       <th>Action</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody class="brandreel">
                     <?php
                     $counter = 1;
                     $sql = "select * from brandvideo";
@@ -60,7 +60,7 @@ if (isset($_GET['delete'])) {
                     if (mysqli_num_rows($result)) {
                       while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                        <tr>
+                        <tr id="<?php echo $row['brandVideoId']; ?>">
                           <td><?php echo $counter ?></td>
                           <td><div style="width: 5%;"><?php echo $row['brandVideoEmbedded'] ?></div></td>
                           <td>
@@ -92,3 +92,32 @@ if (isset($_GET['delete'])) {
 </div>
 <!-- main-panel ends -->
 <?php include '../footer.php'; ?>
+
+<script>
+   $(".brandreel").sortable({
+        delay:150,
+        stop:function(){
+            var eng2recpselecteddata = new Array();
+            $(".brandreel>tr").each(function(){
+                eng2recpselecteddata.push($(this).attr("id"));
+            });
+            updatereng2recp(eng2recpselecteddata);
+        }
+    });
+
+    function updatereng2recp(aData){
+        $.ajax({
+            url:'brandreelsequence.php',
+            type: 'POST',
+            data: {
+                allData : aData
+            },
+            success: function(){
+                console.log("Done")
+            },
+            error: function() {
+                alert("There was an error.");
+            }
+        });
+    }
+</script>

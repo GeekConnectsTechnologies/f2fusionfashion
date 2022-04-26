@@ -161,7 +161,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                     <div id="news-slider" class="owl-carousel">
                         <?php
                         $counter = 1;
-                        $sql = "select * from engtorecp";
+                        $sql = "select * from engtorecp ORDER BY sequence";
                         $result = mysqli_query($con, $sql);
                         if (mysqli_num_rows($result)) {
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -200,7 +200,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
                     <?php
                     $counter = 1;
-                    $sql = "select * from brandvideo";
+                    $sql = "select * from brandvideo ORDER BY sequence";
                     $result = mysqli_query($con, $sql);
                     if (mysqli_num_rows($result)) {
                         while ($row = mysqli_fetch_assoc($result)) {
@@ -232,7 +232,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
             <div class="row justify-content-center-md-center">
                 <?php
                 $counter = 1;
-                $sql = "select * from client";
+                $sql = "select * from client ORDER BY sequence";
                 $result = mysqli_query($con, $sql);
                 if (mysqli_num_rows($result)) {
                     while ($row = mysqli_fetch_assoc($result)) {
