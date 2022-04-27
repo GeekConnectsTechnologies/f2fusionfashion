@@ -14,8 +14,14 @@ if (isset($_POST['btnSave'])) {
 
   //check upload file not error than insert data to database
   if (!isset($errorMsg)) {
-    $sql = "insert into brandvideo(brandVideoEmbedded)
-              values('" . $brandVideoEmbedded . "')";
+
+    $sqlgetmax = "SELECT MAX(sequence) from brandvideo";
+    $resultgetmax = mysqli_query($con,$sqlgetmax);
+    $row = mysqli_fetch_assoc($resultgetmax);
+    $sequence = $row['MAX(sequence)'] + 1;
+
+    $sql = "insert into brandvideo(brandVideoEmbedded, sequence)
+              values('" . $brandVideoEmbedded . "','" . $sequence . "')";
     $result = mysqli_query($con, $sql);
     if ($result) {
       $successMsg = 'New record added successfully';
