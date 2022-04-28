@@ -4,11 +4,16 @@ if (!isset($_SESSION['login_user'])) {
   header("location: ../login/index.php");
 }
 $campaignid = $_GET['campaignid'];
-$upload_dir = 'uploadlandingproduct/';
+$upload_dir = 'uploadproduct/';
 
 if(isset($_POST['btnSave'])){ 
+
+    $title=$_POST['title'];
+    $sqlproduct="INSERT into product(pName, campaignId) VALUES ('".$title."','".$campaignid."')";
+    $resultprocuct = mysqli_query($con, $sqlproduct);
+
+    $lastproductid = mysqli_insert_id($con);
     // File upload configuration 
-    $targetDir = "uploads/"; 
     $allowTypes = array('jpg','png','jpeg','gif'); 
      
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = ''; 
@@ -25,7 +30,7 @@ if(isset($_POST['btnSave'])){
                 // Upload file to server 
                 if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
                     // Image db insert sql 
-                    $insertValuesSQL .= "('".$fileName."', '".$campaignid."'),";  
+                    $insertValuesSQL .= "('".$fileName."', '".$lastproductid."'),";  
                     
                 }else{ 
                     $errorUpload .= $_FILES['files']['name'][$key].' | '; 
@@ -44,10 +49,10 @@ if(isset($_POST['btnSave'])){
             $insertValuesSQL = trim($insertValuesSQL, ','); 
             // Insert image file name into database 
             
-            $insert = $con->query("INSERT INTO landingpageproduct (lppPhoto, campaignId) VALUES $insertValuesSQL"); 
+            $insert = $con->query("INSERT INTO productimages (pImages, productId) VALUES $insertValuesSQL"); 
             if($insert){ 
                 $successMsg = "Files are uploaded successfully.".$errorMsg; 
-                header('refresh:5;viewlandingproduct.php?id='.$campaignid);
+                header('refresh:5;viewproduct.php?id='.$campaignid);
             }else{ 
                 $statusMsg = "Sorry, there was an error uploading your file."; 
             } 
@@ -106,8 +111,13 @@ if(isset($_POST['btnSave'])){
               <h4 class="card-title">Add New Landing Page Products</h4>
 
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
+
                 <div class="form-group">
-                  <label for="">Header Image</label>
+                    <label for="">Product Title</label>
+                    <input type="text" class="form-control" name="title">
+                </div>
+                <div class="form-group">
+                  <label for="">Product Images</label>
                   <input type="file" name="files[]" multiple class="form-control">
                 </div>
                 

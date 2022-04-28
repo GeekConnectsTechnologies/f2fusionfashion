@@ -31275,4 +31275,15 @@ div.tagsinput span.tag a {
   }
 }
 
+#icons-container {
+  display: flex;
+}
+.product-icon {
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  border: 1px solid white;
+  margin-right: -15px;
+}
+
 /*# sourceMappingURL=../maps/vertical-layout-light/style.css.map */
