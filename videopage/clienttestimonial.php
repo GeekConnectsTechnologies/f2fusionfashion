@@ -77,7 +77,7 @@ if (isset($_GET['delete'])) {
                           <td><?php echo $row['clientName'] ?></td>
                           <td><?php echo $row['testimonial'] ?></td>
                           <td><?php echo $row['location'] ?></td>
-                          <td><img src="<?php echo $upload_dir . $row['clientImage'] ?>"></td>
+                          <td><img src="<?php echo $upload_dir . $row['clientImage'] ?>" style="height: 100px;"></td>
                           <td>
                             <a class="btn btn-sm btn-primary" href="edittestimonial.php?id=<?php echo $row['id'] ?>">
                               Edit

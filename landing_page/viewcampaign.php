@@ -56,7 +56,7 @@ $row = mysqli_fetch_assoc($result);
                                     <tr>
                                         <td><?php echo $row['campaignType']; ?></td>
                                         <td><span class="mr-5">10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="btn btn-sm btn-warning" href="viewcampaign.php?id=<?php echo $row['campaignId'] ?>">
+                                            <a class="btn btn-sm btn-warning" href="viewlandingproduct.php?id=<?php echo $row['campaignId'] ?>">
                                                 View
                                             </a>
                                         </td>
