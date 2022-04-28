@@ -1,3 +1,9 @@
+<?php
+include('./db.php');
+$upload_header = './landing_page/uploadheaderImage/';
+$upload_title = './landing_page/uploadtitleImage/';
+$upload_lproduct = './landing_page/uploadlandingproduct/';
+?>
 <!doctype html>
 <html lang="en">
 
@@ -76,53 +82,54 @@
 
     <img class="img-fluid" src="assets/images/hero_image.png">
 
-    <section>
 
-        <div class="container-fluid text-center">
-            <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
-                <div class="my-auto">Awaas</div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/aavaas.png">
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 2.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 3.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 4.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 5.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 6.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 7.png">
-                        </div>
-
+    <?php
+    $counter = 1;
+    $sql = "select * from campaign ORDER BY sequence";
+    $result = mysqli_query($con, $sql);
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+    ?>
+            <section>
+                <div class="container-fluid text-center">
+                    <div class="row campaignTitle" style="background-image: url('<?php echo $upload_title . $row['titleImage'] ?>');">
+                        <div class="my-auto"><?php echo $row['title'] ?></div>
                     </div>
                 </div>
-            </div>
-        </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-6">
+                            <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
+                            <div class="row">
+                                <?php
+                                $counter = 1;
+                                $lppsql = "select * from landingpageproduct where campaignId=" . $row['campaignId'] . " ORDER BY sequence";
+                                $lppresult = mysqli_query($con, $lppsql);
+                                if (mysqli_num_rows($lppresult)) {
+                                    while ($lpprow = mysqli_fetch_assoc($lppresult)) {
+                                ?>
+                                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+                                            <img class="img-fluid productImage" src="<?php echo $upload_lproduct . $lpprow['lppPhoto'] ?>">
+                                        </div>
 
-    </section>
+                                <?php $counter++;
+                                    }
+                                }
+                                ?>
 
-    <section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    <?php $counter++;
+        }
+    }
+    ?>
+
+    <!-- <section>
 
         <div class="container-fluid text-center">
             <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
@@ -213,16 +220,16 @@
             </div>
         </div>
 
-    </section>
+    </section> -->
 
 
     <section>
 
         <div class="container">
-        <div class="section-title">
-          <span>Accessories</span>
-          <h2>Accessories</h2>
-        </div>
+            <div class="section-title">
+                <span>Accessories</span>
+                <h2>Accessories</h2>
+            </div>
             <div class="row justify-content-center text-center">
                 <div class="col-sm-3 col-md-3 col-lg-3">
                     <img class="img-fluid landingProductHeroImage" src="assets/images/t1.png">

@@ -9,6 +9,7 @@ $campaignid = $_GET['id'];
 $upload_dir = 'uploadlandingproduct/';
 if (isset($_GET['delete'])) {
     $id = $_GET['delete'];
+    $cid = $_GET['cid'];
 
     //select old photo name from database
 
@@ -18,9 +19,11 @@ if (isset($_GET['delete'])) {
     
     if (mysqli_query($con, $sql)) {
         
-        header('refresh:1;viewproduct.php?id='.$campaignid);
+        header('refresh:1;viewproduct.php?id='.$cid);
     }
 }
+
+
 ?>
 
 <?php include '../menu.php'; ?>
@@ -62,7 +65,7 @@ if (isset($_GET['delete'])) {
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="lpproduct">
+                                    <tbody class="vproduct">
                                         <?php
                                         $counter = 1;
                                         $sql = "select * from product where campaignId='" . $campaignid . "' ORDER BY sequence ";
@@ -78,7 +81,7 @@ if (isset($_GET['delete'])) {
                                                         <div id="icons-container">
                                                             <div class="single-icon-container">
                                                                 <?php
-                                                                $sqlgetphoto = "SELECT pImages from productimages where productId=" . $row['productId'];
+                                                                $sqlgetphoto = "SELECT pImages from productimages where productId=" . $row['productId']." limit 5";
                                                                 $resultgetphoto = mysqli_query($con, $sqlgetphoto);
                                                                 if (mysqli_num_rows($resultgetphoto)) {
                                                                     while ($rowgetphoto = mysqli_fetch_assoc($resultgetphoto)) {
@@ -98,7 +101,7 @@ if (isset($_GET['delete'])) {
                                                         <a class="btn btn-sm btn-warning" href="viewproductimages.php?id=<?php echo $row['productId'] ?>">
                                                             View
                                                         </a>
-                                                        <a class="btn btn-sm btn-danger" href="viewproduct.php?delete=<?php echo $row['productId'] ?>" onclick="return confirm('Are you sure to delete this record?')">
+                                                        <a class="btn btn-sm btn-danger" href="viewproduct.php?delete=<?php echo $row['productId'] ?>&cid=<?php echo $campaignid ?>" onclick="return confirm('Are you sure to delete this record?')">
                                                             Delete
                                                         </a>
                                                     </td>
@@ -125,11 +128,11 @@ if (isset($_GET['delete'])) {
 <?php include '../footer.php'; ?>
 
 <script>
-    $(".lpproduct").sortable({
+    $(".vproduct").sortable({
         delay: 150,
         stop: function() {
             var eng2recpselecteddata = new Array();
-            $(".lpproduct>tr").each(function() {
+            $(".vproduct>tr").each(function() {
                 eng2recpselecteddata.push($(this).attr("id"));
             });
             updatereng2recp(eng2recpselecteddata);
@@ -138,7 +141,7 @@ if (isset($_GET['delete'])) {
 
     function updatereng2recp(aData) {
         $.ajax({
-            url: 'lpproductsequence.php',
+            url: 'vproductsequence.php',
             type: 'POST',
             data: {
                 allData: aData
