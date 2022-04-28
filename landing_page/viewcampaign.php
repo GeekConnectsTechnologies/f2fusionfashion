@@ -13,6 +13,18 @@ if (isset($_GET['id'])) {
 $sql = "select * from campaign where campaignId=" . $id;
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
+
+$sqlcount = "select count(lpProductId) as count from landingpageproduct where campaignId=".$id;
+$resultcount = mysqli_query($con, $sqlcount);
+$rowcount = mysqli_fetch_assoc($resultcount);
+
+$sqlcount2 = "select count(productIGId) as count from productig where campaignId=".$id;
+$resultcount2 = mysqli_query($con, $sqlcount2);
+$rowcount2 = mysqli_fetch_assoc($resultcount2);
+
+$sqlcount3 = "select count(productId) as count from product where campaignId=".$id;
+$resultcount3 = mysqli_query($con, $sqlcount3);
+$rowcount3 = mysqli_fetch_assoc($resultcount3);
 ?>
 
 <?php include '../menu.php'; ?>
@@ -55,21 +67,21 @@ $row = mysqli_fetch_assoc($result);
                                 <tbody>
                                     <tr>
                                         <td><?php echo $row['campaignType']; ?></td>
-                                        <td><span class="mr-5">10</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <td><span class="mr-5"><?php echo $rowcount['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             <a class="btn btn-sm btn-warning" href="viewlandingproduct.php?id=<?php echo $row['campaignId'] ?>">
                                                 View
                                             </a>
                                         </td>
                                         <td>
-                                            <span class="mr-5">20</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="btn btn-sm btn-warning" href="viewcampaign.php?id=<?php echo $row['campaignId'] ?>">
+                                            <span class="mr-5"><?php echo $rowcount3['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="btn btn-sm btn-warning" href="viewproduct.php?id=<?php echo $row['campaignId'] ?>">
                                                 View
                                             </a>
 
                                         </td>
                                         <td>
-                                            <span class="mr-5">5</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="btn btn-sm btn-warning" href="viewcampaign.php?id=<?php echo $row['campaignId'] ?>">
+                                            <span class="mr-5"><?php echo $rowcount2['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            <a class="btn btn-sm btn-warning" href="viewinstagrampost.php?id=<?php echo $row['campaignId'] ?>">
                                                 View
                                             </a>
                                         </td>
