@@ -9,6 +9,7 @@ $campaignid = $_GET['id'];
 $upload_dir = 'uploadlandingproduct/';
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
+  $plid = $_GET['plid'];
 
   //select old photo name from database
   $sql = "select lppPhoto from landingpageproduct where lpProductId = " . $id;
@@ -20,7 +21,7 @@ if (isset($_GET['delete'])) {
     //delete record from database
     $sql = "delete from landingpageproduct where lpProductId=" . $id;
     if (mysqli_query($con, $sql)) {
-      header('location:viewlandingproduct.php');
+      header('location:viewlandingproduct.php?id='.$plid);
     }
   }
 }
@@ -79,7 +80,7 @@ if (isset($_GET['delete'])) {
                           <td><img src="<?php echo $upload_dir . $row['lppPhoto'] ?>" style="height: 100px;"></td>
                           <td>
                             
-                            <a class="btn btn-sm btn-danger" href="viewlandingproduct.php?delete=<?php echo $row['lpProductId'] ?>" onclick="return confirm('Are you sure to delete this record?')">
+                            <a class="btn btn-sm btn-danger" href="viewlandingproduct.php?delete=<?php echo $row['lpProductId'] ?>&plid=<?php echo $campaignid ?>" onclick="return confirm('Are you sure to delete this record?')">
                               Delete
                             </a>
                           </td>

@@ -65,7 +65,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         <a class="nav-link " aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT US</a>
+                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="videoappointment.php">VIDEO APPOINTMENT</a>
@@ -85,10 +85,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <section style="margin: 0px 25px 100px 25px;">
         <div class="container">
-        <div class="section-title">
+            <!-- <div class="section-title">
           <span>Video Call Appointment</span>
           <h2>Book Video Call Appointment</h2>
-        </div>
+        </div> -->
+            <div class="eleven">
+                <h1>Video Call Appointment</h1>
+            </div>
             <div class="row justify-content-md-center">
                 <div class="col-12 col-sm-12 col-md-12 text-center mt-5">
                     <div class="accessoriesTitlecc">
@@ -152,10 +155,10 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <section>
         <div class="container">
-        
-<div class="eleven">
-  <h1>Engagement to Reception</h1>
-</div>
+
+            <div class="eleven">
+                <h1>Engagement to Reception</h1>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <div id="news-slider" class="owl-carousel">
@@ -191,10 +194,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <section>
         <div class="container">
-        <div class="section-title">
-          <span>Brand Video</span>
-          <h2>Brand Video</h2>
-        </div>
+            <!-- <div class="section-title">
+                <span>Brand Video</span>
+                <h2>Brand Video</h2>
+            </div> -->
+            <div class="eleven">
+                <h1>Brand Video</h1>
+            </div>
             <div class="row justify-content-center-md-center">
                 <div id="brandvideo" class="owl-carousel">
 
@@ -205,8 +211,8 @@ $upload_diretr = './videopage/uploadengtorecp/';
                     if (mysqli_num_rows($result)) {
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                             <div class="col-6 col-sm-6 col-md-3 text-center">
-                            
+                            <div class="col-6 col-sm-6 col-md-3 text-center">
+
                                 <?php echo $row['brandVideoEmbedded']; ?>
                             </div>
 
@@ -225,10 +231,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <section>
         <div class="container">
-        <div class="section-title">
-          <span>Customer Testimonials</span>
-          <h2>Customer Testimonials</h2>
-        </div>
+            <!-- <div class="section-title">
+                <span>Customer Testimonials</span>
+                <h2>Customer Testimonials</h2>
+            </div> -->
+            <div class="eleven">
+                <h1>Customer Testimonials</h1>
+            </div>
             <div class="row justify-content-center-md-center">
                 <?php
                 $counter = 1;

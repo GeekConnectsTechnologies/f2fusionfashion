@@ -172,7 +172,7 @@ if (isset($_POST['btnSave'])) {
                 <div class="form-group">
                     <label for="">Campaign Type</label>
                     <select name="campaignType" class="form-control" id="">
-                        <option value="enquiry" selected>Enquiry</option>
+                        <option value="Enquiry" selected>Enquiry</option>
                         <option value="Instagram">Instagram</option>
                     </select>
                 </div>

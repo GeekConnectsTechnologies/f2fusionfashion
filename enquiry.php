@@ -1,8 +1,10 @@
 <?php
 include('./db.php');
-$upload_header = './landing_page/uploadheaderImage/';
-$upload_title = './landing_page/uploadtitleImage/';
-$upload_lproduct = './landing_page/uploadlandingproduct/';
+$upload_dir = './videopage/uploadclienttestimonial/';
+$upload_diretr = './videopage/uploadengtorecp/';
+$upload_dirp = 'landing_page/uploadproduct/';
+
+$campaignid = $_GET['cid'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,7 +18,8 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link rel="icon" type="image/x-icon" href="assets/images/LOGO_fav.png">
 
@@ -62,13 +65,13 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
             <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                        <a class="nav-link " aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="aboutus.php">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
+                        <a class="nav-link active" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">CONTACT US</a>
@@ -79,195 +82,143 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
     </nav>
 
     <!-- <div class="hero_image"> </div> -->
-
-    <img class="img-fluid" src="assets/images/hero_image.png">
-
-
     <?php
     $counter = 1;
-    $sql = "select * from campaign ORDER BY sequence";
+    $sql = "select * from campaign where campaignId =" . $campaignid . " ORDER BY sequence";
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result)) {
         while ($row = mysqli_fetch_assoc($result)) {
     ?>
-            <section>
-                <div class="container-fluid text-center">
-                        <div class="row campaignTitle" style="background-image: url('<?php echo $upload_title . $row['titleImage'] ?>');">
-                            <div class="my-auto"><?php echo $row['title'] ?></div>
-                        </div>
-                </div>
+
+            <img class="img-fluid" src="landing_page/uploadcampaignImage/<?php echo $row['campaignHeroImage'] ?>">
+
+
+            <section style="margin: 0px 25px 100px 25px;">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a href="enquiry.php?cid=<?php echo $row['campaignId']?>">
-                            <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
-                        </a>
-                        </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
-                            <div class="row">
-                                <?php
-                                $counter = 1;
-                                $lppsql = "select * from landingpageproduct where campaignId=" . $row['campaignId'] . " ORDER BY sequence";
-                                $lppresult = mysqli_query($con, $lppsql);
-                                if (mysqli_num_rows($lppresult)) {
-                                    while ($lpprow = mysqli_fetch_assoc($lppresult)) {
-                                ?>
-                                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                            <img class="img-fluid productImage" src="<?php echo $upload_lproduct . $lpprow['lppPhoto'] ?>">
-                                        </div>
-
-                                <?php $counter++;
-                                    }
-                                }
-                                ?>
-
-                            </div>
+                    <!-- <div class="section-title">
+          <span>Video Call Appointment</span>
+          <h2>Book Video Call Appointment</h2>
+        </div> -->
+                    <div class="eleven">
+                        <h1><?php echo $row['title'] ?></h1>
+                    </div>
+                    <div class="row justify-content-md-center">
+                        <div class="col-12 col-sm-12 col-md-12 text-center">
+                            <!-- text-align: justify; -->
+                            <p style="color: #222222; font-size: 12pt; line-height: 28px; padding: 10px;">
+                                <!-- F2 India was established in 1983 and since then there is no looking back.
+                        Rajoo India offers you the finest Indian ethnic elegance. It include exquisite Sherwanis,
+                        fine Indo Westerns, royal Band Galas, printed and solid Jackets, Jodpuri , Elegant Tuxedos,basic to classic Kurtas and matching
+                        accessories for every occasion in Men’s and kids wear
+                        We offer Customization from Hand Crafted
+                        Work to Tailoring fit with our Utmost Experience Working on every minute
+                        details with Considering your Preferences Along with Widest
+                        range of Collection in Men and kids wear. -->
+                                <?php echo $row['description'] ?>
+                            </p>
                         </div>
                     </div>
                 </div>
             </section>
+
+
     <?php $counter++;
         }
     }
     ?>
 
-    <!-- <section>
-
-        <div class="container-fluid text-center">
-            <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
-                <div class="my-auto">Ullas</div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center order-2 order-sm-2 order-md-1" style="height: 950px;  overflow: auto;">
-                    <div class="row">
-
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 8.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 9.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 10.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 11.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 12.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 13.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 14.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 15.png">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 order-sm-1 order-1 order-md-2">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/ullas.png">
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-    <section>
-
-        <div class="container-fluid text-center">
-            <div class="row campaignTitle" style="background-image: url('assets/images/title.png');">
-                <div class="my-auto">Sparsh</div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/sparsh.png">
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
-                    <div class="row">
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 16.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 17.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 18.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 19.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 20.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 21.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 22.png">
-                        </div>
-                        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 23.png">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </section> -->
-
-
-    <section>
-
-        <div class="container mt-5">
-            <!-- <div class="section-title">
-                <span>Accessories</span>
-                <h2>Accessories</h2>
+    <?php
+    $counter = 1;
+    $sql11 = "select * from campaign where campaignId =" . $campaignid . " ORDER BY sequence";
+    $result11 = mysqli_query($con, $sql11);
+    if (mysqli_num_rows($result11)) {
+        while ($row11 = mysqli_fetch_assoc($result11)) {
+            if ($row11['campaignType'] == "Enquiry") {
+    ?>
+                <section>
+                    <div class="container">
+                        <!-- <div class="section-title">
+                <span>Brand Video</span>
+                <h2>Brand Video</h2>
             </div> -->
-            <div class="eleven">
-                <h1>Accessories</h1>
-            </div>
-            <div class="row justify-content-center text-center">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/t1.png">
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/t2.png">
-                </div>
-            </div>
-            <div class="row justify-content-between text-center align-items-end" style="margin-top: -60px;">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/d1.png">
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="row justify-content-end">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <img class="img-fluid accessoriesImage" src="assets/images/m1.png">
-                            <!-- </div>
-                <div class="col-sm-3 col-md-3 col-lg-3"> -->
-                            <img class="img-fluid accessoriesImage" src="assets/images/m2.png">
+                        <!-- <div class="eleven">
+                <h1>Brand Video</h1>
+            </div> -->
+                        <div class="row justify-content-center-md-center">
+                            <?php
+                            $sql2 = "select * from product where campaignId = " . $campaignid . " ORDER BY sequence";
+                            $result2 = mysqli_query($con, $sql2);
+                            if (mysqli_num_rows($result2)) {
+                                while ($row2 = mysqli_fetch_assoc($result2)) {
+                            ?>
+                                    <div class="col-6 col-sm-6 col-md-3 text-center">
+                                        <div id="productcarousel<?php echo $row2['productId'] ?>" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel">
+                                            <div class="carousel-inner" id="<?php echo $row2['productId'] ?>">
+                                                <?php
+                                                $sql3 = "select * from productimages where productId = " . $row2['productId'] . " ORDER BY sequence";
+                                                // echo $sql3;
+                                                $result3 = mysqli_query($con, $sql3);
+                                                if (mysqli_num_rows($result3)) {
+                                                    while ($row3 = mysqli_fetch_assoc($result3)) {
+                                                ?>
+                                                        <div class="carousel-item">
+                                                            <img src="<?php echo $upload_dirp . $row3['pImages'] ?>">
+                                                        </div>
+                                                <?php
+                                                    }
+                                                }
+                                                ?>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#productcarousel<?php echo $row2['productId'] ?>" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#productcarousel<?php echo $row2['productId'] ?>" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/d2.png">
-                </div>
-            </div>
-        </div>
+                </section>
+            <?php
+            } else {
+            ?>
+                <section>
+                    <div class="container">
+                        <div class="row">
+                            <?php
+                            $sql5 = "select * from productig where campaignId = " . $campaignid . " ORDER BY sequence";
+                            $result5 = mysqli_query($con, $sql5);
+                            if (mysqli_num_rows($result5)) {
+                                while ($row5 = mysqli_fetch_assoc($result5)) {
+                            ?>
+                                    <div class="col-6 col-sm-6 col-md-6 d-flex justify-content-center text-center">
+                                        <?php echo $row5['pIGEmbedded'] ?>
+                                    </div>
+                            <?php
+                                }
+                            }
+                            ?>
+                        </div>
+                    </div>
+                </section>
+    <?php
+            }
+        }
+    }
+    ?>
 
-    </section>
 
 
-    <section style="margin: 0px 25px 100px 25px;">
-        <div class="container mt-5">
+
+    <section style="margin: 100px 25px 100px 25px;">
+        <div class="container">
             <div class="row justify-content-md-around">
                 <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
                     <div class="accessoriesTitle">
@@ -406,5 +357,94 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
 </body>
+
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#news-slider").owlCarousel({
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [980, 2],
+            itemsMobile: [600, 1],
+            navigation: true,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#penquiry").owlCarousel({
+            items: 1,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [980, 1],
+            itemsMobile: [600, 1],
+            navigation: false,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+    });
+    $(document).ready(function() {
+        $("#penquiry2").owlCarousel({
+            items: 1,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [980, 1],
+            itemsMobile: [600, 1],
+            navigation: false,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+    });
+    $(document).ready(function() {
+        $("#penquiry3").owlCarousel({
+            items: 1,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [980, 1],
+            itemsMobile: [600, 1],
+            navigation: false,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+    });
+    $(document).ready(function() {
+        $("#penquiry4").owlCarousel({
+            items: 1,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [980, 1],
+            itemsMobile: [600, 1],
+            navigation: false,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        <?php
+        $sql4 = "select * from product ORDER BY sequence";
+        $result4 = mysqli_query($con, $sql4);
+        if (mysqli_num_rows($result4)) {
+            while ($row4 = mysqli_fetch_assoc($result4)) {
+        ?>
+                $('#<?php echo $row4['productId'] ?>').find('.carousel-item').first().addClass('active');
+        <?php
+            }
+        }
+        ?>
+    });
+</script>
 
 </html>
