@@ -582,7 +582,7 @@
 .eleven {
   position: relative;
   width: auto;
-  max-width: 700px;
+  max-width: 900px;
   padding: 2em;
   margin: 1.5em auto;
 }
@@ -626,4 +626,10 @@
   z-index: 5;
   display: block;
   background-color: #ffffff;
+}
+
+.fontplay{
+  font-family: "Playball";
+  font-size: 69px;
+  font-weight: 500;
 }

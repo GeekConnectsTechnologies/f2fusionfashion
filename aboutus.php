@@ -138,112 +138,18 @@ $upload_diretr = './videopage/uploadengtorecp/';
         <div class="container">
 
             <div class="eleven">
-                <h1>Engagement to Reception</h1>
+                <h1>"Even Celebrity Trust and Love Us"</h1>
             </div>
             <div class="row">
-                <div class="col-md-12">
-                    <div id="news-slider" class="owl-carousel">
-                        <?php
-                        $counter = 1;
-                        $sql = "select * from engtorecp ORDER BY sequence";
-                        $result = mysqli_query($con, $sql);
-                        if (mysqli_num_rows($result)) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                        ?>
-                                <div class="post-slide">
-                                    <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                        <img src="<?php echo $upload_diretr . $row['engtorecpImage'] ?>" class="img-fluid" alt="">
-                                        <div class="member-info">
-                                            <div class="member-info-content">
-                                                <h4><?php echo $row['engtorecpTitle'] ?></h4>
-                                                <span><?php echo $row['engtorecpDesc'] ?></span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                        <?php $counter++;
-                            }
-                        }
-                        ?>
-                    </div>
+                <div class="col-md-4">
+                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
                 </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section>
-        <div class="container">
-            <!-- <div class="section-title">
-                <span>Brand Video</span>
-                <h2>Brand Video</h2>
-            </div> -->
-            <div class="eleven">
-                <h1>Brand Video</h1>
-            </div>
-            <div class="row justify-content-center-md-center">
-                <div id="brandvideo" class="owl-carousel">
-
-                    <?php
-                    $counter = 1;
-                    $sql = "select * from brandvideo ORDER BY sequence";
-                    $result = mysqli_query($con, $sql);
-                    if (mysqli_num_rows($result)) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                            <div class="col-6 col-sm-6 col-md-3 text-center">
-
-                                <?php echo $row['brandVideoEmbedded']; ?>
-                            </div>
-
-
-                    <?php $counter++;
-                        }
-                    }
-                    ?>
-
+                <div class="col-md-4">
+                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
                 </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <section>
-        <div class="container">
-            <!-- <div class="section-title">
-                <span>Customer Testimonials</span>
-                <h2>Customer Testimonials</h2>
-            </div> -->
-            <div class="eleven">
-                <h1>Customer Testimonials</h1>
-            </div>
-            <div class="row justify-content-center-md-center">
-                <?php
-                $counter = 1;
-                $sql = "select * from client ORDER BY sequence";
-                $result = mysqli_query($con, $sql);
-                if (mysqli_num_rows($result)) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                        <div class="col-6 col-sm-6 col-md-3 text-center">
-                            <div class="content">
-                                <div class="content-overlay"></div>
-                                <img class="img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
-                                <div class="content-details fadeIn-bottom">
-                                    <h4 class="content-title"><?php echo $row['clientName'] ?></h4>
-                                    <h6 class="content-title"><?php echo $row['location'] ?></h6>
-                                    <hr style="color: white;">
-                                    <p class="content-text"><?php echo $row['testimonial'] ?></p>
-                                </div>
-                            </div>
-                        </div>
-
-                <?php $counter++;
-                    }
-                }
-                ?>
+                <div class="col-md-4">
+                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
+                </div>
             </div>
         </div>
     </section>
