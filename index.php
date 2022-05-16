@@ -114,7 +114,7 @@ $upload_limage = './landing_page/uploadlandingimage/';
                                 <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
                             </a>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
+                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center <?php if($row['sequence']%2==0){echo 'order-first';}?>" style="height: 950px;  overflow: auto;">
                             <div class="row">
                                 <?php
                                 $counter = 1;
