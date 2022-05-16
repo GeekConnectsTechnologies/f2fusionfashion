@@ -71,10 +71,10 @@ $campaignid = $_GET['cid'];
                         <a class="nav-link" href="aboutus.php">ABOUT US</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="videoappointment.php">VIDEO APPOINTMENT</a>
+                        <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                        <a class="nav-link" href="contactus.php">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -163,6 +163,11 @@ $campaignid = $_GET['cid'];
                                                 ?>
                                                         <div class="carousel-item">
                                                             <img src="<?php echo $upload_dirp . $row3['pImages'] ?>">
+                                                            <div class="carousel-caption d-none d-md-block">
+                                                                <div class="flexx">
+                                                                    <a href="#0" class="btttn">Enquiry</a>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                 <?php
                                                     }
@@ -264,8 +269,11 @@ $campaignid = $_GET['cid'];
                                     Please enter a Message.
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            <div class="col-12 mt-4">
+                                <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                                <div class="flex">
+                                    <a href="#0" class="bttn">Submit</a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -287,11 +295,11 @@ $campaignid = $_GET['cid'];
                         <div class="row d-flex justify-content-center mt-5">
                             <h5>Contact Us</h5>
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
+                        <div class="row d-flex justify-content-center mt-4">
                             <i class='bx bxs-phone bx-md'></i>
                             <h6 class="mt-3">+91 9427542226 / +91 265 2422622</h6>
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
+                        <div class="row d-flex justify-content-center mt-4">
                             <i class='bx bx-envelope bx-md'></i>
                             <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
                         </div>

@@ -3,6 +3,7 @@ include('./db.php');
 $upload_header = './landing_page/uploadheaderImage/';
 $upload_title = './landing_page/uploadtitleImage/';
 $upload_lproduct = './landing_page/uploadlandingproduct/';
+$upload_limage = './landing_page/uploadlandingimage/';
 ?>
 <!doctype html>
 <html lang="en">
@@ -71,7 +72,7 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
                         <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                        <a class="nav-link" href="contactus.php">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -80,28 +81,38 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
 
     <!-- <div class="hero_image"> </div> -->
 
-    <img class="img-fluid" src="assets/images/hero_image.png">
+    <?php
+    $sqllpi = "select * from landingheroimage";
+    $resultlpi = mysqli_query($con, $sqllpi);
+    if (mysqli_num_rows($resultlpi)) {
+        while ($rowlpi = mysqli_fetch_assoc($resultlpi)) {
+    ?>
+            <img class="img-fluid" src="<?php echo $upload_limage . $rowlpi['photo'] ?>">
+    <?php
+        }
+    }
+    ?>
 
 
     <?php
     $counter = 1;
-    $sql = "select * from campaign ORDER BY sequence";
+    $sql = "select * from campaign ORDER BY sequence limit 5";
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result)) {
         while ($row = mysqli_fetch_assoc($result)) {
     ?>
             <section>
                 <div class="container-fluid text-center">
-                        <div class="row campaignTitle" style="background-image: url('<?php echo $upload_title . $row['titleImage'] ?>');">
-                            <div class="my-auto"><?php echo $row['title'] ?></div>
-                        </div>
+                    <div class="row campaignTitle" style="background-image: url('<?php echo $upload_title . $row['titleImage'] ?>');">
+                        <div class="my-auto"><?php echo $row['title'] ?></div>
+                    </div>
                 </div>
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-6">
-                        <a href="enquiry.php?cid=<?php echo $row['campaignId']?>">
-                            <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
-                        </a>
+                            <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
+                                <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
+                            </a>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
                             <div class="row">
@@ -236,38 +247,15 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
                 <h1>Accessories</h1>
             </div>
             <div class="row justify-content-center text-center">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/t1.png">
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/t2.png">
-                </div>
-            </div>
-            <div class="row justify-content-between text-center align-items-end" style="margin-top: -60px;">
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/d1.png">
-                </div>
-                <div class="col-sm-6 col-md-6 col-lg-6">
-                    <div class="row justify-content-end">
-                        <div class="col-sm-12 col-md-12 col-lg-12">
-                            <img class="img-fluid accessoriesImage" src="assets/images/m1.png">
-                            <!-- </div>
-                <div class="col-sm-3 col-md-3 col-lg-3"> -->
-                            <img class="img-fluid accessoriesImage" src="assets/images/m2.png">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3 col-md-3 col-lg-3">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/d2.png">
-                </div>
+                <img class="img-fluid " src="assets/images/acc.png">
             </div>
         </div>
 
     </section>
 
 
-    <section style="margin: 0px 25px 100px 25px;">
-        <div class="container mt-5">
+    <section style="margin: 100px 25px 100px 25px;">
+        <div class="container">
             <div class="row justify-content-md-around">
                 <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
                     <div class="accessoriesTitle">
@@ -313,8 +301,11 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
                                     Please enter a Message.
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            <div class="col-12 mt-4">
+                                <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                                <div class="flex">
+                                    <a href="#0" class="bttn">Submit</a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -336,11 +327,11 @@ $upload_lproduct = './landing_page/uploadlandingproduct/';
                         <div class="row d-flex justify-content-center mt-5">
                             <h5>Contact Us</h5>
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
+                        <div class="row d-flex justify-content-center mt-4">
                             <i class='bx bxs-phone bx-md'></i>
                             <h6 class="mt-3">+91 9427542226 / +91 265 2422622</h6>
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
+                        <div class="row d-flex justify-content-center mt-4">
                             <i class='bx bx-envelope bx-md'></i>
                             <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
                         </div>

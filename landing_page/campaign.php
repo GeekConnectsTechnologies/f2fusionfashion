@@ -6,11 +6,11 @@ if (!isset($_SESSION['login_user'])) {
 // $upload_dir = 'uploadengtorecp/';
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
-    //delete record from database
-    $sql = "delete from campaign where campaignId=" . $id;
-    if (mysqli_query($con, $sql)) {
-      header('location:campaign.php');
-    }
+  //delete record from database
+  $sql = "delete from campaign where campaignId=" . $id;
+  if (mysqli_query($con, $sql)) {
+    header('location:campaign.php');
+  }
 }
 ?>
 
@@ -50,7 +50,7 @@ if (isset($_GET['delete'])) {
                       <th>Sr. No</th>
                       <th>Campaign Title</th>
                       <th>Type</th>
-                      <th>Action</th>   
+                      <th>Action</th>
                     </tr>
                   </thead>
                   <tbody class="campaignseq">
@@ -64,11 +64,11 @@ if (isset($_GET['delete'])) {
                         <tr id="<?php echo $row['campaignId']; ?>">
                           <td><?php echo $counter ?></td>
                           <td><?php echo $row['title'] ?></td>
-                          <td><?php echo $row['campaignType'];?></td>
+                          <td><?php echo $row['campaignType']; ?></td>
                           <td>
-                          <a class="btn btn-sm btn-warning" href="viewcampaign.php?id=<?php echo $row['campaignId'] ?>">
+                            <a class="btn btn-sm btn-warning" href="viewcampaign.php?id=<?php echo $row['campaignId'] ?>">
                               View
-                            </a>  
+                            </a>
                             <a class="btn btn-sm btn-primary" href="editcampaign.php?id=<?php echo $row['campaignId'] ?>">
                               Edit
                             </a>
@@ -99,30 +99,30 @@ if (isset($_GET['delete'])) {
 <?php include '../footer.php'; ?>
 
 <script>
-   $(".campaignseq").sortable({
-        delay:150,
-        stop:function(){
-            var eng2recpselecteddata = new Array();
-            $(".campaignseq>tr").each(function(){
-                eng2recpselecteddata.push($(this).attr("id"));
-            });
-            updatereng2recp(eng2recpselecteddata);
-        }
-    });
-
-    function updatereng2recp(aData){
-        $.ajax({
-            url:'campaignsequence.php',
-            type: 'POST',
-            data: {
-                allData : aData
-            },
-            success: function(){
-                console.log("Done")
-            },
-            error: function() {
-                alert("There was an error.");
-            }
-        });
+  $(".campaignseq").sortable({
+    delay: 150,
+    stop: function() {
+      var eng2recpselecteddata = new Array();
+      $(".campaignseq>tr").each(function() {
+        eng2recpselecteddata.push($(this).attr("id"));
+      });
+      updatereng2recp(eng2recpselecteddata);
     }
+  });
+
+  function updatereng2recp(aData) {
+    $.ajax({
+      url: 'campaignsequence.php',
+      type: 'POST',
+      data: {
+        allData: aData
+      },
+      success: function() {
+        console.log("Done")
+      },
+      error: function() {
+        alert("There was an error.");
+      }
+    });
+  }
 </script>

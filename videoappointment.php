@@ -71,7 +71,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         <a class="nav-link active" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
+                        <a class="nav-link" href="contactus.php">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -140,9 +140,12 @@ $upload_diretr = './videopage/uploadengtorecp/';
                                 </div>
                             </div>
                             <div class="col-12 mt-5">
-                                <button class="btn btnbook" type="submit">
+                                <!-- <button class="btn btnbook" type="submit">
                                     <h5 style="margin: 0;">Book Now</h5>
-                                </button>
+                                </button> -->
+                                <div class="flex">
+                                    <a href="#0" class="bttn">Continue</a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -315,8 +318,11 @@ $upload_diretr = './videopage/uploadengtorecp/';
                                     Please enter a Message.
                                 </div>
                             </div>
-                            <div class="col-12">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            <div class="col-12 mt-4">
+                                <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                                <div class="flex">
+                                    <a href="#0" class="bttn">Submit</a>
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -338,11 +344,11 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         <div class="row d-flex justify-content-center mt-5">
                             <h5>Contact Us</h5>
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
+                        <div class="row d-flex justify-content-center mt-4">
                             <i class='bx bxs-phone bx-md'></i>
                             <h6 class="mt-3">+91 9427542226 / +91 265 2422622</h6>
                         </div>
-                        <div class="row d-flex justify-content-center mt-3">
+                        <div class="row d-flex justify-content-center mt-4">
                             <i class='bx bx-envelope bx-md'></i>
                             <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
                         </div>

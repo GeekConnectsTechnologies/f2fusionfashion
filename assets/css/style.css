@@ -633,3 +633,126 @@
   font-size: 69px;
   font-weight: 500;
 }
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a.bttn {
+  color: #5C5C5C;
+  text-decoration: none;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s ease all;
+  background-color: #5C5C5C;
+  color: #fff;
+}
+a.bttn:hover {
+  color: #5C5C5C;
+  background-color: #fff;
+}
+a.bttn:focus {
+  color: #fff;
+}
+.bttn {
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: inline-block;
+  text-align: center;
+  width: 180px;
+  font-weight: bold;
+  padding: 14px 0px;
+  border: 2px solid #5C5C5C;
+  border-radius: 22px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+.bttn:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #5C5C5C;
+  z-index: -2;
+}
+.bttn:hover:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.bttn:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+
+
+.flexx {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+a.btttn {
+  color: #5C5C5C;
+  text-decoration: none;
+  -webkit-transition: 0.3s all ease;
+  transition: 0.3s ease all;
+  background-color: #5C5C5C;
+  color: #fff;
+}
+a.btttn:hover {
+  color: #5C5C5C;
+  background-color: #DCDCDC;
+}
+a.btttn:focus {
+  color: #fff;
+}
+.btttn {
+  font-size: 10px;
+  letter-spacing: 2px;
+  /* text-transform: uppercase; */
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  font-weight: bold;
+  padding: 14px 0px;
+  border: 2px solid #5C5C5C;
+  border-radius: 22px;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+.btttn:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+  bottom: 0;
+  opacity: 0;
+  content: '';
+  background-color: #5C5C5C;
+  z-index: -2;
+}
+.btttn:hover:before {
+  -webkit-transition: 0.5s all ease;
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}
+.btttn:focus:before {
+  transition: 0.5s all ease;
+  left: 0;
+  right: 0;
+  opacity: 1;
+}

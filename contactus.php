@@ -28,30 +28,6 @@ $upload_diretr = './videopage/uploadengtorecp/';
         <!-- <h1>LOGO</h1> -->
         <img src="assets/images/100x100_LOGO.png" class="img-fluid" alt="">
     </div>
-    <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">HOME</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">ABOUT US</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">VIDEO APPOINTMENT</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">CONTACT US</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav> -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
@@ -65,13 +41,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         <a class="nav-link " aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="aboutus.php">ABOUT US</a>
+                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="contactus.php">CONTACT US</a>
+                        <a class="nav-link active" href="contactus.php">CONTACT US</a>
                     </li>
                 </ul>
             </div>
@@ -90,16 +66,37 @@ $upload_diretr = './videopage/uploadengtorecp/';
           <h2>Book Video Call Appointment</h2>
         </div> -->
             <div class="eleven">
-                <h1>Founder</h1>
+                <h1>Stores</h1>
             </div>
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-4 text-center mt-5">
-                    <img class="img-fluid" src="assets/images/400x400.png">
+            <div class="row justify-content-md-center text-center">
+                <h2>Raopura, Mandvi, Vadodara</h2>
+                <h4 class="mt-3">+91 99898 99898</h4>
+                <div class="col-12 col-sm-12 col-md-6 text-center mt-5">
+                    <img class="img-fluid" src="assets/images/600x650.png">
                 </div>
-                <div class="col-12 col-sm-12 col-md-8 mt-5 d-flex align-items-center">
-                    <p class="" style="color: #222222; font-size: 13pt; line-height: 28px; padding: 10px;">
-                        F2 India was established in 1983 and since then there is no looking back rajoo India offers you the finest Indian ethnic elegance it includes exquisite sherwanis, fine indo westerns, royal band galas, printed and solid jackets, jodhpuri elegant tuxedos basic to classic kurtas and matching accessories for every occasion in men's and kids wear we offer customization from handcrafted work to tailoring fit with our utmost experience working on every minute details with considering your preferences along with the widest range of collection in men and kidswear Pankaj
-                    </p>
+                <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
+                    <div class="mapouter">
+                        <div class="mapouter">
+                            <div class="gmap_canvas"><iframe width="600" height="650" id="gmap_canvas" src="https://maps.google.com/maps?q=F2%20Fusion%20Fashion&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>
+                                <style>
+                                    .mapouter {
+                                        position: relative;
+                                        text-align: right;
+                                        height: 650px;
+                                        width: 600px;
+                                    }
+                                </style>
+                                <style>
+                                    .gmap_canvas {
+                                        overflow: hidden;
+                                        background: none !important;
+                                        height: 650px;
+                                        width: 600px;
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -107,24 +104,33 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <section style="margin: 0px 25px 100px 25px;">
         <div class="container">
-            <div class="row justify-content-md-center">
-                <div class="col-12 col-sm-12 col-md-6 text-center mt-5 d-flex justify-content-center">
-                    <div class="card" style="width: 70%;">
-                        <img src="assets/images/400x400.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <hr>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        </div>
-                    </div>
+            <div class="row justify-content-md-center text-center">
+                <h2>Alkapuri, Vadodara</h2>
+                <h4 class="mt-3">+91 99898 99898</h4>
+                <div class="col-12 col-sm-12 col-md-6 text-center mt-5">
+                    <img class="img-fluid" src="assets/images/600x650.png">
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 text-center mt-5 d-flex justify-content-center">
-                    <div class="card" style="width: 70%;">
-                        <img src="assets/images/400x400.png" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <hr>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
+                    <div class="mapouter">
+                        <div class="mapouter">
+                            <div class="gmap_canvas"><iframe width="600" height="650" id="gmap_canvas" src="https://maps.google.com/maps?q=F2%20Fusion%20Fashion&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>
+                                <style>
+                                    .mapouter {
+                                        position: relative;
+                                        text-align: right;
+                                        height: 650px;
+                                        width: 600px;
+                                    }
+                                </style>
+                                <style>
+                                    .gmap_canvas {
+                                        overflow: hidden;
+                                        background: none !important;
+                                        height: 650px;
+                                        width: 600px;
+                                    }
+                                </style>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,26 +139,6 @@ $upload_diretr = './videopage/uploadengtorecp/';
     </section>
 
 
-
-    <section>
-        <div class="container">
-
-            <div class="eleven">
-                <h1>"Even Celebrity Trust and Love Us"</h1>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
-                </div>
-                <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <section style="margin: 100px 25px 100px 25px;">
