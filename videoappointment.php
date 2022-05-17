@@ -214,7 +214,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                     if (mysqli_num_rows($result)) {
                         while ($row = mysqli_fetch_assoc($result)) {
                     ?>
-                            <div class="col-6 col-sm-6 col-md-3 text-center">
+                            <div class="col-md-3 text-center">
 
                                 <?php echo $row['brandVideoEmbedded']; ?>
                             </div>
@@ -242,30 +242,32 @@ $upload_diretr = './videopage/uploadengtorecp/';
                 <h1>Customer Testimonials</h1>
             </div>
             <div class="row justify-content-center-md-center">
-                <?php
-                $counter = 1;
-                $sql = "select * from client ORDER BY sequence";
-                $result = mysqli_query($con, $sql);
-                if (mysqli_num_rows($result)) {
-                    while ($row = mysqli_fetch_assoc($result)) {
-                ?>
-                        <div class="col-6 col-sm-6 col-md-3 text-center">
-                            <div class="content">
-                                <div class="content-overlay"></div>
-                                <img class="img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
-                                <div class="content-details fadeIn-bottom">
-                                    <h4 class="content-title"><?php echo $row['clientName'] ?></h4>
-                                    <h6 class="content-title"><?php echo $row['location'] ?></h6>
-                                    <hr style="color: white;">
-                                    <p class="content-text"><?php echo $row['testimonial'] ?></p>
+                <div id="client" class="owl-carousel">
+                    <?php
+                    $counter = 1;
+                    $sql = "select * from client ORDER BY sequence";
+                    $result = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($result)) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                            <div class="text-center">
+                                <div class="content">
+                                    <div class="content-overlay"></div>
+                                    <img class="img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
+                                    <div class="content-details fadeIn-bottom">
+                                        <h4 class="content-title"><?php echo $row['clientName'] ?></h4>
+                                        <h6 class="content-title"><?php echo $row['location'] ?></h6>
+                                        <hr style="color: white;">
+                                        <p class="content-text"><?php echo $row['testimonial'] ?></p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                <?php $counter++;
+                    <?php $counter++;
+                        }
                     }
-                }
-                ?>
+                    ?>
+                </div>
             </div>
         </div>
     </section>
@@ -436,6 +438,22 @@ $upload_diretr = './videopage/uploadengtorecp/';
 <script>
     $(document).ready(function() {
         $("#brandvideo").owlCarousel({
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [980, 2],
+            itemsMobile: [600, 1],
+            navigation: true,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        $("#client").owlCarousel({
             items: 4,
             itemsDesktop: [1199, 3],
             itemsDesktopSmall: [980, 2],

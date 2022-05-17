@@ -31,7 +31,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -75,27 +75,21 @@ $upload_diretr = './videopage/uploadengtorecp/';
                     <img class="img-fluid" src="assets/images/600x650.png">
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
+                    <div class="row ">
                     <div class="mapouter">
                         <div class="mapouter">
-                            <div class="gmap_canvas"><iframe width="600" height="650" id="gmap_canvas" src="https://maps.google.com/maps?q=F2%20Fusion%20Fashion&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>
+                            <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=F2%20Fusion%20Fashion&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>
                                 <style>
                                     .mapouter {
                                         position: relative;
-                                        text-align: right;
-                                        height: 650px;
-                                        width: 600px;
-                                    }
-                                </style>
-                                <style>
-                                    .gmap_canvas {
-                                        overflow: hidden;
-                                        background: none !important;
+                                        text-align: left;
                                         height: 650px;
                                         width: 600px;
                                     }
                                 </style>
                             </div>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -117,15 +111,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                                 <style>
                                     .mapouter {
                                         position: relative;
-                                        text-align: right;
-                                        height: 650px;
-                                        width: 600px;
-                                    }
-                                </style>
-                                <style>
-                                    .gmap_canvas {
-                                        overflow: hidden;
-                                        background: none !important;
+                                        text-align: left;
                                         height: 650px;
                                         width: 600px;
                                     }

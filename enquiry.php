@@ -34,7 +34,7 @@ $campaignid = $_GET['cid'];
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
@@ -58,7 +58,7 @@ $campaignid = $_GET['cid'];
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -151,7 +151,7 @@ $campaignid = $_GET['cid'];
                             if (mysqli_num_rows($result2)) {
                                 while ($row2 = mysqli_fetch_assoc($result2)) {
                             ?>
-                                    <div class="col-6 col-sm-6 col-md-3 text-center">
+                                    <div class="col-12 col-sm-12 col-md-3 text-center p-3">
                                         <div id="productcarousel<?php echo $row2['productId'] ?>" class="carousel slide" data-bs-touch="true" data-bs-ride="carousel">
                                             <div class="carousel-inner" id="<?php echo $row2['productId'] ?>">
                                                 <?php
@@ -207,7 +207,7 @@ $campaignid = $_GET['cid'];
                             if (mysqli_num_rows($result5)) {
                                 while ($row5 = mysqli_fetch_assoc($result5)) {
                             ?>
-                                    <div class="col-6 col-sm-6 col-md-6 d-flex justify-content-center text-center">
+                                    <div class="col-12 col-sm-12 col-md-6 d-flex justify-content-center text-center p-3">
                                         <?php echo $row5['pIGEmbedded'] ?>
                                     </div>
                             <?php

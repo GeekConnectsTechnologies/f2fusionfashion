@@ -31,7 +31,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
@@ -55,7 +55,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -142,13 +142,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
+                    <img src="assets/images/400x400.png" class="card-img-top p-3" alt="...">
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
+                    <img src="assets/images/400x400.png" class="card-img-top p-3" alt="...">
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top" alt="...">
+                    <img src="assets/images/400x400.png" class="card-img-top p-3" alt="...">
                 </div>
             </div>
         </div>

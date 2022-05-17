@@ -32,7 +32,7 @@ $upload_limage = './landing_page/uploadlandingimage/';
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse text-center" id="navbarSupportedContent">
@@ -56,7 +56,7 @@ $upload_limage = './landing_page/uploadlandingimage/';
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -108,13 +108,13 @@ $upload_limage = './landing_page/uploadlandingimage/';
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row">
+                    <div class="row <?php if($row['sequence']%2==0){echo 'rev';}?>">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
                                 <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
                             </a>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center <?php if($row['sequence']%2==0){echo 'order-first';}?>" style="height: 950px;  overflow: auto;">
+                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center scrollover <?php if($row['sequence']%2==0){echo 'order-first';}?>">
                             <div class="row">
                                 <?php
                                 $counter = 1;
