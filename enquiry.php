@@ -165,7 +165,11 @@ $campaignid = $_GET['cid'];
                                                             <img src="<?php echo $upload_dirp . $row3['pImages'] ?>">
                                                             <div class="carousel-caption d-none d-md-block">
                                                                 <div class="flexx">
-                                                                    <a href="#0" class="btttn">Enquiry</a>
+                                                                    <!-- <a href="#0" class="btttn">Enquiry</a> -->
+                                                                    <!-- Button trigger modal -->
+                                                                    <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                        Enquiry
+                                                                    </button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -218,8 +222,6 @@ $campaignid = $_GET['cid'];
         }
     }
     ?>
-
-
 
 
     <section style="margin: 100px 25px 100px 25px;">
@@ -308,6 +310,25 @@ $campaignid = $_GET['cid'];
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Reach Us</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="footer mt-auto py-3 bg-light border-top border-secondary border-1">
         <div class="container">
@@ -453,6 +474,44 @@ $campaignid = $_GET['cid'];
         }
         ?>
     });
+</script>
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+                form.addEventListener('submit', function(event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+
+
+                    if (form.checkValidity() === true) {
+                        //enter your code here 
+                        event.preventDefault();
+                        var form_data = {
+                            name: name_id.value,
+                            username: username_id.value,
+                            password: password_id.value
+                        }
+
+                        console.log(form_data); //printing form data in Console
+                        document.forms[0].reset(); //reseting the form
+                        document.getElementById('myForm').classList.remove("was-validated"); //reseting the form validation
+
+                    }
+
+                }, false);
+            });
+        }, false);
+    })();
 </script>
 
 </html>

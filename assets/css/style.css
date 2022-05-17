@@ -701,7 +701,7 @@ a.bttn:focus {
   align-items: center;
   justify-content: center;
 }
-a.btttn {
+button.btttn {
   color: #5C5C5C;
   text-decoration: none;
   -webkit-transition: 0.3s all ease;
@@ -709,11 +709,11 @@ a.btttn {
   background-color: #5C5C5C;
   color: #fff;
 }
-a.btttn:hover {
+button.btttn:hover {
   color: #5C5C5C;
   background-color: #DCDCDC;
 }
-a.btttn:focus {
+button.btttn:focus {
   color: #fff;
 }
 .btttn {
