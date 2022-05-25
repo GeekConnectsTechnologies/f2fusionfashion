@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="../backendassets/vendors/typicons/typicons.css">
   <link rel="stylesheet" href="../backendassets/vendors/simple-line-icons/css/simple-line-icons.css">
   <link rel="stylesheet" href="../backendassets/vendors/css/vendor.bundle.base.css">
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
   <!-- endinject -->
   <!-- Plugin css for this page -->
   <link rel="stylesheet" href="../backendassets/vendors/datatables.net-bs4/dataTables.bootstrap4.css">

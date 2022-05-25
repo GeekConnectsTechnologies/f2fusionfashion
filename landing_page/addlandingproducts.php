@@ -63,6 +63,29 @@ if(isset($_POST['btnSave'])){
 ?>
 
 <?php include '../menu.php'; ?>
+<style>
+#images{
+    width: 100%;
+    /* position: relative; */
+    margin: auto;
+    display: flex;
+    /* justify-content: space-evenly; */
+    gap: 20px;
+    flex-wrap: wrap;
+}
+figure{
+    width: 8%;
+}
+img{
+    width: 100%;
+}
+figcaption{
+    text-align: center;
+    font-size: 1.5vmin;
+    margin-top: 0.5vmin;
+}
+
+</style>
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
@@ -108,7 +131,9 @@ if(isset($_POST['btnSave'])){
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="">Header Image</label>
-                  <input type="file" name="files[]" multiple class="form-control">
+                  <input type="file" id="file-input" name="files[]" onchange="preview()" multiple class="form-control">
+                  <br>
+                  <div id="images"></div>
                 </div>
                 
                 <button type="submit" class="btn btn-primary me-2" name="btnSave">Submit</button>
@@ -125,5 +150,32 @@ if(isset($_POST['btnSave'])){
 
   <!-- partial -->
 </div>
+
+<script>
+  let fileInput = document.getElementById("file-input");
+  let imageContainer = document.getElementById("images");
+  // let numOfFiles = document.getElementById("num-of-files");
+
+  function preview() {
+    imageContainer.innerHTML = "";
+    // numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+
+    for (i of fileInput.files) {
+      let reader = new FileReader();
+      let figure = document.createElement("figure");
+      let figCap = document.createElement("figcaption");
+      figCap.innerText = i.name;
+      figure.appendChild(figCap);
+      reader.onload = () => {
+        let img = document.createElement("img");
+        img.setAttribute("src", reader.result);
+        figure.insertBefore(img, figCap);
+      }
+      imageContainer.appendChild(figure);
+      reader.readAsDataURL(i);
+    }
+  }
+</script>
+
 <!-- main-panel ends -->
 <?php include '../footer.php'; ?>

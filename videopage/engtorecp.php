@@ -75,7 +75,7 @@ if (isset($_GET['delete'])) {
                           <td><?php echo $row['sequence'] ?></td>
                           <td><?php echo $row['engtorecpTitle'] ?></td>
                           <td><?php echo $row['engtorecpDesc'] ?></td>
-                          <td><img src="<?php echo $upload_dir . $row['engtorecpImage'] ?>"></td>
+                          <td><img class="img-fluid" style="width: 40%;" src="<?php echo $upload_dir . $row['engtorecpImage'] ?>"></td>
                           <td>
                             <a class="btn btn-sm btn-primary" href="editengtorecp.php?id=<?php echo $row['id'] ?>">
                               Edit

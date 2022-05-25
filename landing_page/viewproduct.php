@@ -14,12 +14,12 @@ if (isset($_GET['delete'])) {
     //select old photo name from database
 
     $sql = "delete from product where productId=" . $id;
-    $sqldelete = "delete from productimages where productId=".$id;
-    mysqli_query($con,$sqldelete);
-    
+    $sqldelete = "delete from productimages where productId=" . $id;
+    mysqli_query($con, $sqldelete);
+
     if (mysqli_query($con, $sql)) {
-        
-        header('refresh:1;viewproduct.php?id='.$cid);
+
+        header('refresh:1;viewproduct.php?id=' . $cid);
     }
 }
 
@@ -46,7 +46,16 @@ if (isset($_GET['delete'])) {
                         <div class="card-body">
                             <div class="row d-flex justify-content-between">
                                 <div class="col-md-10">
-                                    <h4 class="card-title">Products</h4>
+                                    <div class="card-title">
+                                        <?php
+                                        $csql = "select * from campaign where campaignId=" . $campaignid;
+                                        $cresult = mysqli_query($con, $csql);
+                                        $crow = mysqli_fetch_assoc($cresult);
+                                        ?>
+                                        <span><a class="btn btn-sm btn-success" href="viewcampaign.php?id=<?php echo $crow['campaignId'] ?>"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="fill: rgba(255, 255, 255, 1);"><path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z"></path></svg> back</a></span> &nbsp; &nbsp; &nbsp;
+                                        <span style="font-size: 35px;"><?php echo $crow['title']; ?></span> <span style="font-size: 15px;">&nbsp; Products</span>
+                                        <!-- <h2></h2> <h4> Landing Page Products</h4> -->
+                                    </div>
                                 </div>
                                 <div class="col-md-2">
                                     <a class="btn btn-sm btn-success" href="addproduct.php?campaignid=<?php echo $campaignid; ?>">Add new</a>
@@ -81,7 +90,7 @@ if (isset($_GET['delete'])) {
                                                         <div id="icons-container">
                                                             <div class="single-icon-container">
                                                                 <?php
-                                                                $sqlgetphoto = "SELECT pImages from productimages where productId=" . $row['productId']." limit 5";
+                                                                $sqlgetphoto = "SELECT pImages from productimages where productId=" . $row['productId'] . " limit 5";
                                                                 $resultgetphoto = mysqli_query($con, $sqlgetphoto);
                                                                 if (mysqli_num_rows($resultgetphoto)) {
                                                                     while ($rowgetphoto = mysqli_fetch_assoc($resultgetphoto)) {

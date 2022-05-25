@@ -14,15 +14,15 @@ $sql = "select * from campaign where campaignId=" . $id;
 $result = mysqli_query($con, $sql);
 $row = mysqli_fetch_assoc($result);
 
-$sqlcount = "select count(lpProductId) as count from landingpageproduct where campaignId=".$id;
+$sqlcount = "select count(lpProductId) as count from landingpageproduct where campaignId=" . $id;
 $resultcount = mysqli_query($con, $sqlcount);
 $rowcount = mysqli_fetch_assoc($resultcount);
 
-$sqlcount2 = "select count(productIGId) as count from productig where campaignId=".$id;
+$sqlcount2 = "select count(productIGId) as count from productig where campaignId=" . $id;
 $resultcount2 = mysqli_query($con, $sqlcount2);
 $rowcount2 = mysqli_fetch_assoc($resultcount2);
 
-$sqlcount3 = "select count(productId) as count from product where campaignId=".$id;
+$sqlcount3 = "select count(productId) as count from product where campaignId=" . $id;
 $resultcount3 = mysqli_query($con, $sqlcount3);
 $rowcount3 = mysqli_fetch_assoc($resultcount3);
 ?>
@@ -38,6 +38,8 @@ $rowcount3 = mysqli_fetch_assoc($resultcount3);
                         <div class="card-body">
                             <h2><?php echo $row['title']; ?></h2>
                             <hr>
+                            <p class="" style="color: #222222; font-size: 11pt; line-height: 28px; padding: 5px;"><?php echo $row['description']; ?></p>
+                            <br>
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-12 mb-5">
                                     <p>Title Background Image</p>
@@ -60,8 +62,26 @@ $rowcount3 = mysqli_fetch_assoc($resultcount3);
                                     <tr>
                                         <th>Campaign Type</th>
                                         <th>Number of Products in Landing Page</th>
-                                        <th>Number of Products in Campaign Page</th>
-                                        <th>Number of Instagram Posts</th>
+                                        <?php
+                                        $counter = 1;
+                                        $sql11 = "select * from campaign where campaignId =" . $id . " ORDER BY sequence";
+                                        $result11 = mysqli_query($con, $sql11);
+                                        if (mysqli_num_rows($result11)) {
+                                            while ($row11 = mysqli_fetch_assoc($result11)) {
+                                                if ($row11['campaignType'] == "Enquiry") {
+                                        ?>
+                                                    <th>Number of Products in Campaign Page</th>
+                                                <?php
+                                                } else {
+                                                ?>
+                                                    <th>Number of Instagram Posts</th>
+                                        <?php
+                                                }
+                                            }
+                                        }
+                                        ?>
+
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -72,19 +92,37 @@ $rowcount3 = mysqli_fetch_assoc($resultcount3);
                                                 View
                                             </a>
                                         </td>
-                                        <td>
-                                            <span class="mr-5"><?php echo $rowcount3['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="btn btn-sm btn-warning" href="viewproduct.php?id=<?php echo $row['campaignId'] ?>">
-                                                View
-                                            </a>
+                                        <?php
+                                        $counter = 1;
+                                        $sql11 = "select * from campaign where campaignId =" . $id . " ORDER BY sequence";
+                                        $result11 = mysqli_query($con, $sql11);
+                                        if (mysqli_num_rows($result11)) {
+                                            while ($row11 = mysqli_fetch_assoc($result11)) {
+                                                if ($row11['campaignType'] == "Enquiry") {
+                                        ?>
 
-                                        </td>
-                                        <td>
-                                            <span class="mr-5"><?php echo $rowcount2['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            <a class="btn btn-sm btn-warning" href="viewinstagrampost.php?id=<?php echo $row['campaignId'] ?>">
-                                                View
-                                            </a>
-                                        </td>
+                                                    <td>
+                                                        <span class="mr-5"><?php echo $rowcount3['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <a class="btn btn-sm btn-warning" href="viewproduct.php?id=<?php echo $row['campaignId'] ?>">
+                                                            View
+                                                        </a>
+
+                                                    </td>
+                                                <?php
+                                                } else {
+                                                ?>
+
+                                                    <td>
+                                                        <span class="mr-5"><?php echo $rowcount2['count']; ?></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                        <a class="btn btn-sm btn-warning" href="viewinstagrampost.php?id=<?php echo $row['campaignId'] ?>">
+                                                            View
+                                                        </a>
+                                                    </td>
+                                        <?php
+                                                }
+                                            }
+                                        }
+                                        ?>
 
                                     </tr>
                                 </tbody>

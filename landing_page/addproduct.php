@@ -6,68 +6,90 @@ if (!isset($_SESSION['login_user'])) {
 $campaignid = $_GET['campaignid'];
 $upload_dir = 'uploadproduct/';
 
-if(isset($_POST['btnSave'])){ 
+if (isset($_POST['btnSave'])) {
 
-    $title=$_POST['title'];
-    $sqlproduct="INSERT into product(pName, campaignId) VALUES ('".$title."','".$campaignid."')";
-    $resultprocuct = mysqli_query($con, $sqlproduct);
+  $title = $_POST['title'];
+  $sqlproduct = "INSERT into product(pName, campaignId) VALUES ('" . $title . "','" . $campaignid . "')";
+  $resultprocuct = mysqli_query($con, $sqlproduct);
 
-    $lastproductid = mysqli_insert_id($con);
-    // File upload configuration 
-    $allowTypes = array('jpg','png','jpeg','gif'); 
-     
-    $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = ''; 
-    $fileNames = array_filter($_FILES['files']['name']); 
-    if(!empty($fileNames)){ 
-        foreach($_FILES['files']['name'] as $key=>$val){ 
-            // File upload path 
-            $fileName = basename($_FILES['files']['name'][$key]); 
-            $targetFilePath = $upload_dir . $fileName; 
-             
-            // Check whether file type is valid 
-            $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
-            if(in_array($fileType, $allowTypes)){ 
-                // Upload file to server 
-                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
-                    // Image db insert sql 
-                    $insertValuesSQL .= "('".$fileName."', '".$lastproductid."'),";  
-                    
-                }else{ 
-                    $errorUpload .= $_FILES['files']['name'][$key].' | '; 
-                } 
-            }else{ 
-                $errorUploadType .= $_FILES['files']['name'][$key].' | '; 
-            } 
-        } 
-         
-        // Error message 
-        $errorUpload = !empty($errorUpload)?'Upload Error: '.trim($errorUpload, ' | '):''; 
-        $errorUploadType = !empty($errorUploadType)?'File Type Error: '.trim($errorUploadType, ' | '):''; 
-        $errorMsg = !empty($errorUpload)?'<br/>'.$errorUpload.'<br/>'.$errorUploadType:'<br/>'.$errorUploadType; 
-         
-        if(!empty($insertValuesSQL)){ 
-            $insertValuesSQL = trim($insertValuesSQL, ','); 
-            // Insert image file name into database 
-            
-            $insert = $con->query("INSERT INTO productimages (pImages, productId) VALUES $insertValuesSQL"); 
-            if($insert){ 
-                $successMsg = "Files are uploaded successfully.".$errorMsg; 
-                header('refresh:5;viewproduct.php?id='.$campaignid);
-            }else{ 
-                $statusMsg = "Sorry, there was an error uploading your file."; 
-            } 
-        }else{ 
-            $statusMsg = "Upload failed! ".$errorMsg; 
-        } 
-    }else{ 
-        $statusMsg = 'Please select a file to upload.'; 
-    } 
+  $lastproductid = mysqli_insert_id($con);
+  // File upload configuration 
+  $allowTypes = array('jpg', 'png', 'jpeg', 'gif');
+
+  $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
+  $fileNames = array_filter($_FILES['files']['name']);
+  if (!empty($fileNames)) {
+    foreach ($_FILES['files']['name'] as $key => $val) {
+      // File upload path 
+      $fileName = basename($_FILES['files']['name'][$key]);
+      $targetFilePath = $upload_dir . $fileName;
+
+      // Check whether file type is valid 
+      $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
+      if (in_array($fileType, $allowTypes)) {
+        // Upload file to server 
+        if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
+          // Image db insert sql 
+          $insertValuesSQL .= "('" . $fileName . "', '" . $lastproductid . "'),";
+        } else {
+          $errorUpload .= $_FILES['files']['name'][$key] . ' | ';
+        }
+      } else {
+        $errorUploadType .= $_FILES['files']['name'][$key] . ' | ';
+      }
+    }
+
+    // Error message 
+    $errorUpload = !empty($errorUpload) ? 'Upload Error: ' . trim($errorUpload, ' | ') : '';
+    $errorUploadType = !empty($errorUploadType) ? 'File Type Error: ' . trim($errorUploadType, ' | ') : '';
+    $errorMsg = !empty($errorUpload) ? '<br/>' . $errorUpload . '<br/>' . $errorUploadType : '<br/>' . $errorUploadType;
+
+    if (!empty($insertValuesSQL)) {
+      $insertValuesSQL = trim($insertValuesSQL, ',');
+      // Insert image file name into database 
+
+      $insert = $con->query("INSERT INTO productimages (pImages, productId) VALUES $insertValuesSQL");
+      if ($insert) {
+        $successMsg = "Files are uploaded successfully." . $errorMsg;
+        header('refresh:5;viewproduct.php?id=' . $campaignid);
+      } else {
+        $statusMsg = "Sorry, there was an error uploading your file.";
+      }
+    } else {
+      $statusMsg = "Upload failed! " . $errorMsg;
+    }
+  } else {
+    $statusMsg = 'Please select a file to upload.';
+  }
 }
 
 
 ?>
 
 <?php include '../menu.php'; ?>
+<style>
+#images{
+    width: 100%;
+    /* position: relative; */
+    margin: auto;
+    display: flex;
+    /* justify-content: space-evenly; */
+    gap: 20px;
+    flex-wrap: wrap;
+}
+figure{
+    width: 8%;
+}
+img{
+    width: 100%;
+}
+figcaption{
+    text-align: center;
+    font-size: 1.5vmin;
+    margin-top: 0.5vmin;
+}
+
+</style>
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
@@ -113,14 +135,17 @@ if(isset($_POST['btnSave'])){
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
 
                 <div class="form-group">
-                    <label for="">Product Title</label>
-                    <input type="text" class="form-control" name="title">
+                  <label for="">Product Title</label>
+                  <input type="text" class="form-control" name="title">
                 </div>
                 <div class="form-group">
                   <label for="">Product Images</label>
-                  <input type="file" name="files[]" multiple class="form-control">
+                  <!-- <input type="file" id="file-input" accept="image/png, image/jpeg" onchange="preview()" multiple> -->
+                  <input type="file" id="file-input" name="files[]" onchange="preview()" multiple class="form-control">
+                  <br>
+                  <div id="images"></div>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary me-2" name="btnSave">Submit</button>
                 <!-- <button class="btn btn-light">Cancel</button> -->
               </form>
@@ -135,5 +160,31 @@ if(isset($_POST['btnSave'])){
 
   <!-- partial -->
 </div>
+
+<script>
+  let fileInput = document.getElementById("file-input");
+  let imageContainer = document.getElementById("images");
+  // let numOfFiles = document.getElementById("num-of-files");
+
+  function preview() {
+    imageContainer.innerHTML = "";
+    // numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+
+    for (i of fileInput.files) {
+      let reader = new FileReader();
+      let figure = document.createElement("figure");
+      let figCap = document.createElement("figcaption");
+      figCap.innerText = i.name;
+      figure.appendChild(figCap);
+      reader.onload = () => {
+        let img = document.createElement("img");
+        img.setAttribute("src", reader.result);
+        figure.insertBefore(img, figCap);
+      }
+      imageContainer.appendChild(figure);
+      reader.readAsDataURL(i);
+    }
+  }
+</script>
 <!-- main-panel ends -->
 <?php include '../footer.php'; ?>
