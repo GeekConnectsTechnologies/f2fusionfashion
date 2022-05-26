@@ -26,7 +26,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <img src="assets/images/100x100_LOGO.png" class="img-fluid" alt="">
+        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="img-fluid" alt=""></a>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
