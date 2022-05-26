@@ -70,6 +70,8 @@ if (isset($_GET['delete'])) {
                                         <tr>
                                             <th>Sr. No</th>
                                             <th>Name</th>
+                                            <th>Product Code</th>
+                                            <th>Price</th>
                                             <th>Photo Thumbnail</th>
                                             <th>Action</th>
                                         </tr>
@@ -86,6 +88,8 @@ if (isset($_GET['delete'])) {
                                                     <td><?php echo $counter ?></td>
 
                                                     <td><?php echo $row['pName'] ?></td>
+                                                    <td><?php echo $row['productCode'] ?></td>
+                                                    <td><?php echo $row['Price'] ?></td>
                                                     <td>
                                                         <div id="icons-container">
                                                             <div class="single-icon-container">

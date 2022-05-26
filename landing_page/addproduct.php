@@ -9,7 +9,11 @@ $upload_dir = 'uploadproduct/';
 if (isset($_POST['btnSave'])) {
 
   $title = $_POST['title'];
-  $sqlproduct = "INSERT into product(pName, campaignId) VALUES ('" . $title . "','" . $campaignid . "')";
+  
+  $pcode = $_POST['pcode'];
+  
+  $price = $_POST['price'];
+  $sqlproduct = "INSERT into product(pName, campaignId, productCode, Price) VALUES ('" . $title . "','" . $campaignid . "','" . $pcode . "','" . $price . "')";
   $resultprocuct = mysqli_query($con, $sqlproduct);
 
   $lastproductid = mysqli_insert_id($con);
@@ -137,6 +141,16 @@ figcaption{
                 <div class="form-group">
                   <label for="">Product Title</label>
                   <input type="text" class="form-control" name="title">
+                </div>
+                
+                <div class="form-group">
+                  <label for="">Product Code</label>
+                  <input type="text" class="form-control" name="pcode">
+                </div>
+                
+                <div class="form-group">
+                  <label for="">Product Price</label>
+                  <input type="text" class="form-control" name="price">
                 </div>
                 <div class="form-group">
                   <label for="">Product Images</label>
