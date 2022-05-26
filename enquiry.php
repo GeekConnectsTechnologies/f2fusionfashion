@@ -163,15 +163,15 @@ $campaignid = $_GET['cid'];
                                                 ?>
                                                         <div class="carousel-item">
                                                             <img src="<?php echo $upload_dirp . $row3['pImages'] ?>">
-                                                            <div class="carousel-caption d-none d-md-block">
-                                                                <div class="flexx">
+                                                            <!-- <div class="carousel-caption d-none d-md-block">
+                                                                <div class="flexx"> -->
                                                                     <!-- <a href="#0" class="btttn">Enquiry</a> -->
                                                                     <!-- Button trigger modal -->
-                                                                    <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                                    <!-- <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                                         Enquiry
                                                                     </button>
                                                                 </div>
-                                                            </div>
+                                                            </div> -->
                                                         </div>
                                                 <?php
                                                     }
@@ -186,6 +186,18 @@ $campaignid = $_GET['cid'];
                                                     <span class="visually-hidden">Next</span>
                                                 </button>
                                             </div>
+                                        </div>
+                                        <br>
+                                        <div class="row text-center justify-content-center pb-3">
+                                            <h5><?php echo $row2['pName'] ?></h5>
+                                            <h6>Rs. <?php echo $row2['Price'] ?>/-</h6>
+                                        </div>
+                                        <div class="flexx">
+                                            <!-- <a href="#0" class="btttn">Enquiry</a> -->
+                                            <!-- Button trigger modal -->
+                                            <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                Enquiry
+                                            </button>
                                         </div>
                                     </div>
                             <?php
@@ -223,93 +235,6 @@ $campaignid = $_GET['cid'];
     }
     ?>
 
-
-    <section style="margin: 100px 25px 100px 25px;">
-        <div class="container">
-            <div class="row justify-content-md-around">
-                <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
-                    <div class="accessoriesTitle">
-                        <h5>Video Call Appointment</h5>
-                        <form action="" class="row g-3 needs-validation" novalidate>
-                            <div class="col-md-12">
-                                <label for="validationCustom01" class="form-label"></label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a Name.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationCustom02" class="form-label"></label>
-                                <input type="number" class="form-control" id="validationCustom02" placeholder="Contact No." required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a Contact Number.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationCustom01" class="form-label"></label>
-                                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter Valid a Email.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationCustom02" class="form-label"></label>
-                                <input type="text" class="form-control" id="validationCustom02" placeholder="Message" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a Message.
-                                </div>
-                            </div>
-                            <div class="col-12 mt-4">
-                                <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
-                                <div class="flex">
-                                    <a href="#0" class="bttn">Submit</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
-                    <div class="accessoriesTitle">
-                        <h5>Follow Us</h5>
-                        <div class="row d-flex justify-content-center mt-5">
-                            <div class="col-md-2 text-center">
-                                <i class='bx bxl-facebook-square bx-md'></i>
-                            </div>
-                            <div class="col-md-2">
-                                <i class='bx bxl-instagram bx-md'></i>
-                            </div>
-                            <div class="col-md-2">
-                                <i class='bx bxl-whatsapp bx-md'></i>
-                            </div>
-                        </div>
-                        <div class="row d-flex justify-content-center mt-5">
-                            <h5>Contact Us</h5>
-                        </div>
-                        <div class="row d-flex justify-content-center mt-4">
-                            <i class='bx bxs-phone bx-md'></i>
-                            <h6 class="mt-3">+91 9427542226 / +91 265 2422622</h6>
-                        </div>
-                        <div class="row d-flex justify-content-center mt-4">
-                            <i class='bx bx-envelope bx-md'></i>
-                            <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

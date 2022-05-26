@@ -111,7 +111,10 @@ $upload_limage = './landing_page/uploadlandingimage/';
                     <div class="row <?php if($row['sequence']%2==0){echo 'rev';}?>">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
-                                <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
+                                <figure class="wp-caption">
+                                    <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
+                                    <figcaption class="wp-caption-text">Explore</figcaption>
+                                </figure>
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center scrollover <?php if($row['sequence']%2==0){echo 'order-first';}?>">
