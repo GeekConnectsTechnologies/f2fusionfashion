@@ -639,7 +639,7 @@
   align-items: center;
   justify-content: center;
 }
-a.bttn {
+button.bttn {
   color: #5C5C5C;
   text-decoration: none;
   -webkit-transition: 0.3s all ease;
@@ -647,11 +647,11 @@ a.bttn {
   background-color: #5C5C5C;
   color: #fff;
 }
-a.bttn:hover {
+button.bttn:hover {
   color: #5C5C5C;
   background-color: #fff;
 }
-a.bttn:focus {
+button.bttn:focus {
   color: #fff;
 }
 .bttn {

@@ -144,7 +144,8 @@ $upload_diretr = './videopage/uploadengtorecp/';
                                     <h5 style="margin: 0;">Book Now</h5>
                                 </button> -->
                                 <div class="flex">
-                                    <a href="#0" class="bttn">Continue</a>
+                                    <!-- <a href="#0" class="bttn">Continue</a> -->
+                                    <button type="submit" class="bttn" name="btnSave">Submit</button>
                                 </div>
                             </div>
                         </form>

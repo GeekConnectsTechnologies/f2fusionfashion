@@ -4,6 +4,32 @@ $upload_header = './landing_page/uploadheaderImage/';
 $upload_title = './landing_page/uploadtitleImage/';
 $upload_lproduct = './landing_page/uploadlandingproduct/';
 $upload_limage = './landing_page/uploadlandingimage/';
+
+if (isset($_POST['btnSave'])) {
+
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    if (empty($name)) {
+        $errorMsg = 'Enter Name';
+    }
+
+    //check upload file not error than insert data to database
+    if (!isset($errorMsg)) {
+
+        $sql = "insert into formDetails(name, phone, email, message)
+                values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "')";
+        $result = mysqli_query($con, $sql);
+        if ($result) {
+            $successMsg = 'Form Submitted successfully';
+            // header('refresh:5;brandvideo.php');
+        } else {
+            $errorMsg = 'Error ' . mysqli_error($con);
+        }
+    }
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -108,7 +134,9 @@ $upload_limage = './landing_page/uploadlandingimage/';
                     </div>
                 </div>
                 <div class="container">
-                    <div class="row <?php if($row['sequence']%2==0){echo 'rev';}?>">
+                    <div class="row <?php if ($row['sequence'] % 2 == 0) {
+                                        echo 'rev';
+                                    } ?>">
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
                                 <figure class="wp-caption">
@@ -117,7 +145,9 @@ $upload_limage = './landing_page/uploadlandingimage/';
                                 </figure>
                             </a>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center scrollover <?php if($row['sequence']%2==0){echo 'order-first';}?>">
+                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center scrollover <?php if ($row['sequence'] % 2 == 0) {
+                                                                                                        echo 'order-first';
+                                                                                                    } ?>">
                             <div class="row">
                                 <?php
                                 $counter = 1;
@@ -263,10 +293,10 @@ $upload_limage = './landing_page/uploadlandingimage/';
                 <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
                     <div class="accessoriesTitle">
                         <h5>Video Call Appointment</h5>
-                        <form action="" class="row g-3 needs-validation" novalidate>
+                        <form action="" class="row g-3 needs-validation" method="POST" novalidate>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label"></label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+                                <input type="text" class="form-control" name="name" id="validationCustom01" placeholder="Name" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -276,7 +306,7 @@ $upload_limage = './landing_page/uploadlandingimage/';
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom02" class="form-label"></label>
-                                <input type="number" class="form-control" id="validationCustom02" placeholder="Contact No." required>
+                                <input type="number" class="form-control" name="phone" id="validationCustom02" placeholder="Contact No." required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -286,7 +316,7 @@ $upload_limage = './landing_page/uploadlandingimage/';
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label"></label>
-                                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
+                                <input type="email" class="form-control" name="email" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -296,7 +326,7 @@ $upload_limage = './landing_page/uploadlandingimage/';
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom02" class="form-label"></label>
-                                <input type="text" class="form-control" id="validationCustom02" placeholder="Message" required>
+                                <input type="text" class="form-control" name="message" id="validationCustom02" placeholder="Message" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -304,10 +334,22 @@ $upload_limage = './landing_page/uploadlandingimage/';
                                     Please enter a Message.
                                 </div>
                             </div>
+                            <?php
+                            if (isset($successMsg)) {
+                            ?>
+                                <div class="alert alert-success" id="success">
+                                    <span class="glyphicon glyphicon-info">
+                                        <strong style="font-family:calibri ; font-size:20px;"><?php echo $successMsg; ?> </strong>
+                                    </span>
+                                </div>
+                            <?php
+                            }
+                            ?>
                             <div class="col-12 mt-4">
                                 <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
                                 <div class="flex">
-                                    <a href="#0" class="bttn">Submit</a>
+                                    <!-- <button class="bttn">Submit</button> -->
+                                    <button type="submit" class="bttn" name="btnSave">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -367,6 +409,12 @@ $upload_limage = './landing_page/uploadlandingimage/';
 
 
     <!-- Optional JavaScript; choose one of the two! -->
+
+    <script>
+        setTimeout(function() {
+            $('#success').fadeOut('fast');
+        }, 30000); // <-- time in milliseconds
+    </script>
 
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields

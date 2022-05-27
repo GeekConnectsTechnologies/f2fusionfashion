@@ -177,7 +177,8 @@ $upload_diretr = './videopage/uploadengtorecp/';
                             <div class="col-12 mt-4">
                                 <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
                                 <div class="flex">
-                                    <a href="#0" class="bttn">Submit</a>
+                                    <!-- <a href="#0" class="bttn">Submit</a> -->
+                                    <button type="submit" class="bttn" name="btnSave">Submit</button>
                                 </div>
                             </div>
                         </form>
