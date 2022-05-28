@@ -11,7 +11,8 @@ if (isset($_POST['btnSave'])) {
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-
+    $date = date('d-m-y h:i:s');
+    $source = 'Landing Page';
     if (empty($name)) {
         $errorMsg = 'Enter Name';
     }
@@ -19,17 +20,19 @@ if (isset($_POST['btnSave'])) {
     //check upload file not error than insert data to database
     if (!isset($errorMsg)) {
 
-        $sql = "insert into formDetails(name, phone, email, message)
-                values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "')";
+        $sql = "insert into formDetails(name, phone, email, message, datetime, source)
+                values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "','" . $date . "','" . $source . "')";
         $result = mysqli_query($con, $sql);
         if ($result) {
-            $successMsg = 'Form Submitted successfully';
+            $_SESSION['formSubmitted'] = true;
             // header('refresh:5;brandvideo.php');
         } else {
             $errorMsg = 'Error ' . mysqli_error($con);
         }
     }
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -334,17 +337,7 @@ if (isset($_POST['btnSave'])) {
                                     Please enter a Message.
                                 </div>
                             </div>
-                            <?php
-                            if (isset($successMsg)) {
-                            ?>
-                                <div class="alert alert-success" id="success">
-                                    <span class="glyphicon glyphicon-info">
-                                        <strong style="font-family:calibri ; font-size:20px;"><?php echo $successMsg; ?> </strong>
-                                    </span>
-                                </div>
-                            <?php
-                            }
-                            ?>
+
                             <div class="col-12 mt-4">
                                 <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
                                 <div class="flex">
@@ -407,6 +400,23 @@ if (isset($_POST['btnSave'])) {
     </footer>
 
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thank You</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your response is successfully submitted. We will contact you shortly.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -439,6 +449,7 @@ if (isset($_POST['btnSave'])) {
         })()
     </script>
 
+
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -447,6 +458,17 @@ if (isset($_POST['btnSave'])) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     -->
+    <?php
+    echo "<script>console.log(" . $_SESSION['formSubmitted'] . ")</script>";
+    if (isset($_SESSION['formSubmitted']) && $_SESSION['formSubmitted'] === true) {
+        echo "<script>
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+document.onreadystatechange = function () {
+  myModal.show();
+};</script>";
+        unset($_SESSION['formSubmitted']);
+    }
+    ?>
 </body>
 
 </html>

@@ -2,6 +2,36 @@
 include('./db.php');
 $upload_dir = './videopage/uploadclienttestimonial/';
 $upload_diretr = './videopage/uploadengtorecp/';
+
+
+if (isset($_POST['btnSave'])) {
+
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $date = date('d-m-y h:i:s');
+    $source = 'Contact Us Page';
+
+    if (empty($name)) {
+        $errorMsg = 'Enter Name';
+    }
+
+    //check upload file not error than insert data to database
+    if (!isset($errorMsg)) {
+
+        $sql = "insert into formDetails(name, phone, email, message, datetime, source)
+                values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "','" . $date . "','" . $source . "')";
+        $result = mysqli_query($con, $sql);
+        if ($result) {
+            $_SESSION['formSubmitted'] = true;
+            // header('refresh:5;brandvideo.php');
+        } else {
+            $errorMsg = 'Error ' . mysqli_error($con);
+        }
+    }
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -133,10 +163,10 @@ $upload_diretr = './videopage/uploadengtorecp/';
                 <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
                     <div class="accessoriesTitle">
                         <h5>Video Call Appointment</h5>
-                        <form action="" class="row g-3 needs-validation" novalidate>
+                        <form action="" class="row g-3 needs-validation" method="POST" novalidate>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label"></label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+                                <input type="text" class="form-control" name="name" id="validationCustom01" placeholder="Name" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -146,7 +176,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom02" class="form-label"></label>
-                                <input type="number" class="form-control" id="validationCustom02" placeholder="Contact No." required>
+                                <input type="number" class="form-control" name="phone" id="validationCustom02" placeholder="Contact No." required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -156,7 +186,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label"></label>
-                                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
+                                <input type="email" class="form-control" name="email" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -166,7 +196,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom02" class="form-label"></label>
-                                <input type="text" class="form-control" id="validationCustom02" placeholder="Message" required>
+                                <input type="text" class="form-control" name="message" id="validationCustom02" placeholder="Message" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -174,10 +204,11 @@ $upload_diretr = './videopage/uploadengtorecp/';
                                     Please enter a Message.
                                 </div>
                             </div>
+
                             <div class="col-12 mt-4">
                                 <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
                                 <div class="flex">
-                                    <!-- <a href="#0" class="bttn">Submit</a> -->
+                                    <!-- <button class="bttn">Submit</button> -->
                                     <button type="submit" class="bttn" name="btnSave">Submit</button>
                                 </div>
                             </div>
@@ -236,6 +267,23 @@ $upload_diretr = './videopage/uploadengtorecp/';
     </footer>
 
 
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thank You</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Your response is successfully submitted. We will contact you shortly.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -305,5 +353,16 @@ $upload_diretr = './videopage/uploadengtorecp/';
         });
     });
 </script>
+<?php
+    echo "<script>console.log(" . $_SESSION['formSubmitted'] . ")</script>";
+    if (isset($_SESSION['formSubmitted']) && $_SESSION['formSubmitted'] === true) {
+        echo "<script>
+        var myModal = new bootstrap.Modal(document.getElementById('exampleModal'), {});
+document.onreadystatechange = function () {
+  myModal.show();
+};</script>";
+        unset($_SESSION['formSubmitted']);
+    }
+    ?>
 
 </html>

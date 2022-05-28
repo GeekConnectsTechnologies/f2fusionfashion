@@ -125,6 +125,14 @@
             </div>
           </li>
 
+          
+
+          <li class="nav-item">
+            <a class="nav-link" href="../enquiry/landingpage.php">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Enquiry</span>
+            </a>
+          </li>
 
         </ul>
       </nav>
