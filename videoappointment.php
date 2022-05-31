@@ -2,6 +2,42 @@
 include('./db.php');
 $upload_dir = './videopage/uploadclienttestimonial/';
 $upload_diretr = './videopage/uploadengtorecp/';
+
+if (isset($_POST['btnSave'])) {
+
+    $name = "none";
+    $mail = "none";
+    $country = "none";
+    $phone = "none";
+    $mode = "none";
+    $modeID = "none";
+    $date = "none";
+    $time = "none";
+    $productreq = "none";
+
+    $name = $_POST['name'];
+    $mail = $_POST['mail'];
+    $country = $_POST['country'];
+    $phone = $_POST['phone'];
+    $mode = $_POST['mode'];
+    $modeID = $_POST['modeID'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $productreq = $_POST['productreq'];
+
+    if(1){ ?>
+
+        <script type="text/javascript">
+        
+        window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $mail ?>%0ACountry%20:%20<?php echo $country ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AVideocall%20Mode%20:%20<?php echo $mode ?>%0AMode%20Details%20:%20<?php echo $modeID ?>%0ADate%20:%20<?php echo $date ?>%0ATime%20:%20<?php echo $time ?>%0AProduct%20Requirement%20:%20<?php echo $productreq ?>%0A', '_blank');
+        
+        </script>
+        
+        <?php }
+
+    // header("Location: https://wa.me/+918866876151?text=Name%20:%20" . $name . "%0AEmail%20:%20" . $mail . "%0ACountry%20:%20" . $country . "%0APhone%20Number%20:%20" . $phone . "%0AVideocall%20Mode%20:%20" . $mode . "%0AMode%20Details%20:%20" . $modeID . "%0ADate%20:%20" . $date . "%0ATime%20:%20" . $time . "%0AProduct%20Requirement%20:%20" . $productreq . "%0A");
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -98,10 +134,10 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         <h5 class="text-center">Exclusive Garments From F2</h5>
                         <h2 class="mt-5 text-center"><b>GET VIDEO SHOPPING EXPERIENCE</b></h2>
                         <h5 class="mt-5 text-center">Book Your Appointment</h5>
-                        <form action="" class="row g-3 needs-validation mt-4" novalidate>
+                        <form action="" method="POST" class="row g-3 needs-validation mt-4" novalidate>
                             <div class="col-md-6">
                                 <label for="validationCustom01" class="form-label">Name</label>
-                                <input type="text" class="form-control" id="validationCustom01" placeholder="Name" required>
+                                <input type="text" class="form-control" id="validationCustom01" placeholder="Name" name="name" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -111,7 +147,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                             </div>
                             <div class="col-md-6">
                                 <label for="validationCustom01" class="form-label">Email ID</label>
-                                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
+                                <input type="email" class="form-control" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" name="mail" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -122,7 +158,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
                             <div class="col-md-6">
                                 <label for="validationCustom02" class="form-label">Country</label>
-                                <select class="form-select" name="Country" id="validationCustom01">
+                                <select class="form-select" name="country" id="validationCustom01">
                                     <option value="Afghanistan">Afghanistan</option>
                                     <option value="Albania">Albania</option>
                                     <option value="Algeria">Algeria</option>
@@ -373,7 +409,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
                             <div class="col-md-6">
                                 <label for="validationCustom02" class="form-label">Mobile Number</label>
-                                <input type="number" class="form-control" id="validationCustom02" placeholder="Mobile No." required>
+                                <input type="number" class="form-control" id="validationCustom02" placeholder="Mobile No." name="phone" required>
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -540,7 +576,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
 
 
-    <section>
+    <section style="margin-bottom: 100px;">
         <div class="container">
             <!-- <div class="section-title">
                 <span>Customer Testimonials</span>
@@ -691,27 +727,21 @@ $upload_diretr = './videopage/uploadengtorecp/';
 </script>
 
 <script>
-    function myFunction(e)
-    {
+    function myFunction(e) {
         videocall = document.getElementById("videocall");
         var value = e.target.value;
-        if(value=="Whatsapp")
-        {
+        if (value == "Whatsapp") {
             document.getElementById("videocallid").innerHTML = "Enter Whatsapp Number";
             videocall.placeholder = "Whatsapp Number";
-            videocall.type="number";
-        }
-        else if(value=="Skype")
-        {
+            videocall.type = "number";
+        } else if (value == "Skype") {
             document.getElementById("videocallid").innerHTML = "Enter Skype ID";
             videocall.placeholder = "Skype ID";
-            videocall.type="text";
-        }
-        else
-        {
+            videocall.type = "text";
+        } else {
             document.getElementById("videocallid").innerHTML = "Enter Facetime Number";
             videocall.placeholder = "Facetime Number";
-            videocall.type="number";
+            videocall.type = "number";
         }
     }
 </script>

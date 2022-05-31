@@ -5,6 +5,27 @@ $upload_diretr = './videopage/uploadengtorecp/';
 $upload_dirp = 'landing_page/uploadproduct/';
 
 $campaignid = $_GET['cid'];
+
+if (isset($_POST['btnSave'])) {
+
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $date = date('d-m-y h:i:s');
+    $source = 'Landing Page';
+    
+    if(1){ ?>
+
+        <script type="text/javascript">
+        
+        window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $email ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AProduct%20Requirement%20:%20<?php echo $message ?>%0A', '_blank');
+        
+        </script>
+        
+        <?php }
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -241,15 +262,60 @@ $campaignid = $_GET['cid'];
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Reach Us</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Fill the form</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                <form action="" class="row g-3 needs-validation" method="POST" novalidate>
+                            <div class="col-md-12">
+                                <label for="validationCustom01" class="form-label"></label>
+                                <input type="text" class="form-control" name="name" id="validationCustom01" placeholder="Name" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a Name.
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="validationCustom02" class="form-label"></label>
+                                <input type="number" class="form-control" name="phone" id="validationCustom02" placeholder="Contact No." required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a Contact Number.
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="validationCustom01" class="form-label"></label>
+                                <input type="email" class="form-control" name="email" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter Valid a Email.
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="validationCustom02" class="form-label"></label>
+                                <input type="text" class="form-control" name="message" id="validationCustom02" placeholder="Message" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a Message.
+                                </div>
+                            </div>
+
+                            <div class="col-12 mt-4">
+                                <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                                <div class="flex">
+                                    <!-- <button class="bttn">Submit</button> -->
+                                    <button type="submit" class="bttn" name="btnSave">Submit</button>
+                                </div>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>
