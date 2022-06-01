@@ -12,18 +12,37 @@ if (isset($_POST['btnSave'])) {
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $date = date('d-m-y h:i:s');
-    $source = 'Landing Page';
+    $id = $_POST['pid'];
+    $pname = '';
+    $productcode = '';
+    $pimages='https://f2.geekconnects.co/landing_page/uploadproduct/';
     
-    if(1){ ?>
+    $sqlp = "select * from product where productId =" . $id . "";
+    $resultp = mysqli_query($con, $sqlp);
+    if (mysqli_num_rows($resultp)) {
+        while ($rowp = mysqli_fetch_assoc($resultp)) {
+            $pname = $rowp['pName'];
+            $productcode = $rowp['productCode'];
+        }
+    }
+    
+    $sqlpi = "select * from productimages where productId =" . $id . " LIMIT 1";
+    $resultpi = mysqli_query($con, $sqlpi);
+    if (mysqli_num_rows($resultpi)) {
+        while ($rowpi = mysqli_fetch_assoc($resultpi)) {
+            
+            $pimages = $pimages.$rowpi['pImages'];
+        }
+    }
+
+    if (1) { ?>
 
         <script type="text/javascript">
-        
-        window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $email ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AProduct%20Requirement%20:%20<?php echo $message ?>%0A', '_blank');
-        
+            console.log(<?php echo $id ?>);
+            window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $email ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AProduct%20Name%20:%20<?php echo $pname ?>%0AProduct%20Code%20:%20<?php echo $productcode ?>%0AProduct%20Image%20Link%20:%20<?php echo $pimages ?>%0A', '_blank');
         </script>
-        
-        <?php }
+
+<?php }
 }
 
 ?>
@@ -186,9 +205,9 @@ if (isset($_POST['btnSave'])) {
                                                             <img src="<?php echo $upload_dirp . $row3['pImages'] ?>">
                                                             <!-- <div class="carousel-caption d-none d-md-block">
                                                                 <div class="flexx"> -->
-                                                                    <!-- <a href="#0" class="btttn">Enquiry</a> -->
-                                                                    <!-- Button trigger modal -->
-                                                                    <!-- <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                            <!-- <a href="#0" class="btttn">Enquiry</a> -->
+                                                            <!-- Button trigger modal -->
+                                                            <!-- <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                                         Enquiry
                                                                     </button>
                                                                 </div>
@@ -216,9 +235,74 @@ if (isset($_POST['btnSave'])) {
                                         <div class="flexx">
                                             <!-- <a href="#0" class="btttn">Enquiry</a> -->
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                            <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $row2['productId']?>">
                                                 Enquiry
                                             </button>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="modal fade" id="exampleModal<?php echo $row2['productId']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Fill the form</h5>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="" class="row g-3 needs-validation" method="POST" novalidate>
+                                                        <div class="col-md-12">
+                                                            <label for="validationCustom01" class="form-label"></label>
+                                                            <input type="text" class="form-control" name="name" id="validationCustom01" placeholder="Name" required>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                            <div class="invalid-feedback">
+                                                                Please enter a Name.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <label for="validationCustom02" class="form-label"></label>
+                                                            <input type="number" class="form-control" name="phone" id="validationCustom02" placeholder="Contact No." required>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                            <div class="invalid-feedback">
+                                                                Please enter a Contact Number.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <label for="validationCustom01" class="form-label"></label>
+                                                            <input type="email" class="form-control" name="email" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                            <div class="invalid-feedback">
+                                                                Please enter Valid a Email.
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <label for="validationCustom02" class="form-label"></label>
+                                                            <input type="text" class="form-control" name="message" id="validationCustom02" placeholder="Message" required>
+                                                            <div class="valid-feedback">
+                                                                Looks good!
+                                                            </div>
+                                                            <div class="invalid-feedback">
+                                                                Please enter a Message.
+                                                            </div>
+                                                        </div>
+                                                        <input type="text" hidden name="pid" value="<?php echo $row2['productId'] ?>">
+
+                                                        <div class="col-12 mt-4">
+                                                            <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
+                                                            <div class="flex">
+                                                                <!-- <button class="bttn">Submit</button> -->
+                                                                <button type="submit" class="bttn" name="btnSave">Submit</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                             <?php
@@ -258,68 +342,7 @@ if (isset($_POST['btnSave'])) {
 
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Fill the form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                <form action="" class="row g-3 needs-validation" method="POST" novalidate>
-                            <div class="col-md-12">
-                                <label for="validationCustom01" class="form-label"></label>
-                                <input type="text" class="form-control" name="name" id="validationCustom01" placeholder="Name" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a Name.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationCustom02" class="form-label"></label>
-                                <input type="number" class="form-control" name="phone" id="validationCustom02" placeholder="Contact No." required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a Contact Number.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationCustom01" class="form-label"></label>
-                                <input type="email" class="form-control" name="email" id="validationCustom01" aria-describedby="emailHelpId" placeholder="Email" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter Valid a Email.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label for="validationCustom02" class="form-label"></label>
-                                <input type="text" class="form-control" name="message" id="validationCustom02" placeholder="Message" required>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Please enter a Message.
-                                </div>
-                            </div>
 
-                            <div class="col-12 mt-4">
-                                <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
-                                <div class="flex">
-                                    <!-- <button class="bttn">Submit</button> -->
-                                    <button type="submit" class="bttn" name="btnSave">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="footer mt-auto py-3 bg-light border-top border-secondary border-1">
         <div class="container">
@@ -467,42 +490,6 @@ if (isset($_POST['btnSave'])) {
     });
 </script>
 
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function() {
-        'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-                form.addEventListener('submit', function(event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
 
-
-                    if (form.checkValidity() === true) {
-                        //enter your code here 
-                        event.preventDefault();
-                        var form_data = {
-                            name: name_id.value,
-                            username: username_id.value,
-                            password: password_id.value
-                        }
-
-                        console.log(form_data); //printing form data in Console
-                        document.forms[0].reset(); //reseting the form
-                        document.getElementById('myForm').classList.remove("was-validated"); //reseting the form validation
-
-                    }
-
-                }, false);
-            });
-        }, false);
-    })();
-</script>
 
 </html>
