@@ -32,6 +32,7 @@ if (isset($_POST['btnSave'])) {
         while ($rowpi = mysqli_fetch_assoc($resultpi)) {
             
             $pimages = $pimages.$rowpi['pImages'];
+            $pimages = str_replace(" ","%20",$pimages);
         }
     }
 
@@ -39,7 +40,7 @@ if (isset($_POST['btnSave'])) {
 
         <script type="text/javascript">
             console.log(<?php echo $id ?>);
-            window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $email ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AProduct%20Name%20:%20<?php echo $pname ?>%0AProduct%20Code%20:%20<?php echo $productcode ?>%0AProduct%20Image%20Link%20:%20<?php echo $pimages ?>%0A', '_blank');
+            window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $email ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AMessage%20:%20<?php echo $message ?>%0AProduct%20Name%20:%20<?php echo $pname ?>%0AProduct%20Code%20:%20<?php echo $productcode ?>%0AProduct%20Image%20Link%20:%20<?php echo $pimages ?>%0A', '_blank');
         </script>
 
 <?php }
