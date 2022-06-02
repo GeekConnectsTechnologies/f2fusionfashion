@@ -106,7 +106,8 @@ if (isset($_POST['btnEdit'])) {
 
                             <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="">Photo</label>
+                                    <label for="">Header Image ( 300 x 300 )</label>&nbsp;
+                                    <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                                     <input type="file" name="myfile" class="form-control" id="">
                                 </div>
                                 <button type="submit" class="btn btn-primary me-2" name="btnEdit">Update</button>

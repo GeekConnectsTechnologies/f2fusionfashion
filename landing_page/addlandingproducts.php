@@ -130,7 +130,8 @@ figcaption{
 
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="">Header Image</label>
+                  <label for="">Header Image ( 300 x 300 )</label>&nbsp;
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" id="file-input" name="files[]" onchange="preview()" multiple class="form-control">
                   <br>
                   <div id="images"></div>

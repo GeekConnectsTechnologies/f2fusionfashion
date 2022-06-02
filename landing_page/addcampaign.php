@@ -150,11 +150,13 @@ if (isset($_POST['btnSave'])) {
 
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="">Header Image</label>
+                  <label for="">Header Image ( 650 x 950 )</label>&nbsp;
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" name="headerImage" class="form-control" id="">
                 </div>
                 <div class="form-group">
-                  <label for="">Title Image</label>
+                  <label for="">Title Image ( 1920 x 160 )</label>&nbsp;
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" name="titleImage" class="form-control" id="">
                 </div>
                 <div class="form-group">
@@ -162,7 +164,8 @@ if (isset($_POST['btnSave'])) {
                   <input type="text" name="title" class="form-control" id="" placeholder="Title">
                 </div>
                 <div class="form-group">
-                  <label for="">Campaign Hero Image</label>
+                  <label for="">Campaign Hero Image ( 1920 x 1080 )</label>&nbsp;
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" name="campaingImage" class="form-control" id="">
                 </div>
                 <div class="form-group">
@@ -170,7 +173,8 @@ if (isset($_POST['btnSave'])) {
                   <textarea name="description" class="form-control" id="" style="height: 100px;" placeholder="Description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="">Campaign Type</label>
+                    <label for="">Campaign Type</label>&nbsp;
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                     <select name="campaignType" class="form-control" id="">
                         <option value="Enquiry" selected>Enquiry</option>
                         <option value="Instagram">Instagram</option>

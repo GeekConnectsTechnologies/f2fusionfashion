@@ -105,7 +105,7 @@ if (isset($_POST['btnSave'])) {
 
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                  <label for="">Photo</label>
+                  <label for="">Photo ( 300 x 450 )</label>
                   <input type="file" name="myfile" class="form-control" id="">
                 </div>
                 <div class="form-group">

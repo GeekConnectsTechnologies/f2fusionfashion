@@ -140,7 +140,6 @@ figcaption{
 
                 <div class="form-group">
                   <label for="">Product Title</label>
-
                   <input type="text" class="form-control" name="title">
                 </div>
                 
@@ -154,7 +153,8 @@ figcaption{
                   <input type="text" class="form-control" name="price">
                 </div>
                 <div class="form-group">
-                  <label for="">Product Images</label>
+                  <label for="">Product Images ( 300 x 450 )</label>&nbsp;
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                   <!-- <input type="file" id="file-input" accept="image/png, image/jpeg" onchange="preview()" multiple> -->
                   <input type="file" id="file-input" name="files[]" onchange="preview()" multiple class="form-control">
                   <br>
