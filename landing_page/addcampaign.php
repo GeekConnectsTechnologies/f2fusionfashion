@@ -151,12 +151,12 @@ if (isset($_POST['btnSave'])) {
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="">Header Image ( 650 x 950 )</label>&nbsp;
-                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Main Image of the campaign on the Landing Page"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" name="headerImage" class="form-control" id="">
                 </div>
                 <div class="form-group">
                   <label for="">Title Image ( 1920 x 160 )</label>&nbsp;
-                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" data-html="true" title="Background of the Campaign Title on Landing Page "><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" name="titleImage" class="form-control" id="">
                 </div>
                 <div class="form-group">
@@ -165,7 +165,7 @@ if (isset($_POST['btnSave'])) {
                 </div>
                 <div class="form-group">
                   <label for="">Campaign Hero Image ( 1920 x 1080 )</label>&nbsp;
-                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Header Image of the Campaign Inner Page"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="file" name="campaingImage" class="form-control" id="">
                 </div>
                 <div class="form-group">
@@ -174,7 +174,7 @@ if (isset($_POST['btnSave'])) {
                 </div>
                 <div class="form-group">
                     <label for="">Campaign Type</label>&nbsp;
-                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Type of the Campaign inner page content (i.e. Display Products or Instagram Posts)"><i class='bx bx-info-circle bx-sm'></i></a>
                     <select name="campaignType" class="form-control" id="">
                         <option value="Enquiry" selected>Enquiry</option>
                         <option value="Instagram">Instagram</option>

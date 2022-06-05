@@ -81,7 +81,7 @@ if (isset($_POST['btnSave'])) {
               <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                   <label for="">Embed Post</label>&nbsp;
-                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
+                  <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Add Instagram Post Embedd Link from Instagram without Caption for better look"><i class='bx bx-info-circle bx-sm'></i></a>
                   <input type="text" name="igpost" class="form-control" id="" placeholder="Enter Embedded Code">
                 </div>
                 <button type="submit" class="btn btn-primary me-2" name="btnSave">Submit</button>
