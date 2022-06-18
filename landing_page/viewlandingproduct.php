@@ -25,6 +25,23 @@ if (isset($_GET['delete'])) {
     }
   }
 }
+
+
+if (isset($_GET['deleteall'])) {
+  $id = $_GET['deleteall'];
+  $cid = $_GET['cid'];
+
+  //select old photo name from database
+
+  $sql = "delete from landingpageproduct where campaignId=" . $id;
+  $sqldelete = "delete from productimages where productId=" . $id;
+  
+
+  if (mysqli_query($con, $sql)) {
+
+      header('refresh:1;viewlandingproduct.php?id=' . $cid);
+  }
+}
 ?>
 
 <?php include '../menu.php'; ?>
@@ -61,6 +78,8 @@ if (isset($_GET['delete'])) {
                 </div>
                 <div class="col-md-2">
                   <a class="btn btn-sm btn-success" href="addlandingproducts.php?campaignid=<?php echo $campaignid; ?>">Add new</a>
+                  <a class="btn btn-sm btn-danger" href="viewlandingproduct.php?deleteall=<?php echo $campaignid; ?>&cid=<?php echo $campaignid ?>" onclick="return confirm('Are you sure to delete this record?')">Delete All</a>
+                                
                 </div>
 
               </div>

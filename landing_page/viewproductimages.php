@@ -43,9 +43,10 @@ if (isset($_GET['delete'])) {
                 <div class="col-md-10">
                   <h4 class="card-title">Product Images</h4>
                 </div>
-                <!-- <div class="col-md-2">
-                  <a class="btn btn-sm btn-success" href="addtestimonial.php">Add new</a>
-                </div> -->
+                 <div class="col-md-2">
+                 <a class="btn btn-sm btn-danger" href="viewproductimages.php?deleteall=<?php echo $productid; ?>&cid=<?php echo $productid ?>" onclick="return confirm('Are you sure to delete this record?')">Delete All</a>
+                  
+                </div>
 
               </div>
 
