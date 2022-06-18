@@ -3,11 +3,11 @@ include('../login/session.php');
 if (!isset($_SESSION['login_user'])) {
     header("location: ../login/index.php");
 }
-$upload_dir = 'uploadlandingimage/';
+$upload_dir = 'uploadacceimage/';
 
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = "select * from landingheroimage where id=" . $id;
+    $sql = "select * from landingacceimage where id=" . $id;
     $result = mysqli_query($con, $sql);
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -46,13 +46,13 @@ if (isset($_POST['btnEdit'])) {
     }
     //check upload file not error than insert data to database
     if (!isset($errorMsg)) {
-        $sql = "update landingheroimage
+        $sql = "update landingacceimage
 									set photo = '" . $userPic . "'
 					where id=" . $id;
         $result = mysqli_query($con, $sql);
         if ($result) {
             $successMsg = 'Record Updated successfully';
-            header('refresh:5;index.php');
+            header('refresh:5;viewacceimage.php');
         } else {
             $errorMsg = 'Error ' . mysqli_error($con);
         }
@@ -106,7 +106,7 @@ if (isset($_POST['btnEdit'])) {
 
                             <form class="forms-sample" action="" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="">Header Image ( 960 x 900 )</label>&nbsp;
+                                    <label for="">Header Image ( 1000 x 600 )</label>&nbsp;
                                     <a href="#" style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="right" title="Hooray!"><i class='bx bx-info-circle bx-sm'></i></a>
                                     <input type="file" name="myfile" class="form-control" id="">
                                 </div>
