@@ -10,6 +10,24 @@ if(isset($_POST['btnSave'])){
     // File upload configuration 
     $targetDir = "uploads/"; 
     $allowTypes = array('jpg','png','jpeg','gif'); 
+
+    // Compress image
+    function compressImage($source, $destination, $quality)
+    {
+
+        $info = getimagesize($source);
+
+        if ($info['mime'] == 'image/jpeg')
+            $image = imagecreatefromjpeg($source);
+
+        elseif ($info['mime'] == 'image/gif')
+            $image = imagecreatefromgif($source);
+
+        elseif ($info['mime'] == 'image/png')
+            $image = imagecreatefrompng($source);
+
+        imagejpeg($image, $destination, $quality);
+    }
      
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = ''; 
     $fileNames = array_filter($_FILES['files']['name']); 
@@ -23,7 +41,8 @@ if(isset($_POST['btnSave'])){
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
             if(in_array($fileType, $allowTypes)){ 
                 // Upload file to server 
-                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
+                // if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
+                  if(compressImage($_FILES["files"]["tmp_name"][$key], $targetFilePath, 60)){ 
                     // Image db insert sql 
                     $insertValuesSQL .= "('".$fileName."', '".$campaignid."'),";  
                     

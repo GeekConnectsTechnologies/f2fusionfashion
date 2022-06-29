@@ -8,6 +8,24 @@ $upload_dir = 'uploadproduct/';
 
 if (isset($_POST['btnSave'])) {
 
+  // Compress image
+  function compressImage($source, $destination, $quality)
+  {
+
+      $info = getimagesize($source);
+
+      if ($info['mime'] == 'image/jpeg')
+          $image = imagecreatefromjpeg($source);
+
+      elseif ($info['mime'] == 'image/gif')
+          $image = imagecreatefromgif($source);
+
+      elseif ($info['mime'] == 'image/png')
+          $image = imagecreatefrompng($source);
+
+      imagejpeg($image, $destination, $quality);
+  }
+
   $title = $_POST['title'];
   
   $pcode = $_POST['pcode'];
@@ -32,7 +50,8 @@ if (isset($_POST['btnSave'])) {
       $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
       if (in_array($fileType, $allowTypes)) {
         // Upload file to server 
-        if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
+        // if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
+        if (compressImage($_FILES["files"]["tmp_name"][$key], $targetFilePath, 60)) {
           // Image db insert sql 
           $insertValuesSQL .= "('" . $fileName . "', '" . $lastproductid . "'),";
         } else {

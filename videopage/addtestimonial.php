@@ -6,6 +6,24 @@ if (!isset($_SESSION['login_user'])) {
 $upload_dir = 'uploadclienttestimonial/';
 if (isset($_POST['btnSave'])) {
 
+  // Compress image
+function compressImage($source, $destination, $quality) {
+
+  $info = getimagesize($source);
+
+  if ($info['mime'] == 'image/jpeg') 
+    $image = imagecreatefromjpeg($source);
+
+  elseif ($info['mime'] == 'image/gif') 
+    $image = imagecreatefromgif($source);
+
+  elseif ($info['mime'] == 'image/png') 
+    $image = imagecreatefrompng($source);
+
+  imagejpeg($image, $destination, $quality);
+
+}
+
   $clientname = $_POST['clientname'];
   $location = $_POST['location'];
   $testimonial = $_POST['testimonial'];
@@ -29,7 +47,8 @@ if (isset($_POST['btnSave'])) {
     if (in_array($imgExt, $allowExt)) {
       //check image size less than 5MB
       if ($imgSize < 5000000) {
-        move_uploaded_file($imgTmp, $upload_dir . $userPic);
+        // move_uploaded_file($imgTmp, $upload_dir . $userPic);
+        compressImage($imgTmp, $upload_dir . $userPic, 60);
       } else {
         $errorMsg = 'Image too large';
       }

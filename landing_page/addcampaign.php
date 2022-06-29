@@ -11,6 +11,24 @@ $upload_dir3 = 'uploadcampaignImage/';
 
 if (isset($_POST['btnSave'])) {
 
+  // Compress image
+  function compressImage($source, $destination, $quality)
+  {
+
+      $info = getimagesize($source);
+
+      if ($info['mime'] == 'image/jpeg')
+          $image = imagecreatefromjpeg($source);
+
+      elseif ($info['mime'] == 'image/gif')
+          $image = imagecreatefromgif($source);
+
+      elseif ($info['mime'] == 'image/png')
+          $image = imagecreatefrompng($source);
+
+      imagejpeg($image, $destination, $quality);
+  }
+
   $title = $_POST['title'];
   $description = $_POST['description'];
   $campaignType = $_POST['campaignType'];
@@ -52,7 +70,8 @@ if (isset($_POST['btnSave'])) {
     if (in_array($imgExt, $allowExt)) {
       //check image size less than 5MB
       if ($imgSize < 5000000) {
-        move_uploaded_file($imgTmp, $upload_dir . $headerImage);
+        // move_uploaded_file($imgTmp, $upload_dir . $headerImage);
+        compressImage($imgTmp, $upload_dir . $headerImage, 60);
       } else {
         $errorMsg = 'Image too large';
       }
@@ -63,7 +82,8 @@ if (isset($_POST['btnSave'])) {
     if (in_array($imgExt2, $allowExt)) {
         //check image size less than 5MB
         if ($imgSize < 5000000) {
-          move_uploaded_file($imgTmp2, $upload_dir2 . $titleImage);
+          // move_uploaded_file($imgTmp2, $upload_dir2 . $titleImage);
+          compressImage($imgTmp2, $upload_dir2 . $titleImage, 60);
         } else {
           $errorMsg = 'Image too large';
         }
@@ -74,7 +94,8 @@ if (isset($_POST['btnSave'])) {
       if (in_array($imgExt3, $allowExt)) {
         //check image size less than 5MB
         if ($imgSize < 5000000) {
-          move_uploaded_file($imgTmp3, $upload_dir3 . $campaignHeroImage);
+          // move_uploaded_file($imgTmp3, $upload_dir3 . $campaignHeroImage);
+          compressImage($imgTmp3, $upload_dir3 . $campaignHeroImage, 60);
         } else {
           $errorMsg = 'Image too large';
         }
