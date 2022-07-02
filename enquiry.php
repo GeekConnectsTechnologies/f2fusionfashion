@@ -357,12 +357,12 @@ if (isset($_POST['btnSave'])) {
                 ?>
                         <div class="col-12 col-sm-12 col-md-4 d-flex justify-content-center text-center p-5">
                             <div class="row">
-                                <div class="playfontcheck"><?php echo $row6['title'] ?></div>
+                                <!-- <div class="playfontcheck"></div> -->
                                 <br><br><br>
                                 <a href="enquiry.php?cid=<?php echo $row6['campaignId'] ?>">
                                     <figure class="wp-caption">
                                         <img class="lazy img-fluid landingProductHeroImage" src="<?php echo $upload_dirh . $row6['headerImage'] ?>">
-                                        <figcaption class="wp-caption-text">Explore</figcaption>
+                                        <figcaption class="wp-caption-text">Explore - <?php echo $row6['title'] ?></figcaption>
                                     </figure>
                                 </a>
                             </div>

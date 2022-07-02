@@ -220,13 +220,13 @@ if (isset($_POST['btnSave'])) {
                         <h5>Follow Us</h5>
                         <div class="row d-flex justify-content-center mt-5">
                             <div class="col-md-2 text-center">
-                                <i class='bx bxl-facebook-square bx-md'></i>
+                                <a href="https://www.facebook.com/f2fushionfashion/"><i class='bx bxl-facebook-square bx-md'></i></a>
                             </div>
                             <div class="col-md-2">
-                                <i class='bx bxl-instagram bx-md'></i>
+                            <a href="https://www.instagram.com/f2fusionfashion_/"><i class='bx bxl-instagram bx-md'></i></a>
                             </div>
                             <div class="col-md-2">
-                                <i class='bx bxl-whatsapp bx-md'></i>
+                            <a href="https://api.whatsapp.com/send?phone=917600955799&text=Hello%2C%20I%20want%20more%20info%20about%20the%20product"><i class='bx bxl-whatsapp bx-md'></i></a>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center mt-5">
