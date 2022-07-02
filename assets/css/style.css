@@ -20,6 +20,11 @@
   vertical-align: middle;
 }
 
+a{
+  text-decoration: none;
+  color: black;
+}
+
 .playfontcheck {
   font-family: "Playball";
   font-size: 40px;
