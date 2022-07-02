@@ -19,6 +19,19 @@
   background-position: center;
   vertical-align: middle;
 }
+
+.playfontcheck {
+  font-family: "Playball";
+  font-size: 40px;
+  font-weight: 500;
+  /* height: 150px; */
+  /* padding: 25px 0px; */
+  /* margin: 50px 0px; */
+
+  /* background-position: center; */
+  /* vertical-align: middle; */
+}
+
 .hideScroll::-webkit-scrollbar {
   display: none;
 }

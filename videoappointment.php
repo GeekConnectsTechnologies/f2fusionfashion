@@ -62,7 +62,7 @@ if (isset($_POST['btnSave'])) {
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="img-fluid" alt=""></a>
+        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -116,7 +116,7 @@ if (isset($_POST['btnSave'])) {
 
     <!-- <div class="hero_image"> </div> -->
 
-    <img class="img-fluid" src="assets/images/1920x1080.png">
+    <img class="lazy img-fluid" src="assets/images/1920x1080.png">
 
 
     <section style="margin: 0px 25px 100px 25px;">
@@ -518,7 +518,7 @@ if (isset($_POST['btnSave'])) {
                         ?>
                                 <div class="post-slide">
                                     <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                                        <img src="<?php echo $upload_diretr . $row['engtorecpImage'] ?>" class="img-fluid" alt="">
+                                        <img src="<?php echo $upload_diretr . $row['engtorecpImage'] ?>" class="lazy img-fluid" alt="">
                                         <div class="member-info">
                                             <div class="member-info-content">
                                                 <h4><?php echo $row['engtorecpTitle'] ?></h4>
@@ -597,7 +597,7 @@ if (isset($_POST['btnSave'])) {
                             <div class="text-center">
                                 <div class="content">
                                     <div class="content-overlay"></div>
-                                    <img class="img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
+                                    <img class="lazy img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
                                     <div class="content-details fadeIn-bottom">
                                         <h4 class="content-title"><?php echo $row['clientName'] ?></h4>
                                         <h6 class="content-title"><?php echo $row['location'] ?></h6>

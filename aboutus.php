@@ -26,7 +26,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="img-fluid" alt=""></a>
+        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -80,7 +80,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
     <!-- <div class="hero_image"> </div> -->
 
-    <!-- <img class="img-fluid" src="assets/images/1920x1080.png"> -->
+    <!-- <img class="lazy img-fluid" src="assets/images/1920x1080.png"> -->
 
 
     <section style="margin: 0px 25px 100px 25px;">
@@ -94,7 +94,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
             </div>
             <div class="row justify-content-md-center">
                 <div class="col-12 col-sm-12 col-md-4 text-center mt-5">
-                    <img class="img-fluid" src="assets/images/400x400.png">
+                    <img class="lazy img-fluid" src="assets/images/400x400.png">
                 </div>
                 <div class="col-12 col-sm-12 col-md-8 mt-5 d-flex align-items-center">
                     <p class="" style="color: #222222; font-size: 13pt; line-height: 28px; padding: 10px;">
@@ -110,7 +110,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
             <div class="row justify-content-md-center">
                 <div class="col-12 col-sm-12 col-md-6 text-center mt-5 d-flex justify-content-center">
                     <div class="card" style="width: 70%;">
-                        <img src="assets/images/400x400.png" class="card-img-top" alt="...">
+                        <img src="assets/images/400x400.png" class="lazy card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <hr>
@@ -120,7 +120,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 text-center mt-5 d-flex justify-content-center">
                     <div class="card" style="width: 70%;">
-                        <img src="assets/images/400x400.png" class="card-img-top" alt="...">
+                        <img src="assets/images/400x400.png" class="lazy card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <hr>
@@ -142,13 +142,13 @@ $upload_diretr = './videopage/uploadengtorecp/';
             </div>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top p-3" alt="...">
+                    <img src="assets/images/400x400.png" class="lazy card-img-top p-3" alt="...">
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top p-3" alt="...">
+                    <img src="assets/images/400x400.png" class="lazy card-img-top p-3" alt="...">
                 </div>
                 <div class="col-md-4">
-                    <img src="assets/images/400x400.png" class="card-img-top p-3" alt="...">
+                    <img src="assets/images/400x400.png" class="lazy card-img-top p-3" alt="...">
                 </div>
             </div>
         </div>
@@ -215,6 +215,16 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
 <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.7/jquery.lazyload.js"></script> 
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+     $("img.lazy").lazyload({
+         effect : "fadeIn"
+     });
+
+  });
+</script>
 
 <script>
     $(document).ready(function() {

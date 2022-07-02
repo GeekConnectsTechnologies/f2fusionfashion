@@ -56,7 +56,7 @@ if (isset($_POST['btnSave'])) {
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="img-fluid" alt=""></a>
+        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -116,7 +116,7 @@ if (isset($_POST['btnSave'])) {
     if (mysqli_num_rows($resultlpi)) {
         while ($rowlpi = mysqli_fetch_assoc($resultlpi)) {
     ?>
-            <img class="img-fluid" src="<?php echo $upload_limage . $rowlpi['photo'] ?>">
+            <img class="lazy img-fluid" src="<?php echo $upload_limage . $rowlpi['photo'] ?>">
     <?php
         }
     }
@@ -143,7 +143,7 @@ if (isset($_POST['btnSave'])) {
                         <div class="col-sm-12 col-md-6 col-lg-6">
                             <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
                                 <figure class="wp-caption">
-                                    <img class="img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
+                                    <img class="lazy img-fluid landingProductHeroImage" src="<?php echo $upload_header . $row['headerImage'] ?>">
                                     <figcaption class="wp-caption-text">Explore</figcaption>
                                 </figure>
                             </a>
@@ -160,7 +160,9 @@ if (isset($_POST['btnSave'])) {
                                     while ($lpprow = mysqli_fetch_assoc($lppresult)) {
                                 ?>
                                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                            <img class="img-fluid productImage" src="<?php echo $upload_lproduct . $lpprow['lppPhoto'] ?>">
+                                        <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
+                                            <img class="lazy img-fluid productImage" src="<?php echo $upload_lproduct . $lpprow['lppPhoto'] ?>">
+                                        </a>
                                         </div>
 
                                 <?php $counter++;
@@ -191,33 +193,33 @@ if (isset($_POST['btnSave'])) {
                     <div class="row">
 
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 8.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 8.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 9.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 9.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 10.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 10.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 11.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 11.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 12.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 12.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 13.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 13.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 14.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 14.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 15.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 15.png">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 order-sm-1 order-1 order-md-2">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/ullas.png">
+                    <img class="lazy img-fluid landingProductHeroImage" src="assets/images/ullas.png">
                 </div>
             </div>
         </div>
@@ -235,33 +237,33 @@ if (isset($_POST['btnSave'])) {
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">
-                    <img class="img-fluid landingProductHeroImage" src="assets/images/sparsh.png">
+                    <img class="lazy img-fluid landingProductHeroImage" src="assets/images/sparsh.png">
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center" style="height: 950px;  overflow: auto;">
                     <div class="row">
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 16.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 16.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 17.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 17.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 18.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 18.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 19.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 19.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 20.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 20.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 21.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 21.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 22.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 22.png">
                         </div>
                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                            <img class="img-fluid productImage" src="assets/images/Artboard 1 copy 23.png">
+                            <img class="lazy img-fluid productImage" src="assets/images/Artboard 1 copy 23.png">
                         </div>
 
                     </div>
@@ -283,7 +285,7 @@ if (isset($_POST['btnSave'])) {
                 <h1>Accessories</h1>
             </div>
             <div class="row justify-content-center text-center">
-                <img class="img-fluid " src="assets/images/acc.png">
+                <img class="lazy img-fluid " src="assets/images/acc.png">
             </div>
         </div>
 

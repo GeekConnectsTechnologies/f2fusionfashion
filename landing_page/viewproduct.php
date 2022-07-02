@@ -85,6 +85,7 @@ if (isset($_GET['deleteall'])) {
                                         <tr>
                                             <th>Sr. No</th>
                                             <th>Name</th>
+                                            <th>Small Description</th>
                                             <th>Product Code</th>
                                             <th>Price</th>
                                             <th>Photo Thumbnail</th>
@@ -103,6 +104,7 @@ if (isset($_GET['deleteall'])) {
                                                     <td><?php echo $counter ?></td>
 
                                                     <td><?php echo $row['pName'] ?></td>
+                                                    <td><?php echo $row['smalldesc'] ?></td>
                                                     <td><?php echo $row['productCode'] ?></td>
                                                     <td><?php echo $row['Price'] ?></td>
                                                     <td>

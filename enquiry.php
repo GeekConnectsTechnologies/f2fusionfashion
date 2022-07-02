@@ -3,6 +3,7 @@ include('./db.php');
 $upload_dir = './videopage/uploadclienttestimonial/';
 $upload_diretr = './videopage/uploadengtorecp/';
 $upload_dirp = 'landing_page/uploadproduct/';
+$upload_dirh = 'landing_page/uploadheaderImage/';
 
 $campaignid = $_GET['cid'];
 
@@ -15,8 +16,8 @@ if (isset($_POST['btnSave'])) {
     $id = $_POST['pid'];
     $pname = '';
     $productcode = '';
-    $pimages='https://f2.geekconnects.co/landing_page/uploadproduct/';
-    
+    $pimages = 'https://f2.geekconnects.co/landing_page/uploadproduct/';
+
     $sqlp = "select * from product where productId =" . $id . "";
     $resultp = mysqli_query($con, $sqlp);
     if (mysqli_num_rows($resultp)) {
@@ -25,14 +26,14 @@ if (isset($_POST['btnSave'])) {
             $productcode = $rowp['productCode'];
         }
     }
-    
+
     $sqlpi = "select * from productimages where productId =" . $id . " LIMIT 1";
     $resultpi = mysqli_query($con, $sqlpi);
     if (mysqli_num_rows($resultpi)) {
         while ($rowpi = mysqli_fetch_assoc($resultpi)) {
-            
-            $pimages = $pimages.$rowpi['pImages'];
-            $pimages = str_replace(" ","%20",$pimages);
+
+            $pimages = $pimages . $rowpi['pImages'];
+            $pimages = str_replace(" ", "%20", $pimages);
         }
     }
 
@@ -70,7 +71,7 @@ if (isset($_POST['btnSave'])) {
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="img-fluid" alt=""></a>
+        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -131,7 +132,7 @@ if (isset($_POST['btnSave'])) {
         while ($row = mysqli_fetch_assoc($result)) {
     ?>
 
-            <img class="img-fluid" src="landing_page/uploadcampaignImage/<?php echo $row['campaignHeroImage'] ?>">
+            <img class="lazy img-fluid" src="landing_page/uploadcampaignImage/<?php echo $row['campaignHeroImage'] ?>">
 
 
             <section style="margin: 0px 25px 100px 25px;">
@@ -203,7 +204,7 @@ if (isset($_POST['btnSave'])) {
                                                     while ($row3 = mysqli_fetch_assoc($result3)) {
                                                 ?>
                                                         <div class="carousel-item">
-                                                            <img src="<?php echo $upload_dirp . $row3['pImages'] ?>">
+                                                            <img class="lazy" src="<?php echo $upload_dirp . $row3['pImages'] ?>">
                                                             <!-- <div class="carousel-caption d-none d-md-block">
                                                                 <div class="flexx"> -->
                                                             <!-- <a href="#0" class="btttn">Enquiry</a> -->
@@ -231,19 +232,20 @@ if (isset($_POST['btnSave'])) {
                                         <br>
                                         <div class="row text-center justify-content-center pb-3">
                                             <h5><?php echo $row2['pName'] ?></h5>
+                                            <p><?php echo $row2['smalldesc'] ?></p>
                                             <h6>Rs. <?php echo $row2['Price'] ?>/-</h6>
                                         </div>
                                         <div class="flexx">
                                             <!-- <a href="#0" class="btttn">Enquiry</a> -->
                                             <!-- Button trigger modal -->
-                                            <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $row2['productId']?>">
+                                            <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $row2['productId'] ?>">
                                                 Enquiry
                                             </button>
                                         </div>
                                     </div>
 
 
-                                    <div class="modal fade" id="exampleModal<?php echo $row2['productId']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="exampleModal<?php echo $row2['productId'] ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -340,6 +342,38 @@ if (isset($_POST['btnSave'])) {
         }
     }
     ?>
+
+    <section>
+        <div class="container">
+            <div class="eleven">
+                <h1>Explore More Campaigns</h1>
+            </div>
+            <div class="row">
+                <?php
+                $sql6 = "select * from campaign where campaignid <> " . $campaignid . " ORDER BY sequence";
+                $result6 = mysqli_query($con, $sql6);
+                if (mysqli_num_rows($result6)) {
+                    while ($row6 = mysqli_fetch_assoc($result6)) {
+                ?>
+                        <div class="col-12 col-sm-12 col-md-4 d-flex justify-content-center text-center p-5">
+                            <div class="row">
+                                <div class="playfontcheck"><?php echo $row6['title'] ?></div>
+                                <br><br><br>
+                                <a href="enquiry.php?cid=<?php echo $row6['campaignId'] ?>">
+                                    <figure class="wp-caption">
+                                        <img class="lazy img-fluid landingProductHeroImage" src="<?php echo $upload_dirh . $row6['headerImage'] ?>">
+                                        <figcaption class="wp-caption-text">Explore</figcaption>
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                <?php
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </section>
 
 
     <!-- Modal -->

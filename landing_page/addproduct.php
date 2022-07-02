@@ -27,11 +27,13 @@ if (isset($_POST['btnSave'])) {
   }
 
   $title = $_POST['title'];
+
+  $smalldesc = $_POST['smalldescinput'];
   
   $pcode = $_POST['pcode'];
   
   $price = $_POST['price'];
-  $sqlproduct = "INSERT into product(pName, campaignId, productCode, Price) VALUES ('" . $title . "','" . $campaignid . "','" . $pcode . "','" . $price . "')";
+  $sqlproduct = "INSERT into product(pName, campaignId, productCode, Price) VALUES ('" . $title . "','" . $smalldesc . "','" . $campaignid . "','" . $pcode . "','" . $price . "')";
   $resultprocuct = mysqli_query($con, $sqlproduct);
 
   $lastproductid = mysqli_insert_id($con);
@@ -50,8 +52,8 @@ if (isset($_POST['btnSave'])) {
       $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION);
       if (in_array($fileType, $allowTypes)) {
         // Upload file to server 
-        // if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
-        if (compressImage($_FILES["files"]["tmp_name"][$key], $targetFilePath, 60)) {
+        if (move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)) {
+        // if (compressImage($_FILES["files"]["tmp_name"][$key], $targetFilePath, 60)) {
           // Image db insert sql 
           $insertValuesSQL .= "('" . $fileName . "', '" . $lastproductid . "'),";
         } else {
@@ -160,6 +162,11 @@ figcaption{
                 <div class="form-group">
                   <label for="">Product Title</label>
                   <input type="text" class="form-control" name="title">
+                </div>
+
+                <div class="form-group">
+                  <label for="">Product Description</label>
+                  <input type="text" class="form-control" name="smalldescinput">
                 </div>
                 
                 <div class="form-group">

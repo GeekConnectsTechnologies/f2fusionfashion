@@ -41,8 +41,8 @@ if(isset($_POST['btnSave'])){
             $fileType = pathinfo($targetFilePath, PATHINFO_EXTENSION); 
             if(in_array($fileType, $allowTypes)){ 
                 // Upload file to server 
-                // if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
-                  if(compressImage($_FILES["files"]["tmp_name"][$key], $targetFilePath, 60)){ 
+                if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){ 
+                  // if(compressImage($_FILES["files"]["tmp_name"][$key], $targetFilePath, 60)){ 
                     // Image db insert sql 
                     $insertValuesSQL .= "('".$fileName."', '".$campaignid."'),";  
                     

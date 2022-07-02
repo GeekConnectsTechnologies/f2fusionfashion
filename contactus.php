@@ -56,7 +56,7 @@ if (isset($_POST['btnSave'])) {
 <body>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="img-fluid" alt=""></a>
+        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
@@ -86,7 +86,7 @@ if (isset($_POST['btnSave'])) {
 
     <!-- <div class="hero_image"> </div> -->
 
-    <!-- <img class="img-fluid" src="assets/images/1920x1080.png"> -->
+    <!-- <img class="lazy img-fluid" src="assets/images/1920x1080.png"> -->
 
 
     <section style="margin: 0px 25px 100px 25px;">
@@ -102,7 +102,7 @@ if (isset($_POST['btnSave'])) {
                 <h2>Raopura, Mandvi, Vadodara</h2>
                 <h4 class="mt-3">+91 99898 99898</h4>
                 <div class="col-12 col-sm-12 col-md-6 text-center mt-5">
-                    <img class="img-fluid" src="assets/images/600x650.png">
+                    <img class="lazy img-fluid" src="assets/images/600x650.png">
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
                     <div class="row ">
@@ -132,7 +132,7 @@ if (isset($_POST['btnSave'])) {
                 <h2>Alkapuri, Vadodara</h2>
                 <h4 class="mt-3">+91 99898 99898</h4>
                 <div class="col-12 col-sm-12 col-md-6 text-center mt-5">
-                    <img class="img-fluid" src="assets/images/600x650.png">
+                    <img class="lazy img-fluid" src="assets/images/600x650.png">
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
                     <div class="mapouter">
