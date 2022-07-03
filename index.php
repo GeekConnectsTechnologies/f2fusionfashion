@@ -289,7 +289,18 @@ if (isset($_POST['btnSave'])) {
                 <h1>Accessories</h1>
             </div>
             <div class="row justify-content-center text-center">
-                <img class="lazy img-fluid " src="assets/images/acc.png">
+                <!-- <img class="lazy img-fluid " src="assets/images/acc.png"> -->
+                <?php
+                $sqllai = "select * from landingacceimage";
+                $resultlai = mysqli_query($con, $sqllai);
+                if (mysqli_num_rows($resultlai)) {
+                    while ($rowlai = mysqli_fetch_assoc($resultlai)) {
+                ?>
+                        <img class="lazy img-fluid" src="landing_page/uploadacceimage/<?php echo $rowlai['photo'] ?>">
+                <?php
+                    }
+                }
+                ?>
             </div>
         </div>
 
