@@ -7,11 +7,15 @@ $upload_limage = './landing_page/uploadlandingimage/';
 
 if (isset($_POST['btnSave'])) {
 
+    # Current date
+    date_default_timezone_set('Asia/Kolkata');
+    // echo date("Y-m-d H:i:s");
+
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $date = date('d-m-y h:i:s');
+    $date = date("Y-m-d H:i:s");
     $source = 'Landing Page';
     if (empty($name)) {
         $errorMsg = 'Enter Name';
@@ -160,9 +164,9 @@ if (isset($_POST['btnSave'])) {
                                     while ($lpprow = mysqli_fetch_assoc($lppresult)) {
                                 ?>
                                         <div class="col-6 col-sm-6 col-md-6 col-lg-6">
-                                        <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
-                                            <img class="lazy img-fluid productImage" src="<?php echo $upload_lproduct . $lpprow['lppPhoto'] ?>">
-                                        </a>
+                                            <a href="enquiry.php?cid=<?php echo $row['campaignId'] ?>">
+                                                <img class="lazy img-fluid productImage" src="<?php echo $upload_lproduct . $lpprow['lppPhoto'] ?>">
+                                            </a>
                                         </div>
 
                                 <?php $counter++;
@@ -358,10 +362,10 @@ if (isset($_POST['btnSave'])) {
                                 <a href="https://www.facebook.com/f2fushionfashion/"><i class='bx bxl-facebook-square bx-md'></i></a>
                             </div>
                             <div class="col-md-2">
-                            <a href="https://www.instagram.com/f2fusionfashion_/"><i class='bx bxl-instagram bx-md'></i></a>
+                                <a href="https://www.instagram.com/f2fusionfashion_/"><i class='bx bxl-instagram bx-md'></i></a>
                             </div>
                             <div class="col-md-2">
-                            <a href="https://api.whatsapp.com/send?phone=917600955799&text=Hello%2C%20I%20want%20more%20info%20about%20the%20product"><i class='bx bxl-whatsapp bx-md'></i></a>
+                                <a href="https://api.whatsapp.com/send?phone=917600955799&text=Hello%2C%20I%20want%20more%20info%20about%20the%20product"><i class='bx bxl-whatsapp bx-md'></i></a>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center mt-5">

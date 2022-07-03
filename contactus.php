@@ -5,12 +5,14 @@ $upload_diretr = './videopage/uploadengtorecp/';
 
 
 if (isset($_POST['btnSave'])) {
+    
+    date_default_timezone_set('Asia/Kolkata');
 
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $message = $_POST['message'];
-    $date = date('d-m-y h:i:s');
+    $date = date("Y-m-d H:i:s");
     $source = 'Contact Us Page';
 
     if (empty($name)) {
