@@ -297,6 +297,7 @@ if (isset($_POST['btnSave'])) {
                     while ($rowlai = mysqli_fetch_assoc($resultlai)) {
                 ?>
                         <img class="lazy img-fluid" src="landing_page/uploadacceimage/<?php echo $rowlai['photo'] ?>">
+                        
                 <?php
                     }
                 }
