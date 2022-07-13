@@ -239,7 +239,7 @@ if (isset($_POST['btnSave'])) {
                                             <!-- <a href="#0" class="btttn">Enquiry</a> -->
                                             <!-- Button trigger modal -->
                                             <button type="button" class="btttn" data-bs-toggle="modal" data-bs-target="#exampleModal<?php echo $row2['productId'] ?>">
-                                                Enquiry
+                                            <i class='bx bxl-whatsapp bx-xs'></i> Enquiry
                                             </button>
                                         </div>
                                     </div>

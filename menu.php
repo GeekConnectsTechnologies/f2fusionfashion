@@ -137,5 +137,12 @@
             </a>
           </li>
 
+          <li class="nav-item">
+            <a class="nav-link" href="../enquiry/videocall.php">
+              <i class="mdi mdi-grid-large menu-icon"></i>
+              <span class="menu-title">Video Call Enquiry</span>
+            </a>
+          </li>
+
         </ul>
       </nav>

@@ -735,14 +735,14 @@ button.btttn:focus {
   color: #fff;
 }
 .btttn {
-  font-size: 10px;
+  font-size: 12px;
   letter-spacing: 2px;
   /* text-transform: uppercase; */
   display: inline-block;
   text-align: center;
   width: 100px;
   font-weight: bold;
-  padding: 14px 0px;
+  padding: 10px 0px 14px 0px;
   border: 2px solid #5C5C5C;
   border-radius: 22px;
   position: relative;

@@ -25,11 +25,31 @@ if (isset($_POST['btnSave'])) {
     $time = $_POST['time'];
     $productreq = $_POST['productreq'];
 
-    if(1){ ?>
+    if (empty($name)) {
+        $errorMsg = 'Enter Name';
+    }
+    
+    if(1){ 
+        
+        //check upload file not error than insert data to database
+    if (!isset($errorMsg)) {
+
+        $sql = "insert into videocallformdetails(name, email, country, mobilenumber, mode, wpnumber, appointmentdate, appointmenttime, requirements)
+                values('" . $name . "','" . $mail . "','" . $country . "','" . $phone . "','" . $mode . "','" . $modeID . "','" . $date . "','" . $time . "','" . $productreq . "')";
+        $result = mysqli_query($con, $sql);
+        if ($result) {
+            // $_SESSION['formSubmitted'] = true;
+            // header('refresh:5;brandvideo.php');
+        } else {
+            $errorMsg = 'Error ' . mysqli_error($con);
+        }
+    }
+        
+        ?>
 
         <script type="text/javascript">
         
-        window.open('https://wa.me/+918866876151?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $mail ?>%0ACountry%20:%20<?php echo $country ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AVideocall%20Mode%20:%20<?php echo $mode ?>%0AMode%20Details%20:%20<?php echo $modeID ?>%0ADate%20:%20<?php echo $date ?>%0ATime%20:%20<?php echo $time ?>%0AProduct%20Requirement%20:%20<?php echo $productreq ?>%0A', '_blank');
+        window.open('https://wa.me/+917600955799?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $mail ?>%0ACountry%20:%20<?php echo $country ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AVideocall%20Mode%20:%20<?php echo $mode ?>%0AMode%20Details%20:%20<?php echo $modeID ?>%0ADate%20:%20<?php echo $date ?>%0ATime%20:%20<?php echo $time ?>%0AProduct%20Requirement%20:%20<?php echo $productreq ?>%0A', '_blank');
         
         </script>
         
