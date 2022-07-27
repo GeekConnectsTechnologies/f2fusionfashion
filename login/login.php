@@ -27,7 +27,7 @@
                 $_SESSION['login_user'] = $username; // Initializing Session
                 header("location: ../landing_page/index.php"); // Redirecting To Profile Page
             }
-            mysqli_close($conn); // Closing Connection
+            mysqli_close($con); // Closing Connection
         }
     }
 ?>

@@ -31,7 +31,7 @@ if (isset($_GET['deleteall'])) {
 
     $sql = "delete from product where campaignId=" . $id;
     $sqldelete = "delete from productimages where productId=" . $id;
-    
+
 
     if (mysqli_query($con, $sql)) {
 
@@ -66,7 +66,9 @@ if (isset($_GET['deleteall'])) {
                                         $cresult = mysqli_query($con, $csql);
                                         $crow = mysqli_fetch_assoc($cresult);
                                         ?>
-                                        <span><a class="btn btn-sm btn-success" href="viewcampaign.php?id=<?php echo $crow['campaignId'] ?>"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="fill: rgba(255, 255, 255, 1);"><path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z"></path></svg> back</a></span> &nbsp; &nbsp; &nbsp;
+                                        <span><a class="btn btn-sm btn-success" href="viewcampaign.php?id=<?php echo $crow['campaignId'] ?>"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" style="fill: rgba(255, 255, 255, 1);">
+                                                    <path d="M12.707 17.293 8.414 13H18v-2H8.414l4.293-4.293-1.414-1.414L4.586 12l6.707 6.707z"></path>
+                                                </svg> back</a></span> &nbsp; &nbsp; &nbsp;
                                         <span style="font-size: 35px;"><?php echo $crow['title']; ?></span> <span style="font-size: 15px;">&nbsp; Products</span>
                                         <!-- <h2></h2> <h4> Landing Page Products</h4> -->
                                     </div>
@@ -74,7 +76,7 @@ if (isset($_GET['deleteall'])) {
                                 <div class="col-md-2">
                                     <a class="btn btn-sm btn-success" href="addproduct.php?campaignid=<?php echo $campaignid; ?>">Add new</a>
                                     <a class="btn btn-sm btn-danger" href="viewproduct.php?deleteall=<?php echo $campaignid; ?>&cid=<?php echo $campaignid ?>" onclick="return confirm('Are you sure to delete this record?')">Delete All</a>
-                                </div>  
+                                </div>
 
                             </div>
 
@@ -86,7 +88,7 @@ if (isset($_GET['deleteall'])) {
                                             <th>Sr. No</th>
                                             <th>Name</th>
                                             <th>Small Description</th>
-                                            <th>Product Code</th>
+                                            <!-- <th>Product Code</th> -->
                                             <th>Price</th>
                                             <th>Photo Thumbnail</th>
                                             <th>Action</th>
@@ -105,7 +107,7 @@ if (isset($_GET['deleteall'])) {
 
                                                     <td><?php echo $row['pName'] ?></td>
                                                     <td><?php echo $row['smalldesc'] ?></td>
-                                                    <td><?php echo $row['productCode'] ?></td>
+                                                    <!-- <td></td> -->
                                                     <td><?php echo $row['Price'] ?></td>
                                                     <td>
                                                         <div id="icons-container">
@@ -130,6 +132,9 @@ if (isset($_GET['deleteall'])) {
                                                     <td>
                                                         <a class="btn btn-sm btn-warning" href="viewproductimages.php?id=<?php echo $row['productId'] ?>">
                                                             View
+                                                        </a>
+                                                        <a class="btn btn-sm btn-primary" href="editproduct.php?id=<?php echo $row['productId'] ?>">
+                                                            Edit
                                                         </a>
                                                         <a class="btn btn-sm btn-danger" href="viewproduct.php?delete=<?php echo $row['productId'] ?>&cid=<?php echo $campaignid ?>" onclick="return confirm('Are you sure to delete this record?')">
                                                             Delete

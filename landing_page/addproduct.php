@@ -30,10 +30,10 @@ if (isset($_POST['btnSave'])) {
 
   $smalldesc = $_POST['smalldescinput'];
   
-  $pcode = $_POST['pcode'];
+  // $pcode = $_POST['pcode'];
   
   $price = $_POST['price'];
-  $sqlproduct = "INSERT into product(pName, campaignId, productCode, Price) VALUES ('" . $title . "','" . $smalldesc . "','" . $campaignid . "','" . $pcode . "','" . $price . "')";
+  $sqlproduct = "INSERT into product(pName, smalldesc, campaignId, productCode, Price) VALUES ('" . $title . "','" . $smalldesc . "','" . $campaignid . "','" . $price . "')";
   $resultprocuct = mysqli_query($con, $sqlproduct);
 
   $lastproductid = mysqli_insert_id($con);
@@ -169,10 +169,10 @@ figcaption{
                   <input type="text" class="form-control" name="smalldescinput">
                 </div>
                 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="">Product Code</label>
                   <input type="text" class="form-control" name="pcode">
-                </div>
+                </div> -->
                 
                 <div class="form-group">
                   <label for="">Product Price</label>
