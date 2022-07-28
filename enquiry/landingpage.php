@@ -11,7 +11,7 @@ if (isset($_GET['delete'])) {
     //select old photo name from database
   
     //delete record from database
-    $sql = "delete from formDetails where fdid=" . $id;
+    $sql = "delete from formdetails where fdid=" . $id;
     if (mysqli_query($con, $sql)) {
       header('location:landingpage.php');
     }
@@ -64,7 +64,7 @@ if (isset($_GET['delete'])) {
                   <tbody class="campaignseq">
                     <?php
                     $counter = 1;
-                    $sql = "select * from formDetails ";
+                    $sql = "select * from formdetails ";
                     $result = mysqli_query($con, $sql);
                     if (mysqli_num_rows($result)) {
                       while ($row = mysqli_fetch_assoc($result)) {

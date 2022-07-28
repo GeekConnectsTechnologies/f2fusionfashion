@@ -24,7 +24,7 @@ if (isset($_POST['btnSave'])) {
     //check upload file not error than insert data to database
     if (!isset($errorMsg)) {
 
-        $sql = "insert into formDetails(name, phone, email, message, datetime, source)
+        $sql = "insert into formdetails(name, phone, email, message, datetime, source)
                 values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "','" . $date . "','" . $source . "')";
         $result = mysqli_query($con, $sql);
         if ($result) {

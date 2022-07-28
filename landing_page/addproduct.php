@@ -33,7 +33,7 @@ if (isset($_POST['btnSave'])) {
   // $pcode = $_POST['pcode'];
   
   $price = $_POST['price'];
-  $sqlproduct = "INSERT into product(pName, smalldesc, campaignId, productCode, Price) VALUES ('" . $title . "','" . $smalldesc . "','" . $campaignid . "','" . $price . "')";
+  $sqlproduct = "INSERT into product(pName, smalldesc, campaignId, Price) VALUES ('" . $title . "','" . $smalldesc . "','" . $campaignid . "','" . $price . "')";
   $resultprocuct = mysqli_query($con, $sqlproduct);
 
   $lastproductid = mysqli_insert_id($con);
