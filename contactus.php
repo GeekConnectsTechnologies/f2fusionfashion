@@ -56,9 +56,12 @@ if (isset($_POST['btnSave'])) {
 </head>
 
 <body>
+    <button onclick="window.location.href='https://wa.me/919327658213?text=I%27m%20interested%20in%20your%20services'" id="myBtn" title="Whatsapp"><i class="bx bxl-whatsapp"></i></button>
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
+        <center>
+            <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt="" id="reslogo"></a>
+        </center>
     </div>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
@@ -73,10 +76,24 @@ if (isset($_POST['btnSave'])) {
                         <a class="nav-link " aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
+                        <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
+                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Collections
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=15">Nayab</a></li>
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=13">Anant</a></li>
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=14">Aavaas</a></li>                            
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=11">Ullas</a></li>                                 
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#celebrityCloset">CELEBRITY CLOSET</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="contactus.php">CONTACT US</a>
@@ -101,24 +118,16 @@ if (isset($_POST['btnSave'])) {
                 <h1>Stores</h1>
             </div>
             <div class="row justify-content-md-center text-center">
-                <h2>Raopura, Mandvi, Vadodara</h2>
+                    <h2>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h2>
                 <h4 class="mt-3">+91 99898 99898</h4>
                 <div class="col-12 col-sm-12 col-md-6 text-center mt-5">
-                    <img class="lazy img-fluid" src="assets/images/600x650.png">
+                    <img class="lazy img-fluid" src="assets/images/raopura.jpg">
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
                     <div class="row ">
                     <div class="mapouter">
                         <div class="mapouter">
                             <div class="gmap_canvas"><iframe id="gmap_canvas" src="https://maps.google.com/maps?q=F2%20Fusion%20Fashion&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><br>
-                                <style>
-                                    .mapouter {
-                                        position: relative;
-                                        text-align: left;
-                                        height: 650px;
-                                        width: 600px;
-                                    }
-                                </style>
                             </div>
                         </div>
                     </div>
@@ -131,10 +140,10 @@ if (isset($_POST['btnSave'])) {
     <section style="margin: 0px 25px 100px 25px;">
         <div class="container">
             <div class="row justify-content-md-center text-center">
-                <h2>Alkapuri, Vadodara</h2>
+                <h2>2 Gamthi Complex, Productivity Road, Alkapuri, Vadodara - 390007</h2>
                 <h4 class="mt-3">+91 99898 99898</h4>
                 <div class="col-12 col-sm-12 col-md-6 text-center mt-5">
-                    <img class="lazy img-fluid" src="assets/images/600x650.png">
+                    <img class="lazy img-fluid" src="assets/images/alkapuri2.jpeg">
                 </div>
                 <div class="col-12 col-sm-12 col-md-6 mt-5 d-flex align-items-center">
                     <div class="mapouter">
@@ -221,14 +230,14 @@ if (isset($_POST['btnSave'])) {
                     <div class="accessoriesTitle">
                         <h5>Follow Us</h5>
                         <div class="row d-flex justify-content-center mt-5">
-                            <div class="col-md-2 text-center">
+                            <div class="col-md-2 col-4">
                                 <a href="https://www.facebook.com/f2fushionfashion/"><i class='bx bxl-facebook-square bx-md'></i></a>
                             </div>
-                            <div class="col-md-2">
-                            <a href="https://www.instagram.com/f2fusionfashion_/"><i class='bx bxl-instagram bx-md'></i></a>
+                            <div class="col-md-2 col-4">
+                                <a href="https://www.instagram.com/f2fusionfashion_/"><i class='bx bxl-instagram bx-md'></i></a>
                             </div>
-                            <div class="col-md-2">
-                            <a href="https://api.whatsapp.com/send?phone=917600955799&text=Hello%2C%20I%20want%20more%20info%20about%20the%20product"><i class='bx bxl-whatsapp bx-md'></i></a>
+                            <div class="col-md-2 col-4">
+                                <a href="https://api.whatsapp.com/send?phone=917600955799&text=Hello%2C%20I%20want%20more%20info%20about%20the%20product"><i class='bx bxl-whatsapp bx-md'></i></a>
                             </div>
                         </div>
                         <div class="row d-flex justify-content-center mt-5">
@@ -259,7 +268,7 @@ if (isset($_POST['btnSave'])) {
                     <h6>2 Gamthi Complex, Productivity Road, Alkapuri, Vadodara - 390007</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>Navrang Cinema Road, Siyapura, Raopura, Mandvi, Vadodara - 390001</h6>
+                    <h6>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
                 </div>
                 <div class="col-md-3">
                     <h6>Privacy Policy | Terms & Conditions</h6>
@@ -354,6 +363,21 @@ if (isset($_POST['btnSave'])) {
             margin: 10
         });
     });
+</script>
+
+<script>
+    var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
 </script>
 <?php
     echo "<script>console.log(" . $_SESSION['formSubmitted'] . ")</script>";

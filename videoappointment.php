@@ -49,7 +49,7 @@ if (isset($_POST['btnSave'])) {
 
         <script type="text/javascript">
         
-        window.open('https://wa.me/+917600955799?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $mail ?>%0ACountry%20:%20<?php echo $country ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AVideocall%20Mode%20:%20<?php echo $mode ?>%0AMode%20Details%20:%20<?php echo $modeID ?>%0ADate%20:%20<?php echo $date ?>%0ATime%20:%20<?php echo $time ?>%0AProduct%20Requirement%20:%20<?php echo $productreq ?>%0A', '_blank');
+        window.open('https://wa.me/+919327658213?text=Name%20:%20<?php echo $name ?>%0AEmail%20:%20<?php echo $mail ?>%0ACountry%20:%20<?php echo $country ?>%0APhone%20Number%20:%20<?php echo $phone ?>%0AVideocall%20Mode%20:%20<?php echo $mode ?>%0AMode%20Details%20:%20<?php echo $modeID ?>%0ADate%20:%20<?php echo $date ?>%0ATime%20:%20<?php echo $time ?>%0AProduct%20Requirement%20:%20<?php echo $productreq ?>%0A', '_blank');
         
         </script>
         
@@ -80,9 +80,13 @@ if (isset($_POST['btnSave'])) {
 </head>
 
 <body>
+    <button onclick="window.location.href='https://wa.me/919327658213?text=I%27m%20interested%20in%20your%20services'" id="myBtn" title="Whatsapp"><i class="bx bxl-whatsapp"></i></button>
+    
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
+        <center>
+            <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt="" id="reslogo"></a>
+        </center>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -111,7 +115,7 @@ if (isset($_POST['btnSave'])) {
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -121,10 +125,24 @@ if (isset($_POST['btnSave'])) {
                         <a class="nav-link " aria-current="page" href="index.php">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
+                        <a class="nav-link active" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="videoappointment.php">VIDEO APPOINTMENT</a>
+                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Collections
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=15">Nayab</a></li>
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=13">Anant</a></li>
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=14">Aavaas</a></li>                            
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=11">Ullas</a></li>                                 
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php#celebrityCloset">CELEBRITY CLOSET</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contactus.php">CONTACT US</a>
@@ -135,8 +153,12 @@ if (isset($_POST['btnSave'])) {
     </nav>
 
     <!-- <div class="hero_image"> </div> -->
-
-    <img class="lazy img-fluid" src="assets/images/1920x1080.png">
+<!--<video width="100%" autoplay muted preload loop>-->
+<video width="100%" autoplay preload loop>
+  <source src="assets/video/F2FULL01WITHCHANGE.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+    <!--<img class="lazy img-fluid" src="assets/images/1920x1080.png">-->
 
 
     <section style="margin: 0px 25px 100px 25px;">
@@ -650,7 +672,7 @@ if (isset($_POST['btnSave'])) {
                     <h6>2 Gamthi Complex, Productivity Road, Alkapuri, Vadodara - 390007</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>Navrang Cinema Road, Siyapura, Raopura, Mandvi, Vadodara - 390001</h6>
+                    <h6>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
                 </div>
                 <div class="col-md-3">
                     <h6>Privacy Policy | Terms & Conditions</h6>
@@ -765,5 +787,18 @@ if (isset($_POST['btnSave'])) {
         }
     }
 </script>
+<script>
+    var mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+</script>
 </html>

@@ -28,9 +28,10 @@ if (isset($_POST['btnEdit'])) {
 
   if (empty($clientname)) {
     $errorMsg = 'Please Enter Name';
-  } elseif (empty($imgName)) {
-    $errorMsg = 'Please select photo';
+//   } elseif (empty($imgName)) {
+//     $errorMsg = 'Please select photo';
   } else {
+      if (!empty($imgName)) {
     //get image extension
     $imgExt = strtolower(pathinfo($imgName, PATHINFO_EXTENSION));
     //allow extenstion
@@ -48,6 +49,10 @@ if (isset($_POST['btnEdit'])) {
     } else {
       $errorMsg = 'Please select a valid image';
     }
+      }
+      else{
+          $userPic = $row['clientImage'];
+      }
   }
 
   //check upload file not error than insert data to database

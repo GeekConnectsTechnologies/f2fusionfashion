@@ -4,7 +4,7 @@ $upload_header = './landing_page/uploadheaderImage/';
 $upload_title = './landing_page/uploadtitleImage/';
 $upload_lproduct = './landing_page/uploadlandingproduct/';
 $upload_limage = './landing_page/uploadlandingimage/';
-
+$upload_dir = './videopage/uploadclienttestimonial/';
 if (isset($_POST['btnSave'])) {
 
     # Current date
@@ -27,6 +27,29 @@ if (isset($_POST['btnSave'])) {
         $sql = "insert into formdetails(name, phone, email, message, datetime, source)
                 values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "','" . $date . "','" . $source . "')";
         $result = mysqli_query($con, $sql);
+        
+        // Email form data
+        // $mailto = "gauravjaniyani@gmail.com";
+        // $subject = $_POST['name'];
+        // $messageContent = "Client Name" . $name . "\n" . "Contact Number" . $phone . "\n" . "Message" . $message ;
+        // $headers = "From: gaurav@thesyntaxstudio.com\r\n" .
+        //    "Reply-To: gaurav@thesyntaxstudio.com\r\n" .
+        //    "X-Mailer: PHP/" . phpversion();
+
+           
+        //    ini_set("SMTP","smtp.gmail.com");
+        //    ini_set("smtp_port","587");
+        //    ini_set("sendmail_from", "gaurav@thesyntaxstudio.com");
+        
+        // $mailResult = mail($mailto, $subject, $messageContent, $headers);
+
+        // if ($mailResult) {
+        //     echo "Email sent successfully.";
+        // } else {
+        //     echo "Failed to send email.";
+        // }
+
+        // mail()
         if ($result) {
             $_SESSION['formSubmitted'] = true;
             // header('refresh:5;brandvideo.php');
@@ -50,6 +73,8 @@ if (isset($_POST['btnSave'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://fonts.googleapis.com/css?family=Playball' rel='stylesheet'>
 
     <link rel="icon" type="image/x-icon" href="assets/images/LOGO_fav.png">
@@ -58,9 +83,13 @@ if (isset($_POST['btnSave'])) {
 </head>
 
 <body>
+    <button onclick="window.location.href='https://wa.me/919327658213?text=I%27m%20interested%20in%20your%20services'" id="myBtn" title="Whatsapp"><i class="bx bxl-whatsapp"></i></button>
+    
     <div class="d-flex justify-content-center" style="padding: 10px;">
         <!-- <h1>LOGO</h1> -->
-        <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt=""></a>
+        <center>
+            <a href="index.php"><img src="assets/images/100x100_LOGO.png" class="lazy img-fluid" alt="" id="reslogo"></a>
+        </center>
     </div>
     <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light text-center">
         <div class="container-fluid">
@@ -90,7 +119,7 @@ if (isset($_POST['btnSave'])) {
     <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Tenth navbar example">
         <div class="container-fluid">
             <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon" style="width: 25px;"></span>
             </button>
 
             <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
@@ -99,10 +128,24 @@ if (isset($_POST['btnSave'])) {
                         <a class="nav-link active" aria-current="page" href="#">HOME</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
+                        <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="videoappointment.php">VIDEO APPOINTMENT</a>
+                        <a class="nav-link" href="aboutus.php">ABOUT US</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Collections
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=15">Nayab</a></li>
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=13">Anant</a></li>
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=14">Aavaas</a></li>                            
+                            <li><a class="dropdown-item" href="./enquiry.php?cid=11">Ullas</a></li>                            
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#celebrityCloset">CELEBRITY CLOSET</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contactus.php">CONTACT US</a>
@@ -134,7 +177,7 @@ if (isset($_POST['btnSave'])) {
     if (mysqli_num_rows($result)) {
         while ($row = mysqli_fetch_assoc($result)) {
     ?>
-            <section>
+            <section id=<?php echo $row['title'] ?>>
                 <div class="container-fluid text-center">
                     <div class="row campaignTitle" style="background-image: url('<?php echo $upload_title . $row['titleImage'] ?>');">
                         <div class="my-auto"><?php echo $row['title'] ?></div>
@@ -152,9 +195,8 @@ if (isset($_POST['btnSave'])) {
                                 </figure>
                             </a>
                         </div>
-                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center scrollover <?php if ($row['sequence'] % 2 == 0) {
-                                                                                                        echo 'order-first';
-                                                                                                    } ?>">
+                        <div class="col-sm-12 col-md-6 col-lg-6 hideScroll text-center scrollover 
+                        <?php if ($row['sequence'] % 2 == 0) { echo 'order-md-first order-sm-last order-lg-first order-xl-first order-xs-last'; } ?>">
                             <div class="row">
                                 <?php
                                 $counter = 1;
@@ -278,7 +320,7 @@ if (isset($_POST['btnSave'])) {
     </section> -->
 
 
-    <section>
+    <section id="celebrityCloset">
 
         <div class="container mt-5">
             <!-- <div class="section-title">
@@ -286,10 +328,10 @@ if (isset($_POST['btnSave'])) {
                 <h2>Accessories</h2>
             </div> -->
             <div class="eleven">
-                <h1>Accessories</h1>
+                <h1>Celebrity Closet</h1>
             </div>
-            <div class="row justify-content-center text-center">
-                <!-- <img class="lazy img-fluid " src="assets/images/acc.png"> -->
+            <!-- <img class="lazy img-fluid " src="assets/images/acc.png"> -->
+            <!-- <div class="row justify-content-center text-center">
                 <?php
                 $sqllai = "select * from landingacceimage";
                 $resultlai = mysqli_query($con, $sqllai);
@@ -297,13 +339,99 @@ if (isset($_POST['btnSave'])) {
                     while ($rowlai = mysqli_fetch_assoc($resultlai)) {
                 ?>
                         <img class="lazy img-fluid" src="landing_page/uploadacceimage/<?php echo $rowlai['photo'] ?>">
-                        
+
                 <?php
                     }
                 }
                 ?>
+            </div> -->
+
+            <div class="row justify-content-center-md-center">
+                <div id="client" class="owl-carousel">
+                    <?php
+                    $counter = 1;
+                    $sql = "select * from client ORDER BY sequence";
+                    $result = mysqli_query($con, $sql);
+                    if (mysqli_num_rows($result)) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                            <div class="text-center">
+                                <div class="member">
+                                    <div class="content-overlay"></div>
+                                    <img class="lazy img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
+                                    <!-- <div class="member"></div> -->
+                                    <div class="member-info fadeIn-bottom">
+                                        <div class="member-info-content">                                    
+                                            <h4 class="content-title">Shahrukh khan</h4>                                                
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                    <?php $counter++;
+                        }
+                    }
+                    ?>
+                </div>
             </div>
         </div>
+
+    </section>
+
+
+    <section>
+
+       <div class="container">
+                    
+            <div class="eleven">
+                <h1>Testimonial</h1>
+            </div>        
+
+            <div class="testimonial-section">
+                <div id="testimonialSlider" class="owl-carousel testimonial-slider">
+                    <div class="main-section">
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog1.webp" />
+                            </div>
+                            <div class="testimonial-content">
+                                <h2 class="client-name">Karuna Kushwaha</h2>
+                                <p>Enhancing a sacred ceremony with the royal charm of luxurious weaves and ancient artistry.</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog2.webp" />
+                            </div>
+                            <div class="testimonial-content">
+                                <h2 class="client-name">Palak Patel</h2>
+                                <p>Narrating a precious tale of traditions with an ornate version of the red bridal lehenga.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-section">
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog2.webp" />
+                            </div>
+                            <div class="testimonial-content">
+                                <h2 class="client-name">Karuna Kushwaha</h2>
+                                <p>Enhancing a sacred ceremony with the royal charm of luxurious weaves and ancient artistry.</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog1.webp" />
+                            </div>
+                            <div class="testimonial-content">
+                                <h2 class="client-name">Palak Patel</h2>
+                                <p>Narrating a precious tale of traditions with an ornate version of the red bridal lehenga.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+        </div>                              
 
     </section>
 
@@ -311,7 +439,7 @@ if (isset($_POST['btnSave'])) {
     <section style="margin: 100px 25px 100px 25px;">
         <div class="container">
             <div class="row justify-content-md-around">
-                <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
+                <div class="col-12 col-sm-12 col-md-4 col-lg-5 text-center mt-5">
                     <div class="accessoriesTitle">
                         <h5>Video Call Appointment</h5>
                         <form action="" class="row g-3 needs-validation" method="POST" novalidate>
@@ -366,17 +494,17 @@ if (isset($_POST['btnSave'])) {
                         </form>
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
+                <!-- <div class="col-12 col-sm-12 col-md-5 text-center mt-5">
                     <div class="accessoriesTitle">
                         <h5>Follow Us</h5>
                         <div class="row d-flex justify-content-center mt-5">
-                            <div class="col-md-2 text-center">
+                            <div class="col-md-2 col-4">
                                 <a href="https://www.facebook.com/f2fushionfashion/"><i class='bx bxl-facebook-square bx-md'></i></a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-4">
                                 <a href="https://www.instagram.com/f2fusionfashion_/"><i class='bx bxl-instagram bx-md'></i></a>
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-2 col-4">
                                 <a href="https://api.whatsapp.com/send?phone=917600955799&text=Hello%2C%20I%20want%20more%20info%20about%20the%20product"><i class='bx bxl-whatsapp bx-md'></i></a>
                             </div>
                         </div>
@@ -392,6 +520,30 @@ if (isset($_POST['btnSave'])) {
                             <h6 class="mt-3">f2fusionfashion@gmail.com</h6>
                         </div>
                     </div>
+                </div> -->
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center mt-5">
+                    <div class="accessoriesTitle">
+                        <h5>Store 1</h5>
+                        <div class="row mt-4">
+                            <div class="col-md-12 col-12">
+                                <img class="lazy img-fluid" src="assets/images/raopura.jpg">
+                                <h6 class="mt-2 mb-2">Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
+                                <a href="tel:+919989899898" target="_blank">+91 99898 99898</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center mt-5">
+                    <div class="accessoriesTitle">
+                        <h5>Store 2</h5>
+                        <div class="row mt-4">
+                            <div class="col-md-12 col-12">
+                                <img class="lazy img-fluid" src="assets/images/alkapuri2.jpeg">
+                                <h6 class="mt-2 mb-2">2 Gamthi Complex, Productivity Road, Alkapuri, Vadodara - 390007</h6>
+                                <a href="tel:+919989899898" target="_blank">+91 99898 99898</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -405,10 +557,10 @@ if (isset($_POST['btnSave'])) {
                     <h6>@f2fusionfashion</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>2 Gamthi Complex, Productivity Road, Alkapuri, Vadodara - 390007</h6>
+                    <h6>2, Gamthi Complex, BPC Rd, Opp. BPC building, Vadodara, Gujarat 390020</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>Navrang Cinema Road, Siyapura, Raopura, Mandvi, Vadodara - 390001</h6>
+                    <h6>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
                 </div>
                 <div class="col-md-3">
                     <h6>Privacy Policy | Terms & Conditions</h6>
@@ -467,7 +619,20 @@ if (isset($_POST['btnSave'])) {
         })()
     </script>
 
+<script>
+    var mybutton = document.getElementById("myBtn");
 
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+</script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -487,6 +652,36 @@ document.onreadystatechange = function () {
         unset($_SESSION['formSubmitted']);
     }
     ?>
+
 </body>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#client").owlCarousel({
+            items: 4,
+            itemsDesktop: [1199, 3],
+            itemsDesktopSmall: [980, 2],
+            itemsMobile: [600, 1],
+            navigation: true,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+        $("#testimonialSlider").owlCarousel({
+            items: 1,
+            itemsDesktop: [1199, 1],
+            itemsDesktopSmall: [980, 1],
+            itemsMobile: [600, 1],
+            navigation: true,
+            navigationText: ["", ""],
+            pagination: true,
+            autoPlay: true,
+            margin: 10
+        });
+        
+    });
+</script>
 
 </html>

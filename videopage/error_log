@@ -1,0 +1,26 @@
+[30-Jul-2022 08:59:26 Asia/Kolkata] PHP Fatal error:  Uncaught Error: Function name must be a string in /home4/roshanme/f2.geekconnects.co/videopage/cache_brandvideo.php:2
+Stack trace:
+#0 {main}
+  thrown in /home4/roshanme/f2.geekconnects.co/videopage/cache_brandvideo.php on line 2
+[30-Jul-2022 16:56:59 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:56:59 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:57:04 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:57:04 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:57:06 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:57:06 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:57:09 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:57:09 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:57:12 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:57:12 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:57:14 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:57:14 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:57:16 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:57:16 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 16:58:37 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 16:58:38 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 17:07:06 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 17:07:06 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 17:07:26 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 17:07:27 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
+[30-Jul-2022 18:24:03 Asia/Kolkata] PHP Warning:  unlink(uploadclienttestimonial/): Is a directory in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 16
+[30-Jul-2022 18:24:03 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php:16) in /home4/roshanme/f2.geekconnects.co/videopage/clienttestimonial.php on line 20
