@@ -1,38 +1,81 @@
 <?php
+session_start();
+require_once 'config.php';
+use PHPMailer\PHPMailer;
+use PHPMailer\Exception;
+
+require_once 'phpmailer/src/Exception.php';
+require_once 'phpmailer/src/PHPMailer.php';
+require_once 'phpmailer/src/SMTP.php';
 include('./db.php');
 $upload_dir = './videopage/uploadclienttestimonial/';
 $upload_diretr = './videopage/uploadengtorecp/';
 
 
 if (isset($_POST['btnSave'])) {
-    
+
+    # Current date
     date_default_timezone_set('Asia/Kolkata');
+    // echo date("Y-m-d H:i:s");
 
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     $message = $_POST['message'];
     $date = date("Y-m-d H:i:s");
-    $source = 'Contact Us Page';
+    $source = 'Landing Page';
 
+    // Validate form fields
+    $errorMsg = '';
     if (empty($name)) {
         $errorMsg = 'Enter Name';
     }
 
-    //check upload file not error than insert data to database
-    if (!isset($errorMsg)) {
-
-        $sql = "insert into formDetails(name, phone, email, message, datetime, source)
+    // Insert data to database
+    if (empty($errorMsg)) {
+        $sql = "insert into formdetails(name, phone, email, message, datetime, source)
                 values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "','" . $date . "','" . $source . "')";
         $result = mysqli_query($con, $sql);
+
         if ($result) {
             $_SESSION['formSubmitted'] = true;
             // header('refresh:5;brandvideo.php');
         } else {
             $errorMsg = 'Error ' . mysqli_error($con);
         }
+
+        // Send email notification
+        $mail = new PHPMailer\PHPMailer();
+        try {
+            $mail->isSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->Host = 'smtp-relay.sendinblue.com';
+            $mail->Port = 587;
+            $mail->SMTPSecure = 'tls';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'f2fusionfashion@gmail.com';
+            $mail->Password = 'OXDxFjgfn8Um617w';
+
+            $mail->setFrom('f2fusionfashion@gmail.com', 'Client Enquiry');
+            $mail->addAddress('f2fusionfashion@gmail.com', 'F2 Fusion Fashion');
+            $mail->addReplyTo($email, $name);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'New Form Submission from ' . $name;
+            $mail->Body = '<p><strong>Name: </strong>' . $name . '</p>
+                            <p><strong>Phone: </strong>' . $phone . '</p>
+                            <p><strong>Email: </strong>' . $email . '</p>
+                            <p><strong>Message: </strong>' . $message . '</p>';
+
+            $mail->send();
+            // echo 'Message has been sent';
+        } catch (Exception $e) {
+            // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $errorMsg = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+        }
     }
 }
+
 
 ?>
 <!doctype html>

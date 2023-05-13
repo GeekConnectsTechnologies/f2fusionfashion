@@ -1,4 +1,12 @@
 <?php
+session_start();
+require_once 'config.php';
+use PHPMailer\PHPMailer;
+use PHPMailer\Exception;
+
+require_once 'phpmailer/src/Exception.php';
+require_once 'phpmailer/src/PHPMailer.php';
+require_once 'phpmailer/src/SMTP.php';
 include('./db.php');
 $upload_header = './landing_page/uploadheaderImage/';
 $upload_title = './landing_page/uploadtitleImage/';
@@ -17,47 +25,58 @@ if (isset($_POST['btnSave'])) {
     $message = $_POST['message'];
     $date = date("Y-m-d H:i:s");
     $source = 'Landing Page';
+
+    // Validate form fields
+    $errorMsg = '';
     if (empty($name)) {
         $errorMsg = 'Enter Name';
     }
 
-    //check upload file not error than insert data to database
-    if (!isset($errorMsg)) {
-
+    // Insert data to database
+    if (empty($errorMsg)) {
         $sql = "insert into formdetails(name, phone, email, message, datetime, source)
                 values('" . $name . "','" . $phone . "','" . $email . "','" . $message . "','" . $date . "','" . $source . "')";
         $result = mysqli_query($con, $sql);
-        
-        // Email form data
-        // $mailto = "gauravjaniyani@gmail.com";
-        // $subject = $_POST['name'];
-        // $messageContent = "Client Name" . $name . "\n" . "Contact Number" . $phone . "\n" . "Message" . $message ;
-        // $headers = "From: gaurav@thesyntaxstudio.com\r\n" .
-        //    "Reply-To: gaurav@thesyntaxstudio.com\r\n" .
-        //    "X-Mailer: PHP/" . phpversion();
 
-           
-        //    ini_set("SMTP","smtp.gmail.com");
-        //    ini_set("smtp_port","587");
-        //    ini_set("sendmail_from", "gaurav@thesyntaxstudio.com");
-        
-        // $mailResult = mail($mailto, $subject, $messageContent, $headers);
-
-        // if ($mailResult) {
-        //     echo "Email sent successfully.";
-        // } else {
-        //     echo "Failed to send email.";
-        // }
-
-        // mail()
         if ($result) {
             $_SESSION['formSubmitted'] = true;
             // header('refresh:5;brandvideo.php');
         } else {
             $errorMsg = 'Error ' . mysqli_error($con);
         }
+
+        // Send email notification
+        $mail = new PHPMailer\PHPMailer();
+        try {
+            $mail->isSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->Host = 'smtp-relay.sendinblue.com';
+            $mail->Port = 587;
+            $mail->SMTPSecure = 'tls';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'f2fusionfashion@gmail.com';
+            $mail->Password = 'OXDxFjgfn8Um617w';
+
+            $mail->setFrom('f2fusionfashion@gmail.com', 'Client Enquiry');
+            $mail->addAddress('f2fusionfashion@gmail.com', 'F2 Fusion Fashion');
+            $mail->addReplyTo($email, $name);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'New Form Submission from ' . $name;
+            $mail->Body = '<p><strong>Name: </strong>' . $name . '</p>
+                            <p><strong>Phone: </strong>' . $phone . '</p>
+                            <p><strong>Email: </strong>' . $email . '</p>
+                            <p><strong>Message: </strong>' . $message . '</p>';
+
+            $mail->send();
+            // echo 'Message has been sent';
+        } catch (Exception $e) {
+            // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $errorMsg = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+        }
     }
 }
+
 
 
 ?>

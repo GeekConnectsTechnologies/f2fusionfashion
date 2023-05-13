@@ -1,4 +1,12 @@
 <?php
+session_start();
+require_once 'config.php';
+use PHPMailer\PHPMailer;
+use PHPMailer\Exception;
+
+require_once 'phpmailer/src/Exception.php';
+require_once 'phpmailer/src/PHPMailer.php';
+require_once 'phpmailer/src/SMTP.php';
 include('./db.php');
 $upload_dir = './videopage/uploadclienttestimonial/';
 $upload_diretr = './videopage/uploadengtorecp/';
@@ -6,7 +14,7 @@ $upload_diretr = './videopage/uploadengtorecp/';
 if (isset($_POST['btnSave'])) {
 
     $name = "none";
-    $mail = "none";
+    $email = "none";
     $country = "none";
     $phone = "none";
     $mode = "none";
@@ -16,7 +24,7 @@ if (isset($_POST['btnSave'])) {
     $productreq = "none";
 
     $name = $_POST['name'];
-    $mail = $_POST['mail'];
+    $email = $_POST['mail'];
     $country = $_POST['country'];
     $phone = $_POST['phone'];
     $mode = $_POST['mode'];
@@ -35,7 +43,7 @@ if (isset($_POST['btnSave'])) {
     if (!isset($errorMsg)) {
 
         $sql = "insert into videocallformdetails(name, email, country, mobilenumber, mode, wpnumber, appointmentdate, appointmenttime, requirements)
-                values('" . $name . "','" . $mail . "','" . $country . "','" . $phone . "','" . $mode . "','" . $modeID . "','" . $date . "','" . $time . "','" . $productreq . "')";
+                values('" . $name . "','" . $email . "','" . $country . "','" . $phone . "','" . $mode . "','" . $modeID . "','" . $date . "','" . $time . "','" . $productreq . "')";
         $result = mysqli_query($con, $sql);
         if ($result) {
             // $_SESSION['formSubmitted'] = true;
@@ -44,7 +52,40 @@ if (isset($_POST['btnSave'])) {
             $errorMsg = 'Error ' . mysqli_error($con);
         }
     }
-        
+        // Send email notification
+        $mail = new PHPMailer\PHPMailer();
+        try {
+            $mail->isSMTP();
+            $mail->SMTPDebug = 0;
+            $mail->Host = 'smtp-relay.sendinblue.com';
+            $mail->Port = 587;
+            $mail->SMTPSecure = 'tls';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'f2fusionfashion@gmail.com';
+            $mail->Password = 'OXDxFjgfn8Um617w';
+
+            $mail->setFrom('f2fusionfashion@gmail.com', 'Client Enquiry');
+            $mail->addAddress('f2fusionfashion@gmail.com', 'F2 Fusion Fashion');
+            $mail->addReplyTo($email, $name);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'New Form Submission from ' . $name;
+            $mail->Body = '<p><strong>Name: </strong>' . $name . '</p>
+                            <p><strong>Email: </strong>' . $email . '</p>
+                            <p><strong>Country: </strong>' . $country . '</p>
+                            <p><strong>Phone: </strong>' . $phone . '</p>
+                            <p><strong>Mode: </strong>' . $mode . '</p>
+                            <p><strong>ModeID: </strong>' . $modeID . '</p>
+                            <p><strong>Date: </strong>' . $date . '</p>
+                            <p><strong>Time: </strong>' . $time . '</p>
+                            <p><strong>Product Request: </strong>' . $productreq . '</p>';
+
+            $mail->send();
+            // echo 'Message has been sent';
+        } catch (Exception $e) {
+            // echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+            $errorMsg = 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo;
+        }
         ?>
 
         <script type="text/javascript">
