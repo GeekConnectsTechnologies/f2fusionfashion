@@ -44,6 +44,37 @@ if (isset($_POST['btnSave'])) {
         } else {
             $errorMsg = 'Error ' . mysqli_error($con);
         }
+        
+        try {
+        
+        $nodeurl = 'https://wa.apikaro.in/send';
+ 
+       
+         $whatsAppMsg = "Enquiry From Website\n\nName: " . $name . "\nContact Number: " . $phone . "\nEmail: " . $email . "\nMessage: " . $message . "\nDate: " . $date . "\nSource " . $source . "";
+        $data = [
+            'receiver'  => '919106604633',
+            'msgtext'   => $whatsAppMsg,
+            'token'     => 'dpOa0kjlh1SjeSLsdd6V',
+            
+        ];
+         
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_URL, $nodeurl);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        }
+        catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error";
+            
+        }
+        
 
         // Send email notification
         $mail = new PHPMailer\PHPMailer();
@@ -408,46 +439,108 @@ if (isset($_POST['btnSave'])) {
 
             <div class="testimonial-section">
                 <div id="testimonialSlider" class="owl-carousel testimonial-slider">
+                    <!--<div class="main-section">-->
+                    <!--    <div class="testimonial-item">-->
+                    <!--        <div class="img">-->
+                    <!--            <img class="lazy img-fluid" src="assets/images/homeTestimonial/collage-1.jpg" />-->
+                    <!--        </div>-->
+                    <!--        <div class="testimonial-content">-->
+                                <!--<h2 class="client-name">Paras Family</h2>-->
+                    <!--            <p>Celebrate the union of two cultures with our stunning collection of ethnic wear! Our latest addition includes exquisite Indian outfits for men, perfect for the groom who wants to embrace his roots while tying the knot with his foreign bride.</p>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--    <div class="testimonial-item">-->
+                    <!--        <div class="img">-->
+                    <!--            <img class="lazy img-fluid" src="assets/images/homeTestimonial/collage-2.jpg" />-->
+                    <!--        </div>-->
+                    <!--        <div class="testimonial-content">-->
+                                <!--<h2 class="client-name">Bhudhrani Family</h2>-->
+                    <!--            <p>We have curated an exquisite collection of outfits that are sure to make you stand out and steal the show. Our collection is a testament to the rich cultural heritage of India and the intricacy of its craftsmanship.</p>-->
+                    <!--        </div>-->
+                    <!--    </div>-->
+                    <!--</div>-->
                     <div class="main-section">
                         <div class="testimonial-item">
                             <div class="img">
-                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog1.webp" />
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/0Q2A2611.JPG" />
                             </div>
                             <div class="testimonial-content">
-                                <h2 class="client-name">Karuna Kushwaha</h2>
-                                <p>Enhancing a sacred ceremony with the royal charm of luxurious weaves and ancient artistry.</p>
+                                <!--<h2 class="client-name">Paras Family</h2>-->
+                                <p>Celebrate the union of two cultures with our stunning collection of ethnic wear! Our latest addition includes exquisite Indian outfits for men, perfect for the groom who wants to embrace his roots while tying the knot with his foreign bride.</p>
                             </div>
                         </div>
                         <div class="testimonial-item">
                             <div class="img">
-                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog2.webp" />
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/0Q2A6096 copy.jpg" />
                             </div>
                             <div class="testimonial-content">
-                                <h2 class="client-name">Palak Patel</h2>
-                                <p>Narrating a precious tale of traditions with an ornate version of the red bridal lehenga.</p>
+                                <!--<h2 class="client-name">Bhudhrani Family</h2>-->
+                                <p>We have curated an exquisite collection of outfits that are sure to make you stand out and steal the show. Our collection is a testament to the rich cultural heritage of India and the intricacy of its craftsmanship.</p>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="main-section">
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/BLC_6642.JPG" />
+                            </div>
+                            <div class="testimonial-content">
+                                <!--<h2 class="client-name">Paras Family</h2>-->
+                                <p>Celebrate the union of two cultures with our stunning collection of ethnic wear! Our latest addition includes exquisite Indian outfits for men, perfect for the groom who wants to embrace his roots while tying the knot with his foreign bride.</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/0Q2A5415 copy.jpg" />
+                            </div>
+                            <div class="testimonial-content">
+                                <!--<h2 class="client-name">Bhudhrani Family</h2>-->
+                                <p>We have curated an exquisite collection of outfits that are sure to make you stand out and steal the show. Our collection is a testament to the rich cultural heritage of India and the intricacy of its craftsmanship.</p>
                             </div>
                         </div>
                     </div>
                     <div class="main-section">
                         <div class="testimonial-item">
                             <div class="img">
-                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog2.webp" />
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/0N4A2694 copy.jpg" />
                             </div>
                             <div class="testimonial-content">
-                                <h2 class="client-name">Karuna Kushwaha</h2>
-                                <p>Enhancing a sacred ceremony with the royal charm of luxurious weaves and ancient artistry.</p>
+                                <!--<h2 class="client-name">Paras Family</h2>-->
+                                <p>Celebrate the union of two cultures with our stunning collection of ethnic wear! Our latest addition includes exquisite Indian outfits for men, perfect for the groom who wants to embrace his roots while tying the knot with his foreign bride.</p>
                             </div>
                         </div>
                         <div class="testimonial-item">
                             <div class="img">
-                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/blog1.webp" />
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/1D6A1938 copy.jpg" />
                             </div>
                             <div class="testimonial-content">
-                                <h2 class="client-name">Palak Patel</h2>
-                                <p>Narrating a precious tale of traditions with an ornate version of the red bridal lehenga.</p>
+                                <!--<h2 class="client-name">Bhudhrani Family</h2>-->
+                                <p>We have curated an exquisite collection of outfits that are sure to make you stand out and steal the show. Our collection is a testament to the rich cultural heritage of India and the intricacy of its craftsmanship.</p>
                             </div>
                         </div>
                     </div>
+                    <div class="main-section">
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/0Q2A1764 copy.jpg" />
+                            </div>
+                            <div class="testimonial-content">
+                                <!--<h2 class="client-name">Paras Family</h2>-->
+                                <p>Celebrate the union of two cultures with our stunning collection of ethnic wear! Our latest addition includes exquisite Indian outfits for men, perfect for the groom who wants to embrace his roots while tying the knot with his foreign bride.</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="img">
+                                <img class="lazy img-fluid" src="assets/images/homeTestimonial/092A6217 copy.jpg" />
+                            </div>
+                            <div class="testimonial-content">
+                                <!--<h2 class="client-name">Bhudhrani Family</h2>-->
+                                <p>We have curated an exquisite collection of outfits that are sure to make you stand out and steal the show. Our collection is a testament to the rich cultural heritage of India and the intricacy of its craftsmanship.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
                 </div>   
             </div>
         </div>                              
@@ -582,7 +675,8 @@ if (isset($_POST['btnSave'])) {
                     <h6>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>Privacy Policy | Terms & Conditions</h6>
+                    <h6><a href="privacy-policy.php">Privacy Policy</a> | <a href="terms-conditions.php">Terms & Conditions</a></h6>
+                    <h6><a href="shopping-policy.php">Shoppig Policy</a> | <a href="refund-and-cancellation.php">Refund & Cancellation</a></h6>
                 </div>
             </div>
         </div>

@@ -23,7 +23,7 @@ if (isset($_POST['btnSave'])) {
     $email = $_POST['email'];
     $message = $_POST['message'];
     $date = date("Y-m-d H:i:s");
-    $source = 'Landing Page';
+    $source = 'Contact Us Page';
 
     // Validate form fields
     $errorMsg = '';
@@ -42,6 +42,36 @@ if (isset($_POST['btnSave'])) {
             // header('refresh:5;brandvideo.php');
         } else {
             $errorMsg = 'Error ' . mysqli_error($con);
+        }
+        
+         try {
+        
+        $nodeurl = 'https://wa.apikaro.in/send';
+ 
+       
+         $whatsAppMsg = "Enquiry From Website\n\nName: " . $name . "\nContact Number: " . $phone . "\nEmail: " . $email . "\nMessage: " . $message . "\nDate: " . $date . "\nSource " . $source . "";
+        $data = [
+            'receiver'  => '919106604633',
+            'msgtext'   => $whatsAppMsg,
+            'token'     => 'dpOa0kjlh1SjeSLsdd6V',
+            
+        ];
+         
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($ch, CURLOPT_URL, $nodeurl);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        }
+        catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error";
+            
         }
 
         // Send email notification
@@ -314,7 +344,8 @@ if (isset($_POST['btnSave'])) {
                     <h6>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>Privacy Policy | Terms & Conditions</h6>
+                    <h6><a href="privacy-policy.php">Privacy Policy</a> | <a href="terms-conditions.php">Terms & Conditions</a></h6>
+                    <h6><a href="shopping-policy.php">Shoppig Policy</a> | <a href="refund-and-cancellation.php">Refund & Cancellation</a></h6>
                 </div>
             </div>
         </div>

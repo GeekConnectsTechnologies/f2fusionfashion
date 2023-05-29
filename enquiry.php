@@ -411,7 +411,8 @@ if (isset($_POST['btnSave'])) {
                     <h6>Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
                 </div>
                 <div class="col-md-3">
-                    <h6>Privacy Policy | Terms & Conditions</h6>
+                    <h6><a href="privacy-policy.php">Privacy Policy</a> | <a href="terms-conditions.php">Terms & Conditions</a></h6>
+                    <h6><a href="shopping-policy.php">Shoppig Policy</a> | <a href="refund-and-cancellation.php">Refund & Cancellation</a></h6>
                 </div>
             </div>
         </div>
