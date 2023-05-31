@@ -86,9 +86,6 @@ $upload_diretr = './videopage/uploadengtorecp/';
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php#celebrityCloset">CELEBRITY CLOSET</a>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="contactus.php">CONTACT US</a>
                     </li>
                 </ul>

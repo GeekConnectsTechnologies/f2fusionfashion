@@ -51,10 +51,7 @@
                             <li><a class="dropdown-item" href="./enquiry.php?cid=14">Aavaas</a></li>                            
                             <li><a class="dropdown-item" href="./enquiry.php?cid=11">Ullas</a></li>                                 
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.php#celebrityCloset">CELEBRITY CLOSET</a>
-                    </li>
+                    </li>                    
                     <li class="nav-item">
                         <a class="nav-link" href="contactus.php">CONTACT US</a>
                     </li>
