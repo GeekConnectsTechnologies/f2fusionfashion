@@ -370,63 +370,7 @@ if (isset($_POST['btnSave'])) {
     </section> -->
 
 
-    <section id="celebrityCloset">
-
-        <div class="container mt-5">
-            <!-- <div class="section-title">
-                <span>Accessories</span>
-                <h2>Accessories</h2>
-            </div> -->
-            <div class="eleven">
-                <h1>Celebrity Closet</h1>
-            </div>
-            <!-- <img class="lazy img-fluid " src="assets/images/acc.png"> -->
-            <!-- <div class="row justify-content-center text-center">
-                <?php
-                $sqllai = "select * from landingacceimage";
-                $resultlai = mysqli_query($con, $sqllai);
-                if (mysqli_num_rows($resultlai)) {
-                    while ($rowlai = mysqli_fetch_assoc($resultlai)) {
-                ?>
-                        <img class="lazy img-fluid" src="landing_page/uploadacceimage/<?php echo $rowlai['photo'] ?>">
-
-                <?php
-                    }
-                }
-                ?>
-            </div> -->
-
-            <div class="row justify-content-center-md-center">
-                <div id="client" class="owl-carousel">
-                    <?php
-                    $counter = 1;
-                    $sql = "select * from client ORDER BY sequence";
-                    $result = mysqli_query($con, $sql);
-                    if (mysqli_num_rows($result)) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                    ?>
-                            <div class="text-center">
-                                <div class="member">
-                                    <div class="content-overlay"></div>
-                                    <img class="lazy img-fluid" src="<?php echo $upload_dir . $row['clientImage'] ?>">
-                                    <!-- <div class="member"></div> -->
-                                    <div class="member-info fadeIn-bottom">
-                                        <div class="member-info-content">                                    
-                                            <h4 class="content-title">Shahrukh khan</h4>                                                
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                    <?php $counter++;
-                        }
-                    }
-                    ?>
-                </div>
-            </div>
-        </div>
-
-    </section>
+  
 
 
     <section>
