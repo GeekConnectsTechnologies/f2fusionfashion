@@ -578,7 +578,7 @@ if (isset($_POST['btnSave'])) {
                             <div class="col-md-12 col-12">
                                 <img class="lazy img-fluid" src="assets/images/raopura.jpg">
                                 <h6 class="mt-2 mb-2">Navrang cinema road, Raopura, Vadodara, Gujarat - 390001</h6>
-                                <a href="tel:+919989899898" target="_blank">+91 99898 99898</a>
+                                <a href="tel:+917600955799" target="_blank">+91 76009 55799</a>
                             </div>
                         </div>
                     </div>
