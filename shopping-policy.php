@@ -141,7 +141,7 @@
                             <ul>
                                 <li>
                                     <strong>Estimated Delivery Time</strong>
-                                    <p>Our shopping policy includes a minimum and maximum timeline for order fulfillment. We strive to process and ship orders within 5-20 business days (minimum timeline) to ensure prompt delivery. However, during busy periods or for customized items, it may take up to 30 business days (maximum timeline) to fulfill the order. We appreciate your understanding and patience as we work diligently to provide you with a seamless shopping experience.</p>
+                                    <p>Our shopping policy includes a minimum and maximum timeline for order fulfillment. We strive to process and ship orders within 2-25 business days (minimum timeline) to ensure prompt delivery. However, during busy periods or for customized items, it may take up to 30 business days (maximum timeline) to fulfill the order. We appreciate your understanding and patience as we work diligently to provide you with a seamless shopping experience.</p>
                                 </li>
                                 <li>
                                     <strong>Delivery Delays</strong>
